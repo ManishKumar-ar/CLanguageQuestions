@@ -1,0 +1,25 @@
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char arr[] = "HELLO SIR";
+    cout << sizeof(arr);
+    cout << endl;
+    int vcount = 0, ccount = 0;
+    for (int i = 0; arr[i] != '\0'; i++)
+    {
+        if (arr[i] == 'a' || arr[i] == 'e' || arr[i] == 'i' || arr[i] == 'o' || arr[i] == 'u' || arr[i] == 'A' || arr[i] == 'E' || arr[i] == 'I' || arr[i] == 'O' || arr[i] == 'U')
+        {
+            vcount++;
+        }
+        else if (arr[i] >= 65 || arr[i] < 90 || arr[i] >= 98 || arr[i] <= 122)
+        {
+            ccount++;
+        }
+    }
+    cout<<"total vowels "<<vcount<<endl<<"total constonant "<<ccount;
+
+}
