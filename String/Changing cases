@@ -1,0 +1,17 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int main()
+{ int i;
+    char A[]="W5lCome";             // in the string also we have the number but they are not get affected by.
+    for( i=0;A[i]!='\0';i++)
+    {
+        if(A[i]>=65&&A[i]<=90)
+               A[i]+=32;
+        else if(A[i]>='a'&&A[i]<=122)
+               A[i]-=32;
+    }
+    printf("new string is %s",A);
+}
+
+
