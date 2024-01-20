@@ -1,0 +1,14 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+int main()
+{
+    int i;
+    char s[] = "welcome";                          // here we create a string of name -- s
+    for (i = 0; s[i] != '\0'; i++)
+    {
+    }
+
+cout<<i;                                   // here the value of i =7
+printf("length is %d", i);
+}
