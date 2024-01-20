@@ -1,0 +1,23 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+int main()
+{
+    int i;
+    const char *s = "welcome";                       // here we create  a string in the heap /// we use a pointer s of character type 
+    for (i = 0; s[i] != '\0'; i++)
+    {
+    }
+
+    cout<<s<<endl;
+    
+    cout<<sizeof(s);                             // this will give the size if the pointer (4/8 ), not size of the string
+    printf("\nlength is %d", i);
+}
+
+
+//output 
+
+//welcome
+//4
+//length is 7
