@@ -1,6 +1,9 @@
 // An anagram is a word or phrase formed by rearranging the letters of another word or phrase, using all the original letters exactly once
 // An anagram should contain the same set of letters with the same frequencies, just arranged differently.
 
+// here the time complexity is 3n == O(n)
+
+
 
 #include <stdio.h>
 #include <iostream>
