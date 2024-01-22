@@ -1,0 +1,32 @@
+// An anagram is a word or phrase formed by rearranging the letters of another word or phrase, using all the original letters exactly once
+// An anagram should contain the same set of letters with the same frequencies, just arranged differently.
+
+
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char a[] = "medical";
+    char b[] = "decimal";
+
+    int i, H[26] = {0};
+
+    for (i = 0; a[i] != '\0'; i++)
+        H[a[i] - 97]++;
+
+    for (i = 0; b[i] != '\0'; i++)
+    {
+        H[b[i] - 97]--;
+        if (H[b[i] - 97] < 0)
+        {
+            cout << "Not Anagram";
+            break;
+        }
+    }
+    if (b[i] == '\0')
+    {
+        cout << "Its Anagram";
+    }
+}
