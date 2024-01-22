@@ -3,7 +3,7 @@
 
 // here the time complexity is 3n == O(n)
 
-
+// it is only work om lower cases
 
 #include <stdio.h>
 #include <iostream>
