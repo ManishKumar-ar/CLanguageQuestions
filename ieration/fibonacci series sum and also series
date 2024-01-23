@@ -1,0 +1,29 @@
+/// in this case also the time complexity is O(2^n)
+// here recurison is used so that's why its time complexity is so high
+
+
+#include <iostream>
+using namespace std;
+
+int fib(int x) {
+    if (x <= 1)
+        return x;
+    else 
+        return fib(x - 2) + fib(x - 1);
+}
+
+int main() {
+    int position = 5;
+
+    cout << "Fibonacci series up to position " << position << ": ";
+
+    int sum = 0;
+    for (int i = 0; i <= position - 1; i++) {
+        cout << fib(i) << " ";
+        sum += fib(i);
+    }
+
+    cout << "\nSum of the Fibonacci series up to position " << position << " is: " << sum;
+
+    return 0;
+}
