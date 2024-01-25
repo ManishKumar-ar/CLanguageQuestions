@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    // char *arr = "hello";          // here it is give the error arning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+   
+   const char * arr = "hello";          // now it is not given any error
+    char name[] = "android";
+
+    int i;
+    for (i = 0; arr[i] != '\0'; i++)
+    {
+    }
+
+    cout << "length is " << i;
+}
