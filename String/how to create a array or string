@@ -15,3 +15,21 @@ int main()
 
     cout << "length is " << i;
 }
+
+
+/// here we create a another array
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    
+    char arr2[] = {'h', 'e', 'l', 'l', 'o', '\0'};
+    int i;
+    for (i = 0; arr2[i] != '\0'; i++)
+    {
+    }
+
+    cout << "length is " << i;
+}
