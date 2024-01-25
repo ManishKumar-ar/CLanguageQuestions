@@ -12,12 +12,12 @@ int main() {
 
     int i = 0;
     for (i = 0; name[i] != '\0'; i++) {
-        // Loop through the characters until a null character is encountered
+                                                            // Loop through the characters until a null character is encountered
     }
-    i = i - 1;
+    i = i - 1;                                                   // here we iterate the loop b/c we want that our variable i is reach to the last index of the strign 
 
     for (int j = 0; i >= j; j++, i--) {
-        if (name[j] != name[i]) {
+        if (name[j] != name[i]) {                           /// now by usign with the help of the 2 varibale i  and j, we iterate the loop and check the palindrome
             cout << "not palindrome";
             return 0;
         }
@@ -26,3 +26,9 @@ int main() {
     cout << "string is palindrome";
     return 0;
 }
+
+
+
+
+
+/// but there is another method in which we solve it in more consice manner.
