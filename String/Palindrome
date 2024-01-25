@@ -32,3 +32,27 @@ int main() {
 
 
 /// but there is another method in which we solve it in more consice manner.
+
+
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main() {
+    const char *name = "madam";
+
+    int len = strlen(name);
+    int i, j;
+
+    for (i = 0, j = len - 1; i < len / 2; i++, j--) {                        // actually the concept is same but here we write the condition is diiferent.
+        if (name[i] != name[j]) {
+            cout << "not palindrome";
+            return 0;
+        }
+    }
+
+    cout << "string is palindrome";
+    return 0;
+}
+
