@@ -1,0 +1,64 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+    
+/*program for finding user name from email address
+
+*/
+int main()
+{
+    string email = "john123@gmail.com";  // Added semicolon here
+    int i = (int)email.find('@');
+    string uname = email.substr(0, i);
+    cout << "user name is " << uname << endl;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+// now there is  a condition -----
+// note //
+// a email address can be take only -  1.characters
+//                                     2.numbers 
+//                                     3. - symbol 
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+/* program for finding user name from email address */
+
+int main()
+{
+    string email = "john123@gmail.com";
+    int i = (int)email.find('@');
+
+    int x = 1;
+    for (int j = 0; j <= i; j++)
+    {
+        if (!((email[j] >= 'A' && email[j] <= 'Z') || (email[j] >= 'a' && email[j] <= 'z') || (email[j] == '-' || (email[j] >= '0' && email[j] <= '9'))))
+        {
+            x = 0;
+            break;  // Added break to exit loop if an invalid character is found
+        }
+    }
+
+    if (x)
+    {
+        string uname = email.substr(0, i);
+        cout << "user name is " << uname << endl;
+    }
+    else
+        cout << "string is invalid" << endl;
+
+    return 0;
+}
