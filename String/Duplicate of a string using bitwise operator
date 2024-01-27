@@ -1,0 +1,43 @@
+// this bitwise operation, is used to know only is there is any dupliacte or not.
+// in this we do n't count -- how many times the duplicate vaiable si occure.
+
+
+#include <stdio.h>
+// this function only works for lower case alphabets
+
+void duplicates(char *s) {
+
+    long int H = 0; // Initialize the bitmask to 0
+    
+    for (int i = 0; s[i] != '\0'; i++) {
+        long int x = 1;
+        
+        x = x << (s[i] - 97);                                                 // Shift 1 to the appropriate position based on the ASCII value of the character
+        
+        if (H & x)
+            printf("%c is a duplicate\n", s[i]);
+        else
+            H = H | x;                                                    // Set the bit to 1 to mark the occurrence of the character
+    }
+}
+
+int main() {
+    char s[] = "ttennzinngg";
+    duplicates(s);
+    
+    return 0;
+}
+
+
+
+
+
+
+
+//output 
+
+t is a duplicate
+n is a duplicate
+n is a duplicate
+n is a duplicate
+g is a duplicate
