@@ -1,0 +1,132 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    char s[]="hello";
+    cout<<s;
+
+}
+
+// output 
+//hello
+
+
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    char s[]={'h','e','l','l','\0','p'};
+    cout<<s;
+
+}
+
+//output 
+//hell
+
+////here we pass the characters in the string 
+#include <iostream>
+using namespace std;
+int main()
+{
+    char s[]={65,66,67,68,69,0};           ///here the 0 is behave like a null character
+    cout<<s;
+
+}
+
+
+//output
+//ABCDE
+
+
+
+
+/// // this si the important point to remeber
+
+char s[20];
+cout<<" enter your name ";
+cin>>s;
+
+cin.gets(s,20);
+cin.getline(s,20);
+cin.ignore();
+cout<<strlen(s);
+
+char s1[20] = " goood ";
+char s2[20] = " morning ";
+char s3[20] = "";
+ 
+cout<<strcat(s1,s2);                        /// destination , source
+cout<<strcat(s1,s2,3);   
+cout<<strcpy(s3,s1);
+strstr(destination,source);
+strchr(destination,source);
+strcmp(s1,s2);                           //  -,+,0
+
+
+
+
+
+
+
+
+
+
+/// now we will discuss about the class string in the string topic
+// string is the buitl - in class in the string.
+
+#include <iostream>
+#include <string>                  /// we have to define  it first of all
+
+using namespace std;
+int main()
+{
+    string s = "hello ";                      // here string is the class and the s is the objecct of that class.
+   
+    cout<<s.size();
+    cout<<s;
+}
+
+
+
+
+
+// int he string clss , astrign object can access the many biult in fucntion of the string class,
+
+string name;
+cout<<name.size();
+cout<<name.capacity();
+cout<<name.length();
+cout<<name.clear();
+cout<<name.empty();
+cout<<resize(20);
+cout<<maz_size();
+cout<<name.append("hello");
+cout<<name.insert(2,"kk");
+cout<<name.replace(3,5,"qa");
+cout<<name.erase();
+cout<<name.push_back(('z'));
+cout<<name.pop_back();
+cout<<name.swap(name);
+cout<<name.copy(char des[]);
+cout<<name.find();
+cout<<name.rfind();
+cout<<name.find_last_off();
+cout<<name.substr(start,number);
+cout<<name.compare(str);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
