@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void duplicates(char s[])
+{
+    int ht[52] = {0};                                           // Adjusted for the full range of English alphabets
+
+    for (int i = 0; s[i] != '\0'; i++)
+    {
+        if (s[i] >= 'a' && s[i] <= 'z')
+            ht[s[i] - 'a']++;
+        else if (s[i] >= 'A' && s[i] <= 'Z')
+            ht[s[i] - 'A' + 26]++;                         // Adjusted index for uppercase letters
+    }
+
+    for (int i = 0; i < 52; i++)
+    {
+        if (ht[i] > 1)
+        {
+            if (i < 26)
+                printf("There are %d elements of letter %c\n", ht[i], i + 'a');
+            else
+                printf("There are %d elements of letter %c\n", ht[i], i - 26 + 'A');
+        }
+    }
+}
+
+int main()
+{
+    char s[] = "findiiingABCA";
+    duplicates(s);
+
+    return 0;
+}
+
+
+
+
+// OUTPUT 
+There are 4 elements of letter i
+There are 2 elements of letter n
+There are 2 elements of letter A
