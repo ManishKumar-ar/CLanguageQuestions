@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a, b, c;
+    cout << "enter the numbers";
+    cin >> a >> b >> c;
+
+    if (a > b && a > c)
+    {
+        cout << "a is greater all on them"<<a;
+    }
+    else if (b > c && b > a)
+    {
+        cout << "b is greater all on them"<<b;
+    }
+    else
+        cout << " c is greater all of them"<<c;
+}
+
+
+
+//// but we write it more efficiently 
+// above is very simple forwardeed
+// so -
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a, b, c;
+    cout << "enter the numbers";
+    cin >> a >> b >> c;
+
+    if (a > b && a > c)
+    {
+        cout << "a is greater all on them"<<a;
+    } 
+    else if (b > c )                                                         /// here we make the change
+    {
+        cout << "b is greater all on them"<<b;
+    }
+    else
+        cout << " c is greater all of them"<<c;
+}
