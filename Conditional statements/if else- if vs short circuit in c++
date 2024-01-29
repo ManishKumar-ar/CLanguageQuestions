@@ -1,0 +1,45 @@
+#include<iostream>
+ using namespace std;
+int main()
+{
+    int a = 10, b = 5, i = 5;
+    if (a > b && ++i <= b)
+    {
+        cout<<"hello \n";
+    }
+    cout << i << endl;
+ 
+}
+
+output ---- 6
+
+
+
+#include<iostream>
+ using namespace std;
+int main()
+{
+    int a = 10, b = 5, i = 5;
+    if (a < b && ++i <= b)
+    {
+        
+    }
+    cout << i << endl;
+}
+
+output ---- 5
+
+
+
+
+
+The reason the code inside the if statement is not executed is due to the short-circuiting behavior of the logical AND (&&) operator.
+
+In C++, the logical AND operator (&&) evaluates the second operand only if the first operand is true. 
+If the first operand is false, the second operand is not evaluated because the overall result is already determined to be false.
+
+
+a > b is true (since 10 > 5).
+However, for the entire condition to be true, both parts must be true.
+The second part ++i <= b is false because ++i is evaluated first, incrementing i to 6, and then it checks if 6 is less than or equal to b (which is 5).
+Since the second part is false, the overall condition is false, and the code inside the if block (cout << "hello \n";) is not executed.
