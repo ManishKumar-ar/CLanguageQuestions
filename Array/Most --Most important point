@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a[10] = {65, 66, 67, 68, 69, 0};
+    cout << a;
+}
+
+output ---- 0x61fee8
+
+#include <iostream>
+using namespace std;
+int main()
+{
+ char b[] = {'a', 'b', 'c', '\0'}; // Adding null character to make it a string
+    cout <<b;
+
+}
+
+output ---- abc
+
+
+/////////////but why in the case of int array it print the address, but in the case of char array it print the array.
+//////////////// and why we use the for loop, when we want to print the int array, to access all the elements
+
+// ans // 
+For character arrays:
+Null Termination:------Character arrays in C and C++ are often null-terminated, meaning they have a special character '\0' at the end to indicate the end of the string.
+Automatic Output by cout:-----When you use cout to print a character array, it assumes null-termination and automatically prints characters until it encounters the null character.
+No Need for Loop:----------Due to null-termination, you don't need a loop to print the entire character array; a simple cout << charArray; is sufficient.
+
+For integer arrays:
+No Null Termination:------- Integer arrays don't have a null-termination concept by default.
+Memory Address Output:----------- When you use cout to print an integer array, it treats the array as a pointer to the first element and prints the memory address of the first element.
+Loop Required for Elements: ----------To print the individual elements of an integer array, you need to use a loop to iterate through the array and output each element separately.
+
+In summary, character arrays can be directly printed using cout due to null-termination, while integer arrays require a loop to print their individual elements.
