@@ -44,3 +44,26 @@ int main()
     cout<<"number is prime";
     
 }
+
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int n=18;
+    for (int  i = 2; i <= sqrt(n); i++)                                    // here we write the condition in which utwill tqke less time comapre to above code
+    {
+        if(n%i==0)
+        {
+            cout<<"non prime number";
+            return 0;
+        }
+       
+    }
+    cout<<"number is prime";
+    
+}
