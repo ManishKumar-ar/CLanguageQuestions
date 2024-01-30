@@ -1,0 +1,30 @@
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    do
+    {
+        cout << "\nenter a number  ";
+        cin >> n;
+        if (n % 10 == 0)
+        {
+            continue;
+        }
+        cout <<"\n number was "<< n;
+
+    } while (true);
+}
+
+
+output --
+enter a number  56
+number was 56
+enter a number  98
+number was 98
+enter a number  1000
+enter a number  9876
+number was 9876
+enter a number  
