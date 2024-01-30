@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int rev = 0, r, n;
+
+    // Prompt the user to enter a number
+    cout << "Enter a number: ";
+    cin >> n;
+
+    // Reverse the number
+    while (n > 0)
+    {
+        r = n % 10;        // Extract the last digit
+        n = n / 10;        // Remove the last digit
+        rev = rev * 10 + r; // Build the reversed number
+    }
+
+    // Print the reversed number
+    cout << "Reverse number is: " << rev;
+
+    return 0;
+}
