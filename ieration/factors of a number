@@ -1,3 +1,5 @@
+factors - are starting from 1 to upto the end of the element.
+
 
 #include <iostream>
 using namespace std;
