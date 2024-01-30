@@ -1,10 +1,5 @@
-leaf year -  all year which are perfectly divisible by 4 are the leaf years.
-but execpt for the century years( years ending with 00) which is a leaf year only if it was perfectly divisible by 400.
-for example -
-leaf year ========  2012,2016,2020,2024, 2000, 2400, 1200
-non leaf year ====== 1700, 1800, 1900
 
-#include<iostream> 
+#include <iostream>
 using namespace std;
 int main()
 {
@@ -17,10 +12,28 @@ int main()
         {
             if (year % 400 == 0)
                 cout << year << " is a leap year.";
-            else cout << year << " is not a leap year.";
+            else
+                cout << year << " is not a leap year.";
         }
-        else cout << year << " is a leap year.";
+        else
+            cout << year << " is a leap year.";
     }
-    else cout << year << " is not a leap year.";
+    else
+        cout << year << " is not a leap year.";
     return 0;
 }
+
+// for the leap year  - year that is not ending with 00  then  divided by 4 then it is always a leap year.
+// for the leap year  - year that is ending with 00 then  divided by 4 then it may be a leap year or not.
+// for example 2100 /4 - not leap year
+//for example 2000 /4 - leap year
+
+// for the leap year  - year that is ending with 00 then  divided by 4  and 100 then it may be a leap year or not.
+// for example 2100 /4 /100  - not leap year
+//for example 2020 /4 /100   - leap year
+
+// for the leap year  - year that is ending with 00 then  divided by 4  and 100 and 400 then it is always a leap year.
+//for example 1600 /4 /100  /400 - leap year
+
+
+
