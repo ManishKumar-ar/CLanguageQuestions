@@ -1,0 +1,24 @@
+#include<iostream> 
+using namespace std;
+int main()
+{
+   int  income = 1000000;
+   int tax;
+   if(income<= 500000)
+   {
+     cout<<"there is no tax due to income "<<income;
+   }
+   else if(income> 500000&& income<1000000)
+   {
+    
+    tax= 20*income/100;
+   cout<<"your final amount is"<<(income -tax);
+
+   }
+   else 
+   {
+    tax= 30*income/100;
+   cout<<"your final amount is"<<(income -tax);
+
+   }
+}
