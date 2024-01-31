@@ -1,4 +1,44 @@
-armstrong - sum of individually cube of the digit is = = to the number
+//armstrong - sum of individually cube of the digit is = = to the number
+
+// note
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    
+    int n = 153;
+    int num = n;
+    int a, b, sum = 0;
+    while (n > 0)
+    {
+        a = n % 10;
+        n = n / 10;
+        sum += a * a * a;
+    }
+    if (num == sum)
+    {
+        cout << n << " is the perfect number\n";
+        cout << "1^3 + 5^3 + 3^3  = " << sum;
+    }
+}
+
+output ---------------
+0 is the perfect number
+1^3 + 5^3 + 3^3  = 153
+
+/// question - why it give 0 as the perfect number
+/// Ans. //// ------->The condition if(n==sum) might not work as expected, as the variable n has been modified inside the loop and might not retain its original value.
+
+
+
+
+
+
+
+
+
+// belowe is the perfect code
 
 #include <iostream>
 using namespace std;
@@ -8,7 +48,7 @@ int main()
     int sum=0,m,  r,i,n;
     cout<<"enter a number";
     cin>>n;
-    m=n;
+    m=n;             // this si used to saved  its original value beforw the manipulation.
     while(n>0)
     {
         r=n%10;
