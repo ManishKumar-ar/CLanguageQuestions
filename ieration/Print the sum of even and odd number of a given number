@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n = 1423;
+    int evensum = 0, oddsum = 0;
+    int a;
+    while (n > 0)
+    {
+        a = n % 10;
+        n = n / 10;
+
+        if (a % 2 == 0)
+            evensum += a;
+        else
+            oddsum += a;
+    }
+    cout << "even sum is " << evensum;
+    cout << "\nodd sum is " << oddsum;
+}
+
+
+//output ---
+even sum is 6
+odd sum is 4
