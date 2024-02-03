@@ -1,1 +1,20 @@
 
+#include <iostream>
+using namespace std;
+
+int main() {
+    int positiveCount = 0, negativeCount = 0;
+    int arr[] = {10, 55, 6, 69, 7, -5, -9, -5, -12, -8};
+
+    for (int i = 0; i < 10; i++) {
+        if (arr[i] >= 0)
+            positiveCount++;
+        else
+            negativeCount++;
+    }
+
+    cout << "Number of positive or zero elements: " << positiveCount << endl;
+    cout << "Number of negative elements: " << negativeCount << endl;
+
+    return 0;
+}
