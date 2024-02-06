@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+class diagonal
+{
+public:
+    int size;
+    int *A;
+    diagonal(int size)
+    {
+        this ->size =size;
+        A =new int [size];
+    }
+};
+int main()
+{
+    diagonal d(5);
+    cout<<"This will goive the size of both the properties it have ( variable + array of first element)  "<<sizeof(d)<<endl;
+    cout<<"this will give the size of array "<<d.size*sizeof(d.A)<<endl;
+}
