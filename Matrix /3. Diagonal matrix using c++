@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+class diagonal
+{
+public:
+    int size;
+    int *A;
+    diagonal(int size)
+    {
+        this ->size =size;
+        A =new int [size];
+    }
+};
+int main()
+{
+    diagonal d(5);
+    cout<<"enter the diagonal matrix elements "<<endl;
+    for(int i=0;i<d.size;i++)
+    {
+        cin>>d.A[i];
+    }
+    cout<<"the entered diagonal matrix is "<<endl;
+    for(int i=0;i<d.size;i++)
+    {
+      for(int j=0;j<d.size;j++)
+      {
+        if(i==j)
+        cout<<d.A[i]<<" ";
+        else 
+        cout<<"0 ";
+      }
+      cout<<endl;
+    }
+
+}
+
+//output -
+enter the diagonal matrix elements 
+10
+20
+30
+40
+50
+the entered diagonal matrix is
+10 0 0 0 0
+0 20 0 0 0
+0 0 30 0 0
+0 0 0 40 0
+0 0 0 0 50
