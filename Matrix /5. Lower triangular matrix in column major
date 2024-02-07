@@ -60,7 +60,7 @@ int main()
 }
 
 
-//output 
+//output ----------------------------------------------------------------------------------------------------------------------
 Enter Dimension 4
 enter all elements
 1 2 3 4
@@ -73,3 +73,117 @@ enter all elements
 5 6 0 0
 8 5 6 0
 8 9 5 5
+
+
+
+
+// in c++ using the column major formula
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class LowerTriangular
+{
+private:
+    int size;
+    int *A;
+
+public:
+    // Constructor
+    LowerTriangular(int n)
+    {
+        size = n;
+        A = new int[size * (size + 1) / 2];
+    }
+
+    // Set element at (i, j)
+    void set(int i, int j, int x)
+    {
+        if (i >= j)
+        {
+            int index = (size * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
+            A[index] = x;
+        }
+    }
+
+    // Get element at (i, j)
+    int get(int i, int j)
+    {
+        if (i >= j)
+        {
+            int index = (size * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
+            return A[index];
+        }
+        else
+            return 0;
+    }
+
+    // Display the lower triangular matrix
+    void display()
+    {
+        for (int i = 1; i <= size; i++)
+        {
+            for (int j = 1; j <= size; j++)
+            {
+                if (i >= j)
+                {
+                    int index = (size * (j - 1) - (((j - 2) * (j - 1)) / 2)) + (i - j);
+                    cout << A[index] << " ";
+                }
+                else
+                {
+                    cout << "0 ";
+                }
+            }
+            cout << endl;
+        }
+    }
+
+    // Destructor
+    ~LowerTriangular()
+    {
+
+        delete[] A;
+    }
+};
+
+int main()
+{
+    int n;
+    cout << "Enter size of lower triangular matrix: ";
+    cin >> n;
+
+    LowerTriangular lt(n);
+
+    cout << "Enter elements of lower triangular matrix: " << endl;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            int x;
+            cin >> x;
+            lt.set(i, j, x);
+        }
+    }
+
+    cout << "Lower triangular matrix:" << endl;
+    lt.display();
+
+    return 0;
+}
+
+//output ------------------------------------------------------------------------------------------------------------------------
+Enter size of lower triangular matrix: 4
+Enter elements of lower triangular matrix:
+1 2 3 4
+5 6 7 8
+9 8 7 6
+4 5 6 2
+Lower triangular matrix:
+1 0 0 0
+5 6 0 0
+9 8 7 0
+4 5 6 2
