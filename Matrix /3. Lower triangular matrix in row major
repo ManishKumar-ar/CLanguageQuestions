@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+class LowerTriangular
+{
+private:
+    int size;
+    int *A;
+
+public:
+    // Constructor
+    LowerTriangular(int n)
+    {
+        size = n;
+        A = new int[size * (size + 1) / 2]; // Formula to calculate size of lower triangular matrix
+    }
+
+    // Set element at (i, j)
+    void set(int i, int j, int x)
+    {
+        if (i >= j)
+            A[i * (i - 1) / 2 + j - 1] = x; // Formula to map (i, j) to 1D array index for lower triangular matrix
+    }
+
+    // Get element at (i, j)
+    int get(int i, int j)
+    {
+        if (i >= j)
+            return A[i * (i - 1) / 2 + j - 1]; // Formula to map (i, j) to 1D array index for lower triangular matrix
+        else
+            return 0; // Return 0 for elements above the lower triangle
+    }
+
+    // Display the lower triangular matrix
+    void display()
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                if (i >= j)
+                    cout << A[i * (i - 1) / 2 + j - 1] << " "; // Formula to map (i, j) to 1D array index for lower triangular matrix
+                else
+                    cout << "0 ";
+            }
+            cout << endl;
+        }
+    }
+
+    // Destructor
+    ~LowerTriangular()
+    {
+
+        delete[] A;
+    }
+};
+
+int main()
+{
+    int n;
+    cout << "Enter size of lower triangular matrix: ";
+    cin >> n;
+
+    LowerTriangular lt(n);
+
+    cout << "Enter elements of lower triangular matrix: " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            int x;
+            cin >> x;
+            lt.set(i, j, x);
+        }
+    }
+
+    cout << "Lower triangular matrix:" << endl;
+    lt.display();
+
+    return 0;
+}
