@@ -79,3 +79,19 @@ int main()
 
     return 0;
 }
+
+
+//output --
+Enter size of lower triangular matrix: 5
+Enter elements of lower triangular matrix: 
+1 2 3 4 5
+6 7 8 9 1
+5 6 4 8 9
+1 2 3 6 9
+7 8 9 4 6
+Lower triangular matrix:
+6 0 0 0 0 
+6 5 0 0 0 
+5 6 1 0 0
+1 2 3 7 0
+7 8 9 4 6
