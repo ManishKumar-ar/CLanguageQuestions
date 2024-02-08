@@ -10,8 +10,10 @@ void swap(int *x,int *y)
 
 int main()
 {
-    int A[7]={100,25,36,8,9,10,78};
-    int flag;
+    // int A[7]={100,25,16,8,7,6,5};
+    int A[7]={5,6,7,8,16,25,100};
+
+    int flag,count=0;
 
     for(int i=0;i<=6;i++)
     {
@@ -22,11 +24,13 @@ int main()
             {
                 swap(&A[j],&A[j+1]);
                 flag =1;
+                count++;
             }
         }
         if(flag==0)
         {
-            cout<<" array is already sorted "<<endl;
+            cout<<count<<endl;
+            cout<<"array is already sorted "<<endl;
             cout<<"we made is adaptive by using the flag "<<endl;
             break;
         }
@@ -39,3 +43,74 @@ int main()
     }
 
 }
+
+
+
+
+///output-----------------------------------------------------------------------------------------------------------------------------------
+0
+array is already sorted
+we made is adaptive by using the flag
+the sorted array is :
+5 6 7 8 16 25 100
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+void swap(int *x,int *y)
+{
+    int temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+}
+
+int main()
+{
+    int A[7]={100,25,16,8,7,6,5};
+    // int A[7]={5,6,7,8,16,25,100};
+
+    int flag,count=0;
+
+    for(int i=0;i<=6;i++)
+    {
+        flag =0;
+        for(int j=0;j<7-1-i;j++)
+        {
+            if(A[j]>A[j+1])
+            {
+                swap(&A[j],&A[j+1]);
+                flag =1;
+                count++;
+            }
+        }
+        if(flag==0)
+        {
+            cout<<count<<endl;
+            cout<<"array is already sorted "<<endl;
+            cout<<"we made is adaptive by using the flag "<<endl;
+            break;
+        }
+        
+    }
+    cout<<"the sorted array is :"<<endl;
+    for(int i=0;i<=6;i++)
+    {
+        cout<<A[i]<<" ";
+    }
+
+}
+
+
+
+
+//output-------------------------------------------------------------------------------------------------------------------------------
+21
+array is already sorted
+we made is adaptive by using the flag
+the sorted array is :
+5 6 7 8 16 25 100
