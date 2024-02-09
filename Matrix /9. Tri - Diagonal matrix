@@ -1,0 +1,102 @@
+#include <iostream>
+using namespace std;
+
+class tridiagonalmatrix
+{
+    int size;
+    int *A;
+
+public:
+    tridiagonalmatrix(int n)
+    {
+        this->size = n;
+        A = new int[size * (size + 1) / 2];
+    }
+    void set(int i, int j, int x)
+    {
+        if (i - j == 1)
+        {
+            int index = i - 1;
+            A[index] = x;
+        }
+        else if (i - j == 0)
+        {
+            int index = size - 1 + i - 1;
+            A[index] = x;
+        }
+        else if (i - j == -1)
+        {
+            int index = 2 * size - 1 + i - 1;
+            A[index] = x;
+        }
+    }
+   int get(int i, int j)
+{
+    if (i - j == 1)
+    {
+        int index = i - 1;
+        return A[index]; // Added return statement
+    }
+    else if (i - j == 0)
+    {
+        int index = size - 1 + i - 1;
+        return A[index]; // Added return statement
+    }
+    else if (i - j == -1)
+    {
+        int index = 2 * size - 1 + i - 1;
+        return A[index]; // Added return statement
+    }
+    return 0; // Added default return statement (it's up to you how you handle indices that don't match the conditions)
+}
+
+    void display()
+    {
+        for (int i = 1; i <= size; i++)
+        {
+            for (int j = 1; j <= size; j++)
+            {
+                cout << get(i, j) << "  ";
+            }
+            cout << endl;
+        }
+    }
+};
+
+int main()
+{
+    int n = 6, x;
+    tridiagonalmatrix sm(n);
+
+    cout << "Enter the elements of the tridiagonal matrix : " << endl;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n; j++)
+        {
+            cin >> x;
+            sm.set(i, j, x);
+        }
+    }
+
+    cout << "tridiagonal matrix: " << endl;
+    sm.display();
+
+    return 0;
+}
+
+
+//output 
+Enter the elements of the tridiagonal matrix : 
+1 2 3 4 5 6
+7 8 9 4 5 6
+1 2 5 8 9 6
+7 4 1 5 8 6
+1 5 3 2 5 8
+7 8 9 6 5 4
+tridiagonal matrix:
+5  2  0  0  0  0
+7  8  9  0  0  0
+0  2  5  8  0  0  
+0  0  1  5  8  0
+0  0  0  2  5  8  
+0  0  0  0  5  4
