@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+class fun
+{
+public:                                                       // here we write public because we want ot access in the function outside the class, so for that we made it public
+    int length = 2, breadth = 5;
+    void area();
+};
+
+void fun::area()
+{
+    int area = length * breadth;
+    cout << "area is " << area;
+}
+
+int main()
+{
+    fun obj;
+    obj.area();
+}
+
+/// output
+// area is 10
+
+
