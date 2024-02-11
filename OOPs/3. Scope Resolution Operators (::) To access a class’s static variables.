@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+class fun
+{
+    int static y;
+public:
+    int static x;
+    int z;
+};
+
+                                  // heere using the scope resolution opperator we define it outside the class
+int fun::x =5;                           
+int fun::y =2;
+//int fun::z =100;
+
+
+
+int main()
+{
+   fun obj;
+   cout<<obj.x<<endl;                             // here accessing member accessing by using the object of that class
+   cout<<fun::x<<endl;     
+   //cout<<obj.z;                                   // if we try to access this non static variable then it will give ab error
+}
+
+/// output
+// 5
+// 5
