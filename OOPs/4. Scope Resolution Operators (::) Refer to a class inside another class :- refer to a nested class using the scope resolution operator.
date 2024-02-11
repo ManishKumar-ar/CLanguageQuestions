@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class outside
+{
+    public:
+    int x =2;
+    class inside
+    {
+        public:
+        int static y;
+
+    };
+};
+int outside::inside::y=5;
+
+int main()
+{
+    outside out;
+    cout<<"variable of outside class "<<out.x<<endl;
+    outside :: inside in;
+    cout<<"varibale of inside class "<<in.y<<endl;
+
+}
+
+/// output
+// variable of outside class 2
+// varibale of inside class 5 
