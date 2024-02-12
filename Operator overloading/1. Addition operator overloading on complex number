@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+class complex
+{
+    int real, img;
+
+public:
+    complex(int x, int y)                                          // here we made a constructor 
+    {
+        this->real = x;
+        this->img = y;
+    }
+
+    void display()
+    {
+        cout << real << " +i " << img;
+    }
+
+    complex add(complex x)
+    {
+        complex temp(real + x.real, img + x.img);
+        return temp;
+    }
+};
+
+int main()
+{
+    complex c1(5, 6), c2(2, 4), c3(1,1);                                             // in the c3 variable of complex type , we pass the argument initially b/c we made our constructor in this type. but the vale 1,1 is overridden by the result.
+    c3 = c1.add(c2);
+   
+    c3.display();
+    return 0;
+}
+
+//output
+// 7 +i 10
