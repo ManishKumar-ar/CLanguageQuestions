@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class complex
+{
+    int real, img;
+
+public:
+    complex(int x = 0, int y = 0)
+    {
+        this->real = x;
+        this->img = y;
+    }
+
+    void display()
+    {
+        cout << real << " +i " << img;
+    }
+
+   friend complex operator+(complex x,complex y)
+    {
+        complex temp;
+        temp.real = y.real + x.real;
+        temp.img = y.img + x.img;
+        return temp;
+    }
+};
+
+int main()
+{
+    complex c1(5, 6), c2(2, 4), c3, c4;
+    c3 = operator+(c1,c2);                              // here this is the another style for writing the operator.
+    c4 = c1 + c2;                                   // here we add the object as we do without the friend keyword
+
+    c3.display();
+    cout << endl;
+    c4.display();
+
+    return 0;
+}
+
+// output
+//  7 +i 10
+//  7 +i 10
