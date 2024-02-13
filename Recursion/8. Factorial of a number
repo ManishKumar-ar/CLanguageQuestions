@@ -1,5 +1,10 @@
 #include<iostream>
 using namespace std;
+
+// the time complexity  - O(n)
+// the space complexity  - O(n)                    /// because we use recursion here, so for every call there si activation record in the  stack
+
+
 int  fun(int n)
 {
     if(n==1)
