@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+// in the both class base and drieved we havwe the same constructor according to there name
+class base
+{
+public:
+    base()
+    {
+        cout << "default of base " << endl;
+    }
+    base(int x)
+    {
+        cout << "para of base " << x << endl;
+    }
+};
+class derived : public base
+{
+public:
+    derived()
+    {
+        cout << "default of derieved " << endl;
+    }
+    derived(int y)
+    {
+        cout << "para of derived " << y << endl;
+    }
+    
+    derived(int a, int b) : base(a)                                   /// this si the special constructor that takes only one value and the other is pass to the another 
+    {
+        cout << "para of derived " << b << endl;
+    }
+};
+
+int main()
+{
+    derived d(10,20); // by default base non paramterised constructor of base class is executed but  here we write the special constructor in the derived class
+}
+
+// output
+// para of base 10
+// para of derived 20
