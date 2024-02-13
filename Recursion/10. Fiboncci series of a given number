@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+                                   //////////// the time complexity of the code is O( 2^n )
 int fib(int x)
 {
     if (x <= 1)
