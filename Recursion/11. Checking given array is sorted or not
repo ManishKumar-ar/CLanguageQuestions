@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+bool issorted(int b[], int i) {
+    if (i == 4)                                                       // Check if we're at the last index
+        return true;
+
+    if (b[i] > b[i + 1])                                                // Compare b[i] with b[i+1]
+        return false;
+
+    return issorted(b, i + 1);
+}
+
+int main() {
+    int arr[5] = {10, 15, 16, 17, 50};
+
+    cout << issorted(arr, 0);                                          // Start the recursion from the first index (0)
+    return 0;
+}
+
+
+//output -
+// 1
+//
+
+// 0 in case of false
+
+
+
+
+
+
+
+
+
+// if we want that the answer is come in the form of true or false then we add few lines in it 
+
+
+
+
+#include <iostream>
+using namespace std;
+
+bool issorted(int b[], int i)
+{
+    if (i == 4)                                                                 // Check if we're at the last index
+        return true;
+
+    if (b[i] > b[i + 1])                                                            // Compare b[i] with b[i+1]
+        return false;
+
+    return issorted(b, i + 1);
+}
+
+int main()
+{
+    int arr[5] = {10, 105, 16, 17, 50};
+
+    if (issorted(arr, 0))
+        cout << "true";
+    else
+        cout << "false";
+    return 0;
+}
+
+
+
+// output -
+// false
+//
+
+// true in case of true
