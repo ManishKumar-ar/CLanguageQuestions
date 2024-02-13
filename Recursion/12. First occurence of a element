@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int issorted(int arr[], int i, int key) {
+    if (i == 5) {
+        cout << "Key is not found" << endl;
+        return -1; // Key not found, returning -1
+    }
+
+    if (arr[i] == key)
+        return i; // Key found, returning index
+
+    return issorted(arr, i + 1, key); // Recursive call
+}
+
+int main() {
+    int arr[5] = {10, 105, 16, 17, 50};
+    int key = 16;
+
+    int index = issorted(arr, 0, key);
+
+    if (index == -1)
+        cout << "false" << endl; // Key not found
+    else
+        cout << "true, found at index: " << index << endl; // Key found
+
+    return 0;
+}
+
+
+//output 
+//true,  found at index : 2
