@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+                                                          // in the both class base and drieved we havwe the same constructor according to there name
+class base
+{
+public:
+    base()
+    {
+        cout << "default of base " << endl;
+    }
+    base(int x)
+    {
+        cout << "para of base " << x << endl;
+    }
+};
+class derived : public base
+{
+public:
+    derived()
+    {
+        cout << "default of derieved " << endl;
+    }
+    derived(int y)
+    {
+        cout << "para of derived " << y << endl;
+    }
+};
+
+int main()
+{
+    derived d;                                     // by default base non paramterised constructor of base class is executed
+}
+
+
+//output
+// default of base
+// default of derieved
