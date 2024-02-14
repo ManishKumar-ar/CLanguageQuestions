@@ -80,8 +80,8 @@ int pow(int m, int n)
     if (n == 0)
         return 1;
 
-    int temp = pow(m, n / 2);
-    int result = temp * temp;
+    int temp = pow(m, n / 2);                                     /// now here the time complexity is O( logn )
+    int result = temp * temp; 
 
     if (n % 2 != 0)
     {
