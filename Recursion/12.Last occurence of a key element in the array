@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int lastOccurence(int arr[], int i, int key)
+{
+
+    if (i < 0)
+    {
+        return -1;
+    }
+
+    if (arr[i] == key)
+        return i;
+    int index = lastOccurence(arr, i - 1, key);
+}
+
+int main()
+{
+    int arr[10] = {5, 105, 3, 16, 17, 50, 5, 8, 9, 13};
+    int key = 13;
+    int result = lastOccurence(arr, 9, key);
+    if(result >0)
+    {
+        cout<<"element is found at index : "<<result +1<<endl;
+    }
+    else{
+        cout<<"element is not found"<<endl;
+    }
+}
+
+//output 
+// element is found at index : 10
