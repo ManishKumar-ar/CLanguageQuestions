@@ -5,13 +5,13 @@ using namespace std;
 { 
     if (n == 0)
         return 1;
-    return power(m, n - 1) * m;                             // in this for n = 5 there is 6calls
+    return power(m, n - 1) * m;                             // in this for n = 5 there is 6calls   - so this take   O(n) time
 }
 
 
 int power1(int m, int n)                                       /// so we implement this fuction to reduce the time complexity 
 {
-    if (n == 0)
+    if (n == 0)                                                   // this funtion takes O( log n )
         return 1;
     if (n % 2 == 0)
         return power1(m * m, n / 2);
