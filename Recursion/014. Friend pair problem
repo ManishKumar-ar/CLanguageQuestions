@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int friendpairingProblem(int n)
+{
+    if (n == 1 || n == 2)
+        return n;
+
+
+
+// we also have the choice for singly stands or stands in pair
+//for the single is 
+int singleresult = friendpairingProblem(n-1);
+int pairresult = (n-1)*friendpairingProblem(n-2);
+
+
+int totalresult =singleresult+pairresult;
+}
+
+int main()
+{
+ int result =   friendpairingProblem(3);
+cout<<result;
+}
+
+// output
+// 4
