@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int tilingProblem(int n)
+{
+    if (n == 0 || n == 1)
+        return 1;
+
+    return tilingProblem(n - 1) + tilingProblem(n - 2);
+}
+
+int main()
+{
+    int result1 = tilingProblem(1);
+
+    int result2 = tilingProblem(2);
+
+    int result3 = tilingProblem(3);
+    int result4 = tilingProblem(4);
+    int result5 = tilingProblem(5);
+    cout << result1<<endl;
+    cout << result2<<endl;
+    cout << result3<<endl;
+    cout << result4<<endl;
+    cout << result5;
+
+}
+
+// output
+// 1
+// 2
+// 3
+// 5
+// 8
