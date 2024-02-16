@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+class Array
+{
+public:
+    int *A;
+    int length;
+    int size;
+
+    Array(int arr[], int len, int size)
+    {
+        length = len;
+        this->size = size;
+        A = new int[size];
+
+        for (int i = 0; i < length; i++)
+        {
+            A[i] = arr[i];
+        }
+    }
+
+    void append(int element)
+    {
+        if (length < size)
+        {
+            A[length] = element;
+            length++;
+        }
+        else
+        {
+            cout << "\nArray is already full. Cannot append more elements." << endl;
+        }
+    }
+};
+
+int main()
+{
+    int arr[] = {10, 20, 30, 40, 50};
+    Array a(arr, 5, 10);
+
+    cout << "Original Array: ";
+    for (int i = 0; i < a.length; i++)
+    {
+        cout << a.A[i] << " ";
+    }
+    cout << endl;
+    a.append(15);
+    cout << "Array after appending : ";
+    for (int i = 0; i < a.length; i++)
+    {
+        cout << a.A[i] << " ";
+    }
+
+    return 0;
+}
+
+// output
+// Original Array: 10 20 30 40 50 
+// Array after appending 15: 10 20 30 40 50 15  
