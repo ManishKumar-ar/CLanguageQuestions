@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int Combination(int n, int r)
+{
+    if (r == 0 || r == n)
+        return 1;
+
+    return Combination(n - 1, r - 1) + Combination(n - 1, r);
+}
+
+int main()
+{
+    int result = Combination(5, 2);
+    cout << "the number of combinations is : " << result;
+}
+
+//output 
+// the number of combinations is : 10
