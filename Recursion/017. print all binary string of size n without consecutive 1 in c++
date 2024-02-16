@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+// Function to generate all binary strings of length K without consecutive 1's
+void generateAllStrings(int K, string str = "", int onesCount = 0) {
+    // Print binary string
+    if (str.length() == K) {
+        cout << str << " ";
+        return;
+    }
+
+    // Try '0' at the current position
+    generateAllStrings(K, str + '0', 0);
+
+    // Try '1' at the current position only if there are less than two consecutive ones
+    if (onesCount < 1) {
+        generateAllStrings(K, str + '1', onesCount + 1);
+    }
+}
+
+// Driver program to test the function
+int main() {
+    int K = 3;
+    generateAllStrings(K);
+    return 0;
+}
+
+
+//output 
+000 001 010 100 101 
