@@ -1,0 +1,37 @@
+
+#include <iostream>
+using namespace std;
+
+                                                                   // Function to generate all binary strings of length K
+void generateAllStrings(int K, char str[], int n = 0)
+{
+                                                             // Print binary string
+    if (n == K)
+    {
+        // Terminate binary string
+        str[n] = '\0';
+        cout << str << " ";
+        return;
+    }
+
+                                                    // Try '0' at the current position
+    str[n] = '0';
+    generateAllStrings(K, str, n + 1);
+
+                                                // Try '1' at the current position
+    str[n] = '1';
+    generateAllStrings(K, str, n + 1);
+}
+
+                                   // Driver program to test above function
+int main()
+{
+    int K = 3;
+    char str[K + 1]; // +1 for the null terminator
+    generateAllStrings(K, str);
+    return 0;
+}
+
+// output 
+
+// 000 001 010 011 100 101 110 111 
