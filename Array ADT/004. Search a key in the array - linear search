@@ -1,0 +1,1 @@
+// if we want to search a key using the linear search then the time complexity is (n ( n+ 1 )/2 )/n   = O ( n )
