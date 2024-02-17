@@ -1,3 +1,4 @@
+// for the search we use here - the transposition formula
 #include <iostream>
 using namespace std;
 
