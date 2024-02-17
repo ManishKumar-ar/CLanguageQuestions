@@ -1,3 +1,8 @@
+
+// here the best time complexity when we delete the last element form the aarray is --- O(1)
+// here the worst time complexity when we delete the first element form the aarray is --- O(n)
+
+
 #include <iostream>
 using namespace std;
 
