@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class Array
+{
+public:
+    int *A;
+    int length;
+    int size;
+
+    Array(int arr[], int len, int sz)
+    {
+        length = len;
+        size = sz;
+        A = new int[size];
+        for (int i = 0; i < length; i++)
+        {
+            A[i] = arr[i];
+        }
+    }
+
+    ~Array()
+    {
+        delete[] A;
+    }
+
+    int deletes(int index)
+    {
+        if (index >= length || length == 0)
+            return 0;
+
+        int x = A[index];
+        for (int i = index; i < length - 1; i++)
+        {
+            A[i] = A[i + 1];
+        }
+
+        length--;
+        return x;
+    }
+};
+
+int main()
+{
+    int arr[] = {10, 20, 30, 40, 50};
+    Array a(arr, 5, 10);
+
+    cout << "Original Array: ";
+    for (int i = 0; i < a.length; i++)
+    {
+        cout << a.A[i] << " ";
+    }
+    cout << endl;
+
+    cout << "The deleted element is " << a.deletes(2)<<endl;
+    cout << "Array after appending : ";
+    for (int i = 0; i < a.length; i++)
+    {
+        cout << a.A[i] << " ";
+    }
+
+    return 0;
+}
+
+// output
+// Original Array: 10 20 30 40 50 
+// The deleted element is 30
+// Array after appending : 10 20 40 50
