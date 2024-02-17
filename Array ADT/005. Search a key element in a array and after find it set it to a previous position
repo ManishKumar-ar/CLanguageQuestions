@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+class Array
+{
+public:
+    int *A;
+    int length;
+    int size;
+
+    Array(int arr[], int len, int sz)
+    {
+        length = len;
+        size = sz;
+        A = new int[size];
+        for (int i = 0; i < length; i++)
+        {
+            A[i] = arr[i];
+        }
+    }
+
+    ~Array()
+    {
+        delete[] A;
+    }
+
+    int search(int element)
+    {
+
+        
+        for (int i = 0; i < length; i++)
+        {
+            if (A[i] == element)
+            {
+                int temp;
+                temp = A[i - 1];
+                A[i - 1] = A[i];
+                A[i] = temp;
+                return i-1;
+            }
+        }
+
+    
+    }
+};
+
+int main()
+{
+    int arr[] = {10, 20, 30, 40, 50};
+    Array a(arr, 5, 10);
+
+    cout << "Original Array: ";
+    for (int i = 0; i < a.length; i++)
+    {
+        cout << a.A[i] << " ";
+    }
+    cout << endl;
+
+    cout << "The element is at " << a.search(40) << endl;
+    cout << "Array after trasform : ";
+    for (int i = 0; i < a.length; i++)
+    {
+        cout << a.A[i] << " ";
+    }
+
+    return 0;
+}
+
+// output
+// Original Array: 10 20 30 40 50 
+// The element is at 2
+// Array after trasform : 10 20 40 30 50
