@@ -1,0 +1,27 @@
+// here the time complexity is O( n )
+#include <iostream>
+using namespace std;
+int ReverseArray(int A[], int n)
+{
+    for (int j = n - 1, i = 0; i < j; i++, j--)
+    {
+        int temp;
+        temp = A[j];
+        A[j] = A[i];
+        A[i] = temp;
+    }
+}
+int main()
+{
+    int arr[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int arr2[10];
+    ReverseArray(arr, 10);
+
+    for (int i = 0; i < 10; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
+// output
+//  100 90 80 70 60 50 40 30 20 10
