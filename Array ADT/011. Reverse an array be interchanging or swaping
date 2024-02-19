@@ -1,7 +1,7 @@
 // here the time complexity is O( n )
 #include <iostream>
 using namespace std;
-int ReverseArray(int A[], int n)
+int ReverseArray(int A[], int n)                                    
 {
     for (int j = n - 1, i = 0; i < j; i++, j--)
     {
@@ -15,7 +15,7 @@ int main()
 {
     int arr[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
     int arr2[10];
-    ReverseArray(arr, 10);
+    ReverseArray(arr, 10);                                                          /// we want to swap the element, but we don't pass the address of the array b/c it automatically contain its first element address
 
     for (int i = 0; i < 10; i++)
     {
@@ -25,3 +25,47 @@ int main()
 
 // output
 //  100 90 80 70 60 50 40 30 20 10
+
+
+
+
+.........................................................................................................................................
+#include <iostream>
+using namespace std;
+
+void ReverseArray(int *A, int n) {                                                                      /// here we take a pointer 
+    for (int j = n - 1, i = 0; i < j; i++, j--) {
+        int temp = A[j];
+        A[j] = A[i];
+        A[i] = temp;
+    }
+}
+
+int main() {
+    int arr[10] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    ReverseArray(arr, 10);
+
+    for (int i = 0; i < 10; i++) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
+
+
+// output
+//  100 90 80 70 60 50 40 30 20 10
+
+
+
+
+
+
+
+//ntoe 
+Here, int A[] is syntactic sugar for int* A, meaning A is a pointer to an integer. It doesn't actually receive a copy of the array. Instead, it receives the memory address of the first element of the array.
+
+So, when you call ReverseArray(arr, 10);, you're passing the address of the first element of the arr array to the ReverseArray function, allowing it to directly manipulate the array elements.
+
+You could take an explicit pointer as an argument in the function declaration, like this:
+void ReverseArray(int* A, int n) {
+But since arrays decay into pointers when passed to functions, both int A[] and int* A in the function argument list will behave the same way, receiving a pointer to the first element of the array.
