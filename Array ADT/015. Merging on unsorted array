@@ -1,0 +1,106 @@
+// note -
+// merging is apply on the sorted array only
+// here we apply the merging on the unsorted array b/c we want to a experiment 
+
+
+#include <iostream>
+using namespace std;
+
+void arrange(int A[], int B[], int C[], int n)
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    while (i < 10 && j < 10)
+    {
+        if (A[i] < B[j])
+        {
+            C[k] = A[i];
+            k++;
+            i++;
+        }
+        else
+        {
+            C[k] = B[j];
+            k++;
+            j++;
+        }
+    }
+
+    for (; i < 10; i++)                                                 / /If there are remaining elements in array A, copy them to array C
+    {
+        C[k] = A[i];
+        k++;
+    }
+    for (; j < 10; j++)                                                  // If there are remaining elements in array B, copy them to array C
+    {
+        C[k] = B[j];
+        k++;
+    }
+}
+
+int main()
+{
+    int arr[] = {2, 5, 6, 7, 52, 9, 81, 20, 5, 100};
+    int arr2[] = {4, 10, 15, 45, 55, 41, 69, 33, 62, 100};
+    int arr3[20];
+
+    arrange(arr, arr2, arr3, 10);
+    for (int i = 0; i < 20; i++)
+    {
+        cout << arr3[i] << " ";
+    }
+    return 0;
+}
+
+
+
+// //output
+// 2 4 5 6 7 10 15 45 52 9 55 41 69 33 62 81 20 5 100 100 
+
+
+
+
+......................................................................................................................................................
+//another syntax of writing program
+
+#include <iostream>
+using namespace std;
+
+void arrange(int A[], int B[], int C[], int n)
+{
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    while (i < 10 && j < 10)
+       { if (A[i] < B[j])
+            C[k++] = A[i++];
+        else
+            C[k++] = B[j++];}
+
+    for(;i<10;i++)
+            C[k++] = A[i];
+      for(;j<10;j++)
+            C[k++] = B[j];
+
+
+}
+
+int main()
+{
+    int arr[] = {2, 5, 6, 7, 52, 9, 81, 20, 5, 100};
+    int arr2[] = {4, 10, 15, 45, 55, 41, 69, 33, 62, 100};
+    int arr3[20];
+
+    arrange(arr, arr2, arr3, 10);
+    for (int i = 0; i < 20; i++)
+    {
+        cout << arr3[i] << " ";
+    }
+    return 0;
+}
+
+
+
+// //output
+// 2 4 5 6 7 10 15 45 52 9 55 41 69 33 62 81 20 5 100 100 
