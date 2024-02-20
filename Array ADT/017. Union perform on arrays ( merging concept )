@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+void arrange(int A[], int B[], int C[], int n)
+{
+    int k = 0;
+    bool found;
+
+    for (int i = 0; i < n; i++)
+    {
+        // Check if A[i] is already in C
+        found = false;
+        for (int j = 0; j < k; j++)
+        {
+            if (C[j] == A[i])
+            {
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+        {
+            C[k++] = A[i];
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        // Check if B[i] is already in C
+        found = false;
+        for (int j = 0; j < k; j++)
+        {
+            if (C[j] == B[i])
+            {
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+        {
+            C[k++] = B[i];
+        }
+    }
+}
+
+int main()
+{
+    int arr[] = {2, 6, 4, 0, 10, 12, 14, 18, 20, 22};
+    int arr2[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 20};
+    int arr3[20] = {0};
+
+    arrange(arr, arr2, arr3, 10);
+
+    for (int i = 0; i < 20; i++)
+    {
+        if (arr3[i] != 0)
+        {
+            cout << arr3[i] << " ";
+        }
+        else
+        {
+            continue;
+        }
+    }
+
+    return 0;
+}
+
+// output
+//  2 6 4 10 12 14 18 20 22 1 3 5 7 8 9
