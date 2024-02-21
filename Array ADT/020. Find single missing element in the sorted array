@@ -49,7 +49,7 @@ int main()
 {
   int A[11] = {6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17};
 
-                                                                                              // here the difference between elements and index is = 6 (look carefully)
+                                                                                              // here the difference between elements and index is = 6 (look carefully) and if the differnce is not 6 that means element is missig
   int diff = 6 - 0;
 
   for (int i = 0; i < 11; i++)
