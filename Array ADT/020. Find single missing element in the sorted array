@@ -1,0 +1,73 @@
+/// 1st  approach
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int A[11] = {1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12};                                        /// here if you look carefully then you find that the array contains natural numbers
+
+  int sum = 0;
+  int n = 12;
+  for (int i = 0; i < 11; i++)
+  {
+    sum += A[i];
+  }
+
+  int result = n * (n + 1) / 2;
+   for (int i = 0; i < 11; i++)
+  {
+    cout<<A[i]<<" ";
+  }
+  cout<<"\nSum of 12th naturals numbers "<<result<<endl;
+  cout<<"sum of our natural number in array "<<sum<<endl;
+  cout<<"The missing element is "<<result -sum;
+}
+
+//output 
+// 1 2 3 4 5 6 8 9 10 11 12 
+// Sum of 12th naturals numbers 78
+// sum of our natural number in array 71
+// The missing element is 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+//2nd approach -
+
+#include <iostream>
+using namespace std;
+int main()
+{
+  int A[11] = {6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17};
+
+                                                                                              // here the difference between elements and index is = 6 (look carefully)
+  int diff = 6 - 0;
+
+  for (int i = 0; i < 11; i++)
+  {
+    cout << A[i] << " ";
+  }
+
+  for (int i = 0; i < 11; i++)
+  {
+    if ((A[i] - i) != diff)
+    {
+      cout << "\nThe missing elment is " << i + 6;
+      break;
+    }
+  }
+}
+
+
+//output 
+// 6 7 8 9 10 11 13 14 15 16 17 
+// The missing elment is 12
