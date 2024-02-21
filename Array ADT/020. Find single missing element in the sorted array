@@ -1,3 +1,5 @@
+note -- the time taken in both the approach is O ( n )
+
 /// 1st  approach
 
 #include <iostream>
