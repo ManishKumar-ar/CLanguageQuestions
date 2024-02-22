@@ -1,0 +1,33 @@
+// here time complexity is - O ( n logn )
+
+#include <iostream>
+using namespace std;
+void Insert(int A[], int n)                                     // insertion a single element takes - log n time 
+{
+    int i = n;
+    int temp = A[i];
+    while (i > 1 && temp > A[i / 2])
+    {
+        A[i] = A[i / 2];
+        i = i / 2;
+    }
+    
+    A[i] = temp;
+}
+int main()
+{
+    int arr[] = {0, 10, 20, 30, 25, 5, 40, 35};                        
+    int i;
+    for (i = 2; i <= 7; i++)                         /// we use start from index 2 b/c only one element is always sort
+    {
+        Insert(arr, i);                              // here we pass n elements so time = number of elements * time taken by one element
+    }
+    for (i =1 ; i <= 7; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
+//output 
+
+//40 25 35 10 5 20 30 
