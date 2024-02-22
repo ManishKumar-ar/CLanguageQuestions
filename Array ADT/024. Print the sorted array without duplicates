@@ -33,3 +33,9 @@ int main() {
 
     return 0;
 }
+
+
+//output 
+//Array  duplicates: 3 6 8 8 10 12 15 15 15 20 
+//Last duplicate found: 8 15 
+//Array without duplicates: 3 6 8 10 12 15 20 
