@@ -1,3 +1,93 @@
+// maximum heap and minimum heap can be more than one from a groups of elements 
+
+
+#include <iostream>
+using namespace std;
+void insertion(int arr[], int n)
+{
+    int i = n;
+    int temp = arr[n];
+    while (i >=1 && temp > arr[i / 2])
+    {
+        arr[i] = arr[i / 2];
+        i = i / 2;
+    }
+    arr[i] = temp;
+}
+int main()
+{
+    int A[7] = {14,15, 5, 20, 30, 8, 40};                            /// here if we apply  divide and conquer then we see, for our 40 element we have to i =6/2= 3 means 20 elements
+   for (int i = 0; i <7; i++)                                             //if  when we start it from 0th index then for our 40 element th resulted  middle element is diiferent 
+    {
+        cout<<A[i]<<" ";
+    }
+    cout<<endl;
+    for (int i =1; i <7; i++)
+    {
+        insertion(A, i);
+    }
+    for (int i = 0; i <7; i++)
+    {
+        cout<<A[i]<<" ";
+    }
+}
+
+//output                                                                           this output is different from below
+// 14 15 5 20 30 8 40 
+// 40 30 15 20 5 8 14
+
+
+
+.................................................................................................................................................................
+
+
+
+
+#include <stdio.h>
+
+void Insert(int A[], int n) {
+    int i = n, temp;
+    temp = A[i];
+    while (i > 1 && temp > A[i / 2]) {
+        A[i] = A[i / 2];
+        i = i / 2;
+    }
+    A[i] = temp;
+}
+
+
+int main() {
+    int H[] = {0, 14, 15, 5, 20, 30, 8, 40};                                                        // here we want our elements are actullay started from 1 
+    int i;
+    for (i = 1; i <= 7; i++)
+        printf("%d ", H[i]);
+
+        printf("\n");
+    for (i = 2; i <= 7; i++)
+        Insert(H, i);
+  
+    for (i = 1; i <= 7; i++)
+        printf("%d ", H[i]);
+    printf("\n");
+    return 0;
+}
+
+//output 
+// 14 15 5 20 30 8 40 
+// 40 20 30 14 15 5 8
+
+
+
+
+
+
+
+
+
+..................................................................................................................................................................
+
+
+
 // here time complexity is - O ( n logn )
 
 #include <iostream>
