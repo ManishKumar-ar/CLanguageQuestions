@@ -1,0 +1,51 @@
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+                                                 //  class to hold student information
+class Student {
+public:
+    string name;
+    int rank;
+
+                                                       // Constructor to give the value to class
+    Student(string n, int r) : name(n), rank(r) {}
+
+                                                                   // Overloading < operator for comparison
+    bool operator<(const Student& other) const {
+                                                                  // Higher rank has higher priority
+        return rank < other.rank;
+    }
+};
+
+int main() {
+   
+    priority_queue < Student > students;
+
+
+    students.push(Student("Alice", 5));
+    students.push(Student("Bob", 3));
+    students.push(Student("Charlie", 1));
+    students.push(Student("David", 4));
+    students.push(Student("Eve", 2));
+
+                                                                           // Print students based on their rank priority
+    cout << "Students with highest rank priority:" << endl;
+    while (!students.empty()) {
+        Student topStudent = students.top();
+        cout << "Name: " << topStudent.name << ", Rank: " << topStudent.rank << endl;
+        students.pop(); // Remove the top element
+    }
+
+    return 0;
+}
+
+
+//output 
+Students with highest rank priority:
+Name: Alice, Rank: 5
+Name: David, Rank: 4
+Name: Bob, Rank: 3
+Name: Eve, Rank: 2
+Name: Charlie, Rank: 1
