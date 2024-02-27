@@ -1,0 +1,23 @@
+#include <iostream>
+#include <queue>                      // Header-file for queue
+using namespace std;
+
+int main() {
+                                                   // Define a priority queue with a custom comparator
+    priority_queue<int, vector<int>, greater<int>> p1;
+
+
+    p1.push(35);                             // inserting element in a queue
+    p1.push(40);
+    p1.push(95);
+
+                                       // Print elements in ascending order (lowest priority first)
+    while (!p1.empty()) {
+        cout << ' ' << p1.top();             // printing elements of queue
+        p1.pop();                       // Remove the top element
+    }
+    return 0;
+}
+
+//output 
+// 35 40 95
