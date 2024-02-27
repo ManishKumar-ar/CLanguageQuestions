@@ -1,0 +1,34 @@
+
+#include <iostream>
+#include <queue>                                  //Header-file for queue
+using namespace std;
+
+int main()
+{
+    priority_queue<int> p1;
+
+                            // we can insert the elements in the priority queue using push() fucntion
+                      // time taken for push - log ( n )
+                      // here n = number of elements in the  priority queue
+
+    p1.push(3);
+    p1.push(4);
+    p1.push(1);
+    p1.push(7);
+
+    while (!p1.empty())
+    {
+                          // top() funciton take O ( log n )
+                          // top funciton always seek the elements of highest priority
+
+        cout << ' ' << p1.top();
+                      // here the pop() is use delete the delete the elements
+                      // pop funciton always delete the elements of highest priority
+                       // pop () take O(log n) constant time to delete a element
+        p1.pop();
+    }
+}
+
+
+//output 
+//  7 4 3 1
