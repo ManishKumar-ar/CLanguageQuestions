@@ -1,3 +1,7 @@
+// elements in the priority queue are arrangened in the highest prority
+// so by default they are in the max heap
+//we can also convert it into min heap
+
 #include <iostream>
 #include <queue>                      // Header-file for queue
 using namespace std;
