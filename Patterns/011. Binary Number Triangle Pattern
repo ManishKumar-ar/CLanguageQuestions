@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+void pattern(int n)
+{
+   
+    int num=1;
+
+    for (int i = 0; i < n; i++)
+    {
+        if(i%2==0)
+        num=0;
+
+        for(int j=0;j<=i;j++)
+        {
+            cout<<num;
+            num=1-num;
+
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+    pattern(5);
+}
+
+//output 
+// 0
+// 10
+// 010
+// 1010
+// 01010
