@@ -25,7 +25,7 @@ int main()
 
     array<int, 5> arr2 = {1, 3, 4, 5, 6};
 
-    for (auto it = arr2.rbegin(); it != arr2.rend(); it++)
+    for (auto it = arr2.rbegin(); it != arr2.rend(); it++)                             // here we don't write it-- b/c it automatically move on the last element and from there we start to move
     {
         cout << *it << " ";
     }
