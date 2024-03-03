@@ -1,0 +1,19 @@
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    vector<int> vec1(4,10);
+
+    vector<int>vec2(vec1);                     // here we copy the elements of vec1 into vec2
+
+   for (int i = 0; i < vec2.size(); ++i) {
+        cout << vec2[i] << " ";
+    }
+    
+}
+
+//output 
+// 10 10 10 10 
