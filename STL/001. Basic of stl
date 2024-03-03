@@ -1,0 +1,30 @@
+
+#include <iostream>
+#include <array>
+using namespace std;
+
+array<int, 50> arr3;      //if we define the array- globally then it initialize with 0 automatically
+
+int main()
+{
+
+    int arr1[100];                    // consist garbage value
+    cout<<arr1[5]<<endl;               
+
+    array<int, 10> arr2;            // consist garbage value
+    cout << arr2[3] << endl;
+
+    cout << arr3[25]<<endl;           //// not consist garbage value b/c define outside globally
+
+
+    array<int, 50> arr4 ={1};                   /// all the values are initilaise with 1 or whatever you write
+  cout<<arr4[33];
+
+}
+
+
+//output 
+// 1878003816
+// 1878006816
+// 0
+// 0
