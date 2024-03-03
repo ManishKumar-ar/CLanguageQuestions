@@ -20,3 +20,31 @@ int main()
 // output
 // 100
 // 100 100 100 100 100 100 100 100 100 100
+
+
+
+......................................................................................................
+
+
+#include <iostream>
+#include <array>
+using namespace std;
+
+int main()
+{
+
+    array<int, 10> arr;
+    arr = {20};                          //  This initializes the array arr with one element having the value 20.
+
+    cout << arr[0] << " " << arr[5] << endl;
+    
+
+    array<int, 10> arr2;
+    arr2.fill(20);                   //This sets all elements of the array arr to the value 20.
+
+    cout << arr2[0] << " " << arr2[5];
+}
+
+// output
+// 20 0
+// 20 20
