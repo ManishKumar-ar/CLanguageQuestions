@@ -1,0 +1,36 @@
+//there are 4 types of iterators 
+// begin - point to the first elememt of the array
+//end - point the next of last element of the array
+//rbegin - point at the next of last element oif the array
+//rend - point to the -1 indext of the array
+
+
+
+
+#include <iostream>
+#include <array>
+using namespace std;
+
+int main()
+{
+
+    array<int, 5> arr = {1, 3, 4, 5, 6};
+
+    for (auto it = arr.begin(); it != arr.end(); it++)
+    {
+        cout << *it << " ";
+    }
+
+    cout << endl;
+
+    array<int, 5> arr2 = {1, 3, 4, 5, 6};
+
+    for (auto it = arr2.rbegin(); it != arr2.rend(); it++)
+    {
+        cout << *it << " ";
+    }
+}
+
+// output
+// 1 3 4 5 6
+// 6 5 4 3 1
