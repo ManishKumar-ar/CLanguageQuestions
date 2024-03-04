@@ -1,1 +1,98 @@
 
+#include <iostream>
+using namespace std;
+
+class Element
+{
+public:
+    int i;
+    int j;
+    int x;
+};
+
+class spare
+{
+public:
+    int row;
+    int column;
+    int nonZeroNumber;
+    Element *arr;
+
+    spare(int row, int column, int nonZeroNumber)
+    {
+        this->row = row;
+        this->column = column;
+        this->nonZeroNumber = nonZeroNumber;
+        arr = new Element[nonZeroNumber];
+    }
+};
+
+void display(spare s)
+{
+    int k = 0;
+    for (int i = 0; i < s.row; i++)
+    {
+        for (int j = 0; j < s.column; j++)
+        {
+            if (k < s.nonZeroNumber && i == s.arr[k].i && j == s.arr[k].j)
+            {
+                cout << s.arr[k].x << " ";
+                k++;
+            }
+            else
+            {
+                cout << "0 ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    spare s(5, 5, 5);
+    cout << "Enter non-zero elements:" << endl;
+    for (int i = 0; i < s.nonZeroNumber; i++)
+    {
+        cout << "Element " << i + 1 << ":" << endl;
+        cout << "Row: ";
+        cin >> s.arr[i].i;
+        cout << "Column: ";
+        cin >> s.arr[i].j;
+        cout << "Value: ";
+        cin >> s.arr[i].x;
+    }
+
+    display(s);
+    return 0;
+}
+
+
+//output 
+
+// Enter non-zero elements:
+// Element 1:
+// Row: 0
+// Column: 0
+// Value: 10
+// Element 2:
+// Row: 1
+// Column: 1
+// Value: 20
+// Element 3:
+// Row: 2
+// Column: 2
+// Value: 30
+// Element 4:
+// Row: 3
+// Column: 3
+// Value: 40
+// Element 5:
+// Row: 4
+// Column: 4
+// Value: 50
+// 10 0  0  0  0
+// 0  20 0  0  0
+// 0  0  30 0  0
+// 0  0  0  40 0
+// 0  0  0  0  50
