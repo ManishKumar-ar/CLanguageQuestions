@@ -1,0 +1,155 @@
+#include <iostream>
+using namespace std;
+
+class Element {
+public:
+    int i;
+    int j;
+    int x;
+};
+
+class sparse {
+public:
+    int row;
+    int column;
+    int nonZeroNumber;
+    Element *arr;
+
+    sparse(int row, int column, int nonZeroNumber) {
+        this->row = row;
+        this->column = column;
+        this->nonZeroNumber = nonZeroNumber;
+        arr = new Element[nonZeroNumber];
+    }
+};
+
+void display(const sparse& s) {
+    int k = 0;
+    for (int i = 0; i < s.row; i++) {
+        for (int j = 0; j < s.column; j++) {
+            if (k < s.nonZeroNumber && i == s.arr[k].i && j == s.arr[k].j) {
+                cout << s.arr[k].x << " ";
+                k++;
+            } else {
+                cout << "0 ";
+            }
+        }
+        cout << endl;
+    }
+}
+
+void inputMatrix(sparse &s) {
+    cout << "Enter non-zero elements:" << endl;
+    for (int i = 0; i < s.nonZeroNumber; i++) {
+        cout << "Element " << i + 1 << ":" << endl;
+        cout << "Row: ";
+        cin >> s.arr[i].i;
+        cout << "Column: ";
+        cin >> s.arr[i].j;
+        cout << "Value: ";
+        cin >> s.arr[i].x;
+    }
+}
+
+sparse add(const sparse &s1, const sparse &s2) {
+    if (s1.row != s2.row || s1.column != s2.column) {
+        cerr << "Error: Matrices must have the same dimensions for addition." << endl;
+        exit(1);
+    }
+
+    sparse sum(s1.row, s1.column, s1.nonZeroNumber + s2.nonZeroNumber);
+    int i = 0, j = 0, k = 0;
+
+    while (i < s1.nonZeroNumber && j < s2.nonZeroNumber && k < sum.nonZeroNumber) {
+        if (s1.arr[i].i < s2.arr[j].i || (s1.arr[i].i == s2.arr[j].i && s1.arr[i].j < s2.arr[j].j)) {
+            sum.arr[k++] = s1.arr[i++];
+        } else if (s1.arr[i].i > s2.arr[j].i || (s1.arr[i].i == s2.arr[j].i && s1.arr[i].j > s2.arr[j].j)) {
+            sum.arr[k++] = s2.arr[j++];
+        } else { // If both elements have the same indices, add their values
+            sum.arr[k] = s1.arr[i++];
+            sum.arr[k++].x += s2.arr[j++].x;
+        }
+    }
+
+    while (i < s1.nonZeroNumber) {
+        sum.arr[k++] = s1.arr[i++];
+    }
+
+    while (j < s2.nonZeroNumber) {
+        sum.arr[k++] = s2.arr[j++];
+    }
+
+    return sum;
+}
+
+int main() {
+    int row, column, nonZeroNumber;
+
+    cout << "Enter the number of rows and columns for both matrices: ";
+    cin >> row >> column;
+
+    cout << "Enter the number of non-zero elements for matrix A: ";
+    cin >> nonZeroNumber;
+    sparse A(row, column, nonZeroNumber);
+    inputMatrix(A);
+
+    cout << "Enter the number of non-zero elements for matrix B: ";
+    cin >> nonZeroNumber;
+    sparse B(row, column, nonZeroNumber);
+    inputMatrix(B);
+
+    sparse sum = add(A, B);
+
+    cout << "Matrix A:" << endl;
+    display(A);
+    cout << endl;
+
+    cout << "Matrix B:" << endl;
+    display(B);
+    cout << endl;
+
+    cout << "Sum of the matrices:" << endl;
+    display(sum);
+
+    return 0;
+}
+
+
+//output 
+// Enter the number of rows and columns for both matrices: 3 3
+// Enter the number of non-zero elements for matrix A: 3
+// Enter non-zero elements:
+// Element 1:
+// Row: 0
+// Column: 0
+// Value: 1
+// Element 2:
+// Row: 1
+// Column: 1
+// Value: 2
+// Element 3:
+// Row: 2
+// Column: 2
+// Value: 3
+// Enter the number of non-zero elements for matrix B: 2
+// Enter non-zero elements:
+// Element 1:
+// Row: 0
+// Column: 0
+// Value: 4
+// Element 2:
+// Row: 1
+// Column: 1
+// Value: 5
+// Matrix A:
+// 1 0 0
+// 0 2 0
+// 0 0 3
+// Matrix B:
+// 4 0 0
+// 0 5 0
+// 0 0 0
+// Sum of the matrices:
+// 5 0 0
+// 0 7 0
+// 0 0 3
