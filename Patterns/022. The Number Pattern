@@ -3,37 +3,39 @@ using namespace std;
 void pattern(int n)
 {
 
-     for(int i=0;i<2*n-1;i++){
+    for (int i = 0; i < 2 * n - 1; i++)                      // this  is for the row
+    {
+
+        for (int j = 0; j < 2 * n - 1; j++)              // this is for the column
+        {
+
+            int top = i;                                             // top is the row value
+            int bottom = (2 * n - 1) - 1 - i;                      // bottom is bottom of the element that we get by the help of row
+            int right = (2 * n - 1)-1 - j;                         // right is the right of the element that we get byu the help of the column value
+            int left = j;                                    // left is the column value, in which you are currently
+
+
+
+            int distance = min(min(top, bottom), min(left, right));                  // by the help of the minimum distance, we get our desired value
          
-         // inner loop for no. of columns.
-         for(int j=0;j<2*n-1;j++){
-             
-             // Initialising the top, down, left and right indices of a cell.
-             int top = i;
-             int bottom = j;
-             int right = (2*n - 2) - j;
-             int left = (2*n - 2) - i;
-             
-             // Min of 4 directions and then we subtract from n
-             // because previously we would get a pattern whose border
-             // has 0's, but we want with border N's and then decreasing inside.
-             cout<<(n- min(min(top,bottom), min(left,right)))<<" ";
-         }
-         
-         // As soon as the numbers for each iteration are printed, we move to the
-         // next row and give a line break otherwise all numbers
-         // would get printed in 1 line.
-         cout<<endl;
-     }
+            cout << n - distance << " ";
+        }
+
+        cout << endl;
+    }
 }
 int main()
 {
-    pattern(3);
+    pattern(5);
 }
 
 // output
-// 3 3 3 3 3 
-// 3 2 2 2 3
-// 3 2 1 2 3
-// 3 2 2 2 3
-// 3 3 3 3 3
+// 5 5 5 5 5 5 5 5 5 
+// 5 4 4 4 4 4 4 4 5
+// 5 4 3 3 3 3 3 4 5
+// 5 4 3 2 2 2 3 4 5
+// 5 4 3 2 1 2 3 4 5
+// 5 4 3 2 2 2 3 4 5
+// 5 4 3 3 3 3 3 4 5
+// 5 4 4 4 4 4 4 4 5
+// 5 5 5 5 5 5 5 5 5
