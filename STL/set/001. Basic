@@ -1,0 +1,25 @@
+
+#include <iostream>
+#include <set>
+
+using namespace std;
+int main()
+{
+    set<int> st;  
+    st.insert(10);                                    // insert() funciton takes logn timea
+    st.insert(20);
+    st.insert(30);
+    st.insert(20); // Duplicate value, won't be inserted
+
+
+    cout << "Elements of the set:" << endl;
+    for (auto elem : st)
+    {
+        cout << elem << " ";
+    }
+    cout << endl;
+}
+
+///output 
+// Elements of the set:
+// 10 20 30
