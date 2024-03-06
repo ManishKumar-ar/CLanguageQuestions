@@ -1,2 +1,25 @@
 
-// the work of push back and emplace back are the same but generally we use emplace back -- b/c it take slightly less time.
+// the work of push back and emplace back are the same but generally we use emplace_back -- b/c it take slightly less time.
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  vector<int> vec;
+  vec.emplace_back(10);                   // this take lesser time for the insertion compare to push_back
+  vec.push_back(58);
+  vec.emplace_back(56);
+  vec.emplace_back(18);
+
+  
+
+  for (int i = 0; i < vec.size(); ++i)
+  {
+    cout << vec[i] << " ";
+  }
+}
+// output
+// 10 58 56 18 
