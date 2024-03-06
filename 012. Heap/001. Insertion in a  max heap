@@ -88,7 +88,7 @@ int main() {
 
 
 
-// here time complexity is - O ( n logn )
+// here time complexity is - O ( n * logn )
 
 #include <iostream>
 using namespace std;
@@ -119,5 +119,4 @@ int main()
 }
 
 //output 
-
 //40 25 35 10 5 20 30 
