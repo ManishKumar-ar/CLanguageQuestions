@@ -1,0 +1,32 @@
+// here the size of column is rows is fixed, static due to array
+#include <iostream>
+#include <vector>
+#include <array>
+
+using namespace std;
+
+int main()
+{
+  vector<int> arr[4];
+
+  arr[1].push_back(25);
+
+  // Printing the elements of each vector
+  for (int i = 0; i < 4; ++i)
+  {
+    cout << "arr[" << i << "]: ";
+    for (int j = 0; j < arr[i].size(); ++j)
+    {
+      cout << arr[i][j] << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
+
+// output
+// arr[0]: 
+// arr[1]: 25
+// arr[2]:
+// arr[3]:
