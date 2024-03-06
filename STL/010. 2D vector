@@ -1,0 +1,92 @@
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  vector<int> vec1;
+  vec1.emplace_back(10);
+  vec1.push_back(58);
+
+  vector<int> vec2;
+  vec2.emplace_back(56);
+  vec2.emplace_back(18);
+
+  vector<int> vec3;
+  vec3.push_back(30);
+  vec3.push_back(28);
+  vec3.push_back(1);
+
+
+  vector<vector<int>> vec;
+  vec.emplace_back(vec1);
+  vec.emplace_back(vec2);
+  vec.emplace_back(vec3);
+
+
+  for (auto outsidevector : vec)
+  {
+    for (auto insidevector : outsidevector)
+    {
+      cout << insidevector << " ";
+    }
+    cout << endl;
+  }
+}
+
+//output 
+// 10 58 
+// 56 18
+// 30 28 1
+
+
+
+
+
+
+
+...................................................................................
+//another way to write 
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+  vector<int> vec1;
+  vec1.emplace_back(10);
+  vec1.push_back(58);
+
+  vector<int> vec2;
+  vec2.emplace_back(56);
+  vec2.emplace_back(18);
+
+  vector<int> vec3;
+  vec3.push_back(30);
+  vec3.push_back(28);
+  vec3.push_back(1);
+
+  vector<vector<int>> vec;
+  vec.emplace_back(vec1);
+  vec.emplace_back(vec2);
+  vec.emplace_back(vec3);
+
+
+  for (int i = 0; i < vec.size(); i++)
+  {
+    for (int j = 0; j < vec[i].size(); j++)
+    {
+      cout << vec[i][j] << " ";
+    }
+    cout << endl;
+  }
+
+  
+}
+
+// output
+//  10 58
+//  56 18
+//  30 28 1
