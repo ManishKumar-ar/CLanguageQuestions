@@ -1,0 +1,44 @@
+#include <iostream>
+#include <set>
+
+using namespace std;
+int main()
+{
+  set<int> st;
+  st.insert(50);
+  st.insert(20);
+  st.insert(30);
+  st.insert(20);
+
+  //  st.erase(st.begin(),st.begin() + 2);
+  //  The erase function of the std::set class does not support the range version like std::vector or std::list.
+  //  Instead, you can use the iterator version to erase elements.
+
+  for (auto it : st)
+  {
+    cout << it << " ";
+  }
+  
+  cout << endl;
+
+  auto it = st.begin();                 // Iterator pointing to the beginning of the set
+  advance(it, 2);                      // Advance the iterator by 2 positions
+
+  st.erase(st.begin(), it);            // Erase elements from the beginning to the iterator position
+
+ 
+  for (int elem : st)
+  {
+    cout << elem << " ";
+  }
+  cout << endl;
+}
+
+
+
+
+
+
+///output
+//20 30 50 
+//50
