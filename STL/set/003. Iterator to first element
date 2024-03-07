@@ -18,3 +18,34 @@ int main()
 
 //output 
 //20
+
+
+
+..............................................................................................
+
+//there is another method of doning this 
+#include <iostream>
+#include <set>
+
+using namespace std;
+int main()
+{
+    set<int> st;
+    st.insert(50);
+    st.insert(20);
+    st.insert(30);
+    st.insert(20);
+
+    st.begin();                              // it points to the first element of the set
+
+     
+    set<int>::iterator it = st.begin();            // Get iterator pointing to the first element
+
+    cout << *it;                                  // Dereference the iterator to get the value of the element
+
+}
+
+/// output
+// 20
+
+
