@@ -1,0 +1,32 @@
+#include <iostream>
+#include <set>
+
+using namespace std;
+int main()
+{
+  set<int> st;
+  st.insert(50);
+  st.insert(20);
+  st.insert(30);
+
+ 
+  for (auto it : st)
+  {
+    cout << it << " ";
+  }
+
+  cout<<endl;
+
+  st.erase(20);               // it simply go to that element and deleted it
+  
+  for (auto it : st)
+  {
+    cout << it << " ";
+  }
+
+}
+
+// output
+// 20 30 50 
+// 30 50
+
