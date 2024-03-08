@@ -27,3 +27,7 @@ int main() {
 
     return 0;
 }
+
+//output 
+//Fibonacci series up to position 5: 0 1 1 2 3 
+//Sum of the Fibonacci series up to position 5 is: 7
