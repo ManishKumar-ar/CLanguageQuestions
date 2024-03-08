@@ -1,0 +1,43 @@
+// here the time complexity is o( n)
+// and space is O (1 )
+//The recursive method has an approach almost similar to the iterative one.
+
+#include <iostream>
+using namespace std;
+
+
+void reverse(int A[], int i, int j) {
+    if (i >= j)
+        return;
+
+    int temp = A[i];
+    A[i] = A[j - 1];
+    A[j - 1] = temp;
+
+    reverse(A, i + 1, j - 1);
+}
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+
+    cout << "Original array: ";
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    // Call the reverse function to reverse the array
+    reverse(arr, 0, 5);
+
+    cout << "Reversed array: ";
+    for (int i = 0; i < 5; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+//output 
+// Original array: 10 20 30 40 50 
+// Reversed array: 50 40 30 20 10 
