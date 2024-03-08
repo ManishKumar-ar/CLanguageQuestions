@@ -1,0 +1,33 @@
+// here the time complexity is the O( n ) b/c we traverse throught the list
+// here the space complexity is O ( 1) b/c here we don't use the extra array 
+
+
+#include <iostream>
+using namespace std;
+
+void printArray(int arr[], int n) {
+   cout << "The reversed array is:- " << endl;
+   for (int i = 0; i < n; i++) {
+      cout << arr[i] << " ";
+   }
+}
+
+void reverseArray(int arr[], int n) {
+   int p1 = 0, p2 = n - 1;
+   while (p1 < p2) {
+      swap(arr[p1], arr[p2]);
+      p1++; p2--;
+   }
+   printArray(arr, n);
+}
+
+int main() {
+   int n = 5;
+   int arr[] = { 510,20,40,50,60};
+   reverseArray(arr, n);
+   return 0;
+}
+
+//output 
+// The reversed array is:- 
+// 60 50 40 20 510 
