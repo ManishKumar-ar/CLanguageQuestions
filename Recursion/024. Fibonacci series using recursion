@@ -1,0 +1,42 @@
+// the tiome complexity oif the code is O(2^n)
+
+// fibonaccis series is 0 1 1 2 3 5 8 ............
+/// here 0 is our 0th fibonacci element
+// here our 1st fibonacci element is the 1
+
+
+
+#include <iostream>
+using namespace std;
+
+int fib(int x) {
+    if (x <=1)
+        return x;
+      else 
+        return fib(x-2) + fib(x-1);
+}
+
+int main() {
+    int position;
+
+    cout << "Enter the position in the Fibonacci sequence: ";
+    cin >> position;
+
+    if (position < 0) {
+        cout << "Invalid position. Please enter a non-negative integer.";
+    } else {
+        int result = fib(position );
+        cout << "The Fibonacci number at position " << position << " is: " << result;
+    }
+
+    return 0;
+}
+
+//output 
+// Enter the position in the Fibonacci sequence: 0
+// The Fibonacci number at position 0 is: 0
+
+
+//output 
+// Enter the position in the Fibonacci sequence: 4
+// The Fibonacci number at position 4 is: 3
