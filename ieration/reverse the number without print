@@ -5,11 +5,11 @@ int main()
 {
     int rev = 0, r, n;
 
-    // Prompt the user to enter a number
+  
     cout << "Enter a number: ";
     cin >> n;
 
-    // Reverse the number
+   
     while (n > 0)
     {
         r = n % 10;        // Extract the last digit
