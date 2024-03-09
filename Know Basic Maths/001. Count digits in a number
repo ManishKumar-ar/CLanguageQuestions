@@ -1,0 +1,120 @@
+//problem introduction 
+//Input: N = 12345
+//Output: 5
+// Explanation: N has 5 digits
+
+
+
+//solution - 1
+// here the below solution is wrong
+//because The code you provided seems to have a logic error. 
+//The condition while(x % 10 != 0) in the counting function is incorrect for counting the number of digits.
+//It only checks if the last digit of x is not zero, which would not accurately count the total number of digits in the number.
+
+// but it give correct answer for some cases
+
+#include <iostream>
+using namespace std;
+int counting(int n)
+{
+    int x = n;
+    int count = 0;
+    while (x % 10 != 0)
+    {
+        x = x / 10;
+        count++;
+    }
+    return count;
+}
+int main()
+{
+    int n = 123456;                                     // when we write int n = 123000;  then it will give wrong answer that is 0
+    int result = counting(n);
+    cout << result;
+}
+// output
+// 6
+
+
+
+
+
+
+..............................................................................................................
+
+correct solution - 1 
+#include <iostream>
+using namespace std;
+int counting(int n)
+{
+    int x = n;
+    int count = 0;
+    while (x > 0)
+    {
+        x = x / 10;
+        count++;
+    }
+    return count;
+}
+
+int main()
+{
+    int n = 123000;
+    int result = counting(n);
+    cout << result;
+}
+
+
+// output
+// 6
+
+
+
+
+
+.................................................................................................................................
+
+//soltuin - 2
+//Time Complexity: O (n) where n is the number of digits in the given integer
+//Space Complexity: O(1)
+
+
+#include<iostream>
+
+using namespace std;
+
+int count_digits( int n )
+{
+   int x = n; int count =0;
+   while( x !=0 ) 
+   {
+       x = x / 10;
+       count++;
+   }
+   return count;
+}
+
+
+int main()
+{
+   int n = 123000;
+   cout<< "Number of digits in "<<n<<" is "<<count_digits(n);
+   return 0;
+}
+
+//output 
+// Number of digits in 123000 is 6
+
+
+
+
+
+
+
+
+
+
+........................................................................................................................................
+
+
+
