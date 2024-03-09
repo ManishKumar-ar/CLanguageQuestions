@@ -1,3 +1,6 @@
+//here  - time Complexity: O(log10(n))
+// here - Space Complexity: O(log10(n))
+
 #include <iostream>
 using namespace std;
 int counting(int n)
