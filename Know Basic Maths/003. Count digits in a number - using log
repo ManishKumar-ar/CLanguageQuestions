@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int count_digits( int n )
+{
+  int digits =(log10(n) + 1);
+  return digits;
+}
+
+int main()
+{
+   int n = 123450;
+   cout<< "Number of digits in "<<n<<" is "<<count_digits(n);
+   return 0;
+}   
+
+//output 
+//Number of digits in 123450 is 6
