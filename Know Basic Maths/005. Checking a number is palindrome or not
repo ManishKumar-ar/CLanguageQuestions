@@ -1,0 +1,35 @@
+//here the 
+/Time Complexity: O(logN) for reversing N digits of input integer.
+//Space Complexity: O(1)
+
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int rev=0, r,i,n;
+    cout<<"enter a number : ";
+    cin>>n;
+    int num =n;
+
+    while(n>0)
+    {
+        r=n%10;
+        n=n/10;
+        rev=rev*10+r;
+    }
+
+    if(num == rev)
+    {
+        cout<<"number is palindrome";
+    }
+    else {
+        cout<<" number is not palindrome";
+    }
+}
+
+//output
+//enter a number : 1234321
+// number is palindrome
