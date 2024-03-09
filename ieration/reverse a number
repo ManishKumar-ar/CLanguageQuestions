@@ -4,11 +4,10 @@ using namespace std;
 int main() {
     int n, r;
 
-    // Prompting the user to enter a number
     cout << "Enter a no. ";
     cin >> n;
 
-    // Extracting and printing digits in reverse order
+    
     while (n != 0) {
         r = n % 10;   // Extract the last digit
         n = n / 10;   // Remove the last digit
