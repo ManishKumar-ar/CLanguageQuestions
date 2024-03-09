@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int counting(int n)
+{
+    string x = to_string(n);
+    return x.length();
+}
+
+int main()
+{
+    int n = 123000;
+    int result = counting(n);
+    cout << result;
+}   
+
+//output 
+//6
