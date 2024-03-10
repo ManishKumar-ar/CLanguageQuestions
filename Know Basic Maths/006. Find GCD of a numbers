@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int gcd(int a, int b)
+{
+    int num =1;
+    while (num <= a&& num<=b)
+    {
+        if ((a % num == 0) && (b % num == 0))
+        {
+            num++;
+        }
+        else {
+            num++;
+        }
+    }
+    return num-1;
+}
+
+int main()
+{
+    int num1 = 10, num2 = 5;
+
+    int result = gcd(num1, num2);
+    cout << result;
+}
+
+//output 
+//5
