@@ -1,0 +1,35 @@
+// Time Complexity: O(n), because the loop has to run from 1 to n always.
+// Space Complexity: O(1), we are not using any extra space.
+
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
+void divisor(int n)
+{
+    int number = 1;
+    while (n >= number)
+    {
+        if (n % number == 0)
+        {
+            cout << number << " ";
+           
+        }
+         number++;
+    }
+}
+
+int main()
+{
+    int n = 20;
+    divisor(n);
+
+
+    return 0;
+}
+
+
+//output
+//1 2 4 5 10 20 
