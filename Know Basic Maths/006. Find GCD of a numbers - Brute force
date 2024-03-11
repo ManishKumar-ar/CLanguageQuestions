@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+int gcd(int a, int b)
+{
+    int num =1;
+    while (num <= a&& num<=b)
+    {
+        if ((a % num == 0) && (b % num == 0))
+        {
+            num++;
+        }
+        else {
+            num++;
+        }
+    }
+    return num-1;
+}
+
+int main()
+{
+    int num1 = 10, num2 = 5;
+
+    int result = gcd(num1, num2);
+    cout << result;
+}
+
+//output 
+//5
+
+
+
+
+
+
+
+.....................................................................................................................
+//without the while loop, we can do it with the help of the for loop and without else statement,
+
+Time Complexity: O(N).
+Space Complexity: O(1).
+
+
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int num1 = 4, num2 = 8;
+    int ans;
+    for (int i = 1; i <= min(num1, num2); i++) {
+        if (num1 % i == 0 && num2 % i == 0) {
+            ans = i;
+        }
+    }
+    cout << "The GCD of the two numbers is " << ans;
+    return 0;
+}
+
+
+//output 
+The GCD of the two numbers is 4
+
