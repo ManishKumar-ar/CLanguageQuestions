@@ -1,0 +1,32 @@
+// Time Complexity: O(sqrt(n)), because every time the loop runs only sqrt(n) times.
+// Space Complexity: O(1), we are not using any extra space.
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false; // 1 and negative numbers are not prime
+
+    for (int i = 2; i <= sqrt(n); i++) {
+        if (n % i == 0) {
+            return false; // If n is divisible by any number from 2 to sqrt(n), it's not prime
+        }
+    }
+    return true; // If no divisor is found, n is prime
+}
+
+int main() {
+    int n = 18;
+    if (isPrime(n)) {
+        cout << n << " is a prime number";
+    } else {
+        cout << n << " is not a prime number";
+    }
+    return 0;
+}
+
+
+//output 
+// 18 is not a prime number
