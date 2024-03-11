@@ -1,0 +1,41 @@
+#include <iostream>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
+int prime(int n)
+{
+    int check=0;
+    int number = 2;
+    while (n > number)
+    {
+        if (n % number == 0)
+        {
+            check=1;
+           
+        }
+         number++;
+    }
+
+    return check;
+}
+
+int main()
+{
+    int n = 18;
+    int result = prime(n);
+    if(result){
+        cout<<" Number is not prime";
+    }
+    else{
+        
+        cout<<" Number is prime";
+    }
+
+
+    return 0;
+}
+
+//output 
+//  Number is not prime
