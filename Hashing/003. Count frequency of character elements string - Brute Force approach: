@@ -1,3 +1,7 @@
+// here the time taken by the code is O ( n )
+// if we seach for 2 elements then time = O(2*n)
+// if we seach for q elements then time = O(q*n)
+
 #include <iostream>
 #include <string>
 using namespace std;
