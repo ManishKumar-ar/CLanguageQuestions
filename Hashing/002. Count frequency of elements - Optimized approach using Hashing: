@@ -1,1 +1,13 @@
 
+
+
+
+
+
+
+
+
+
+
+//but there is a problem in the hashing also - if our maximum array element is 10^9 then we have to create an hashing array of size 10^9 + 1  ---> that is not possible.
+//  solution - we don't know
