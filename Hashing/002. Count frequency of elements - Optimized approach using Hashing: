@@ -1,4 +1,7 @@
+// in main() funciton for integers =  arr[10^6] possible                        
 
+//outside main() funciton or globally for integer =  arr[10^7]
+//                             
 
 
 
