@@ -1,1 +1,39 @@
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int H[26] = {0}; // Assuming only lowercase letters
+
+void frequency(string s, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        char c = s[i];
+        if (c >= 'a' && c <= 'z') // Check if the character is a lowercase letter
+        {
+            H[c - 'a']++; // Map 'a' to index 0, 'b' to index 1, and so on
+        }
+    }
+}
+
+int main()
+{
+    string s = "abcdabcfc";
+    int size = s.size();
+
+    frequency(s, size);
+
+    int i = 0;
+    char c = s[0];
+    while (s[i] != '\0')
+    {
+
+        cout << "Frequency of character " << c << ": " << H[c - 'a'] << endl;
+        c = s[i];
+        i++;
+    }
+
+    return 0;
+}
