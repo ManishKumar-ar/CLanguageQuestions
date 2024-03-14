@@ -7,10 +7,28 @@
 
 
 
+#include <iostream>
+using namespace std;
+int H[100] = {0};                                        
+void frequency(int arr[], int size)
+{
+                                                       // Hashing Phase: Count the frequency of each element in the array
+    for (int i = 0; i < size; i++)
+    {
+        H[arr[i]]++;
+    }
+}
+int main()
+{
+    int arr[] = {10, 20, 30, 50, 50, 10, 50, 10};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    frequency(arr, size);                                     
+    cout << "Frequency of element 10: " << H[50] << endl; 
+}
+
+//output 
+//Frequency of element 10: 3
+
+// here the time complexity of search a element is constant O ( 1 )
 
 
-
-
-
-//but there is a problem in the hashing also - if our maximum array element is 10^9 then we have to create an hashing array of size 10^9 + 1  ---> that is not possible.
-//  solution - we don't know
