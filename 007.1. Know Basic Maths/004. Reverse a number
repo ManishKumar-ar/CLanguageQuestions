@@ -13,5 +13,6 @@ int main() {
     return 0;
 }
 
+
 //output 
 //Number of digits in 123000 is 6
