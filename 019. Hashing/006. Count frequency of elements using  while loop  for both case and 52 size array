@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int H[52] = {0};
+
+void frequency(string s, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        char ch = s[i];
+        if (ch >= 'a' && ch <= 'z')
+        {
+            H[ch - 'a']++;
+        }
+        else
+        {
+            H[26 + ch - 'A']++;
+        }
+    }
+}
+
+int main()
+{
+    string s = "abcdAABCabcefc";
+    int size = s.size();
+
+    frequency(s, size);
+
+    int i = 0;
+    char c = s[0];
+    while (i < size)
+    {
+        if (c >= 'a' && c <= 'z')
+        {
+            if (H[c - 'a'] > 0)
+            {
+                cout << "Frequency of character " << c << ": " << H[c - 'a'] << endl;
+                H[c - 'a'] = 0; // Reset the frequency count to avoid duplication
+            }
+        }
+        else
+        {
+            if (H[26 + c - 'A'] > 0)
+            {
+                cout << "Frequency of character " << c << ": " << H[26 + c - 'A'] << endl;
+                H[26 + c - 'A'] = 0; // Reset the frequency count to avoid duplication
+            }
+        }
+      c = s[++i];
+    
+    }
+}
+
+// output
+//  Frequency of character a: 2
+//  Frequency of character b: 2
+//  Frequency of character c: 3
+//  Frequency of character d: 1
+//  Frequency of character A: 2
+//  Frequency of character B: 1
+//  Frequency of character C: 1
+//  Frequency of character e: 1
+//  Frequency of character f: 1
