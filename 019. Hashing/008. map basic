@@ -1,3 +1,8 @@
+// time complexity  =  O( n ) + O( n )
+//storing the values inside the map  == O( n )
+//printing the values form the map == O ( n ) 
+
+
 #include <iostream>
 #include <map>
 using namespace std;
