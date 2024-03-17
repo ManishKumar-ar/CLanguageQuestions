@@ -1,6 +1,6 @@
-// time complexity  =  O( n ) + O( n )
-//storing the values inside the map  == O( n )
-//printing the values form the map == O ( n ) 
+// time complexity  =  O( logn ) + O( logn )
+//storing the values inside the map  == O( logn )
+//printing the values form the map == O ( logn ) 
 
 
 #include <iostream>
