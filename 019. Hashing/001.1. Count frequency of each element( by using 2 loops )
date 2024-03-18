@@ -38,3 +38,18 @@ int main()
 // 10 --> 3
 // 5 --> 2
 // 15 --> 1
+
+
+
+
+//note -
+
+Current Program:
+The previous program used nested loops to iterate through the array and count the frequency of each element.
+It had a time complexity of O(n^2), where n is the size of the array.
+This approach checks every element against every other element, which is not efficient, especially for larger arrays.
+
+
+Previous Program:
+In the current program, the find function directly iterates through the array once and counts the occurrences of the specified element x. 
+It has a time complexity of O(n), where n is the size of the array. This approach is more efficient than the previous one since it only requires a single pass through the array.
