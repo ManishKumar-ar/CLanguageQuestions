@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int largest(vector<int> arr)
+{
+    sort(arr.begin(), arr.end());
+    return arr[arr.size()-1];
+}
+
+int main()
+{
+
+    vector<int> arr = {2, 4, 8, 6, 1, 5};
+
+    cout << "The Largest element is " << largest(arr);
+}
+
+
+//output
+// The Largest element is 8
