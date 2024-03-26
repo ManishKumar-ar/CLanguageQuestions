@@ -1,3 +1,18 @@
+//here
+
+// Sorting the vector takes time.
+// The sorting algorithm used here (most likely QuickSort or an implementation of it) has a time complexity of O(n log n)
+// After sorting, finding the smallest element (arr[0]) is fast and doesn't significantly add to the time complexity.
+
+// so overall time complexity is  ==  O(n log n
+
+//Space complexity
+//the space complexity of your code is O(n) due to the space required for the input vector,
+// and potentially O(log n) additional space for sorting, 
+//resulting in a total space complexity of O(n + log n), which simplifies to O(n).
+
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
