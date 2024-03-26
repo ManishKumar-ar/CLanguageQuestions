@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int largest( int arr[], int size)
+{
+    int max =arr[0];
+    for (int i=1;i<size;i++)
+    {
+        if(max<arr[i])
+        max =arr[i];
+
+    }
+return max;
+}
+
+int main()
+{
+    int arr[5]= {11,25,65,98,20};
+    int size =sizeof(arr)/sizeof(arr[0]);
+     int result = largest(arr, size);
+     cout<<"largest number is "<<result;
+
+}
+
+//output
+//largest number is 98
