@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int smallest(vector<int> arr)
+{
+    sort(arr.begin(), arr.end());
+    // sort(arr.begin(),arr.begin()+6);
+
+    return arr[0];
+}
+
+int main()
+{
+
+    vector<int> arr = {2, 4, 8, 6, 1, 5};
+
+    cout << "The smallest element is " << smallest(arr);
+}
+
+// output
+//  The smallest element is 1
