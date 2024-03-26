@@ -1,0 +1,40 @@
+// time comlpexity  = O(n)
+//space complexxity  = O (1)
+
+// HERE THE code is not so much efficient because in the loop, we have to check both the if condition. is there any method, so that we have to change only one if condition and other we kept in else statement
+
+#include <iostream>
+using namespace std;
+int smallest(int arr[], int size)
+{
+    int min =1000;
+    int second_min =1000;
+
+    for (int i = 0; i < size; i++)
+    {
+        if(min>arr[i])
+        {
+           min=arr[i];
+        }
+        if(second_min>arr[i]&&arr[i]!=min)
+        {
+            second_min =arr[i];
+        }
+        
+    }
+    cout<<"first minimum is "<<min<<endl;
+    cout<<"Second minimum is "<<second_min<<endl;
+
+    
+}
+
+int main()
+{
+    int arr[5] = {1, 25, 65, 98, 20};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    smallest(arr, size);
+}
+
+//output 
+// first minimum is 1
+// Second minimum is 20
