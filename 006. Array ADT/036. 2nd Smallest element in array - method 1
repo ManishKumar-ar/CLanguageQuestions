@@ -1,4 +1,4 @@
-// time comlpexity  = O(n)
+// time comlpexity  = O(n)  // double pass solution
 //space complexxity  = O (1)
 
 // HERE THE code is not so much efficient because in the loop, we have to check both the if condition. is there any method, so that we have to change only one if condition and other we kept in else statement
@@ -38,3 +38,49 @@ int main()
 //output 
 // first minimum is 1
 // Second minimum is 20
+
+
+
+
+................................................................
+//solution - 2 
+// this is the best solution 
+//Time Complexity: O(N) Single-pass solution
+//Space Complexity: O(1)
+
+
+#include <iostream>
+using namespace std;
+int smallest(int arr[], int size)
+{
+    int min = 1000;
+    int second_min = 1000;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (min > arr[i])
+        {
+
+            second_min = min;
+            min = arr[i];
+        }
+        else if (second_min > arr[i] && arr[i] != min)
+        {
+            second_min = arr[i];
+        }
+    }
+    cout << "first minimum is " << min << endl;
+    cout << "Second minimum is " << second_min << endl;
+}
+
+int main()
+{
+    int arr[5] = {123, 25, 65, 98, 20};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    smallest(arr, size);
+}
+
+//output 
+// first minimum is 20
+// Second minimum is 25
+
