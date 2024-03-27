@@ -39,3 +39,31 @@ int main() {
 //Array  duplicates: 3 6 8 8 10 12 15 15 15 20 
 //Last duplicate found: 8 15 
 //Array without duplicates: 3 6 8 10 12 15 20 
+
+
+
+
+...........................................................................................................
+second method -
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int A[10] = {3, 6, 8, 8, 10, 15, 15, 20, 20, 25};
+    int lastduplicate = 0;
+
+     for (int i = 0; i < 10; i++) {
+
+        if (A[i] != lastduplicate) {
+            cout << A[i] << " ";
+            lastduplicate = A[i];
+        }
+        else 
+        cout<<"0 ";
+    }
+
+}
+
+// output
+// 3 6 8 0 10 15 0 20 0 25 
