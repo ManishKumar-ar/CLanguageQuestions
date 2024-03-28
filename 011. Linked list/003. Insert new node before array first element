@@ -1,1 +1,71 @@
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+};
+
+Node *first = nullptr;
+
+void create(const vector<int> A)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+void Insert( Node *p, int x)
+{
+     Node *t;
+    int i;
+  
+    t = new Node;
+    t->data = x;
+    t->next = first;
+    first = t;
+    
+    
+}
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 10, 15};
+    create(A);
+    Insert(first, 100);
+    Insert(first, 150);
+
+    Display(first);
+
+    return 0;
+}
+
+//output 
+//150-> 100-> 3-> 5-> 7-> 10-> 15-> 
