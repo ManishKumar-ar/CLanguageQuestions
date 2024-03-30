@@ -1,1 +1,96 @@
 
+// here we have to require 3 pointers p,q,t
+// can we do it with the 2 pointers only
+//  time taken  - creating a new node and adjust the links between current and previous node are constant.
+//  but to reach there destination p and q we have to traverse that takes O( n ) time.
+//  minimum time - O( 1)  when we insert smallest element
+//  minimum time - O( n)  when we insert largest element
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first) /// here we use the & sign, if we want to remove the & then see solution  - 2
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+void SortedInsert(Node *first, int x)
+{
+    Node *p;
+    p = first; // p is pointing the first node of linked list.
+    Node *t, *q = NULL;
+
+    t = new Node;
+    t->data = x;
+    t->next = NULL;
+
+    if (first == NULL)
+        first = t;
+    else
+    {
+        while (p && p->data < x) // here we write p because if p is null then the condition is fail
+        {
+            q = p;
+            p = p->next;
+        }
+        if (p == first) // here we check if the previous code is not perform that means the value is smaller than the first element so we have to require it set at left of first elememt
+        {
+            t->next = first;
+            first = t;
+        }
+        else
+        {
+            //   t->next = p;
+            t->next = q->next; // here q -> next is used to indicate the address of p , so here we can directly write p
+            q->next = t;
+        }
+    }
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 10, 15};
+    Node *first = nullptr;
+    create(A, first);
+    SortedInsert(first, 11);
+
+    Display(first);
+
+    return 0;
+}
+
+//output 
+//3-> 5-> 7-> 10-> 11-> 15-> 
