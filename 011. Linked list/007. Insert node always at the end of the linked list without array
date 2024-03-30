@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+class Node
+{
+public:
+    int data;
+    Node *next;
+};
+
+void Insert(Node *&first, int x) 
+{
+    if (first == NULL)
+    {
+        first = new Node;
+        first->data = x;
+        first->next = NULL;
+    }
+    else
+    {
+        Node *last = first;
+        while (last->next != NULL)
+        {
+            last = last->next;
+        }
+        
+        Node *temp = new Node;
+        temp->data = x;
+        temp->next = NULL;
+
+        last->next = temp;
+    }
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+
+    Node *first = nullptr;
+    Insert(first, 10);
+    Insert(first, 20);
+    Insert(first, 30);
+    Insert(first, 40);
+    Insert(first, 50);
+    Display(first);
+}
+
+// output
+// 10-> 20-> 30-> 40-> 50->
