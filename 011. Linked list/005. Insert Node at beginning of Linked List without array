@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include <vector>
 
@@ -35,22 +33,22 @@ void create(const vector<int> A)
     }
 }
 
-int count( Node*p)
+int count(Node *p)
 {
-    int l=0;
-    while(p)
+    int l = 0;
+    while (p)
     {
         l++;
-        p=p->next;
+        p = p->next;
     }
-    return 1;
+    return l;
 }
 
-void Insert( Node *p, int index, int x)
+void Insert(Node *p, int index, int x)
 {
-     Node *t;
+    Node *t;
     int i;
-    if (index < 0 || index >count(p))
+    if (index < 0 || index > count(p))
         return;
     t = new Node;
     t->data = x;
@@ -81,13 +79,12 @@ int main()
 {
     vector<int> A = {3, 5, 7, 10, 15};
     create(A);
-      Insert(first,3,100);
-
+    Insert(first, 4, 100);
 
     Display(first);
 
     return 0;
 }
 
-//output 
-//150-> 100-> 3-> 5-> 7-> 10-> 15-> 
+// output
+// 3-> 5-> 7-> 10-> 100-> 15-> 
