@@ -3,13 +3,6 @@
  //      2. delete any node at a given position
 
 
-// here we have to require 3 pointers p,q,t
-// can we do it with the 2 pointers only
-//  time taken  - creating a new node and adjust the links between current and previous node are constant.
-//  but to reach there destination p and q we have to traverse that takes O( n ) time.
-//  minimum time - O( 1)  when we insert smallest element
-//  minimum time - O( n)  when we insert largest element
-
 #include <iostream>
 #include <vector>
 using namespace std;
