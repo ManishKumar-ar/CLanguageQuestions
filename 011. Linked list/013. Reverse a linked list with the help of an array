@@ -1,4 +1,5 @@
 // here it take extra space of O( n )
+// but it was not preferred to reverse the elements
 
 #include <iostream>
 #include <vector>
