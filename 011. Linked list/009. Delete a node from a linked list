@@ -1,3 +1,108 @@
 // delete of node is 2 type.
 //      1. delete the fitst node
- //      2. delete any node except first node
+ //      2. delete any node at a given position
+
+
+// here we have to require 3 pointers p,q,t
+// can we do it with the 2 pointers only
+//  time taken  - creating a new node and adjust the links between current and previous node are constant.
+//  but to reach there destination p and q we have to traverse that takes O( n ) time.
+//  minimum time - O( 1)  when we insert smallest element
+//  minimum time - O( n)  when we insert largest element
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+int Delete(Node *p, int index)
+{
+    if (p == nullptr)
+        return -1;
+
+    Node *q = nullptr;
+    int x = -1;
+
+    int count = 0;
+    Node *z = p;
+    while (z != nullptr)
+    {
+        count++;
+        z = z->next;
+    }
+
+    if (index < 1 || index > count)
+        return -1;
+
+    if (index == 1)
+    {
+        q = first;
+        x = first->data;
+        first = first->next;
+        free(q);
+        return x;
+    }
+    else
+    {
+        for (int i = 0; i < index - 1; i++)
+        {
+            q = p;
+            p = p->next;
+        }
+        q->next = p->next;
+        x = p->data;
+        free(p);
+        return x;
+    }
+}
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 10, 15};
+
+    create(A, first);
+
+    Delete(first, 1);
+
+    Display(first);
+
+    return 0;
+}
+
+// output
+//5-> 7-> 10-> 15-> 
