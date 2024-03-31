@@ -1,0 +1,89 @@
+// Input Format: 0->1->2
+// Result: 0->1
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+int Deletelast(Node* &p)
+{
+    if (p == nullptr) {
+        // The list is empty, nothing to delete.
+        return -1;
+    }
+
+    // If there's only one node in the list.
+    if (p->next == nullptr) {
+        delete p;
+        p = nullptr; // Update the pointer to nullptr since the list is now empty.
+        return 0;
+    }
+
+    Node *q = p;
+    while (q->next->next != nullptr)
+    {
+        q = q->next;
+    }
+    
+    delete q->next;
+    q->next = nullptr;
+     
+    return 0;
+}
+
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 10, 15};
+
+    create(A, first);
+
+    Deletelast(first);
+    Deletelast(first);
+
+
+    Display(first);
+
+    return 0;
+}
+
+//output
+// 3-> 5-> 7-> 
