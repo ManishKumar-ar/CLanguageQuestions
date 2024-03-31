@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+int isSorted(Node *p)
+{
+    int x = -65536;
+    while (p != NULL)
+    {
+        if (p->data < x)
+            return 0;
+        x = p->data;
+        p = p->next;
+    }
+    return 1;
+}
+
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 10, 15};
+
+    create(A, first);
+     Display(first);
+
+    if(isSorted(first)){
+        cout<<"Linked list is sort";
+    }
+    else
+    {
+        cout<<"Linked list is not sorted";
+    }
+
+   
+
+    return 0;
+}
+
+//output
+// 3-> 5-> 7-> 10-> 15-> 
+// Linked list is sort
