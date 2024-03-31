@@ -1,0 +1,82 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+int count()
+{
+    Node *p = first;
+    int count = 0;
+    while (p != nullptr)
+    {
+        p = p->next;
+        count++;
+    }
+    return count;
+}
+
+void Reverse1( Node *p)
+{
+    Node *q = NULL, *r = NULL;
+    while (p != NULL)
+    {
+        r = q;
+        q = p;
+        p = p->next;
+        q->next = r;
+    }
+    first = q;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 7, 10, 10, 15};
+
+    create(A, first);
+    Display(first);
+    Reverse1(first);
+
+    Display(first);
+
+    return 0;
+}
+
+// output
+// 3-> 5-> 7-> 7-> 10-> 10-> 15->
+// 15-> 10-> 10-> 7-> 7-> 5-> 3->
