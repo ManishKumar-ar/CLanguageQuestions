@@ -1,0 +1,102 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr, *second = nullptr;
+
+void create1(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+void create2(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+int count()
+{
+    Node *p = first;
+    int count = 0;
+    while (p != nullptr)
+    {
+        p = p->next;
+        count++;
+    }
+    return count;
+}
+
+void contcatenate(Node *p, Node *q)
+{
+    p = first;
+    q = second;
+    while (p->next != NULL)
+    {
+        p = p->next;
+    }
+    p->next = second;
+    second = NULL;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 7, 10, 10, 15};
+    vector<int> B = {30, 50, 70, 70, 100, 100, 150};
+
+    create1(A, first);
+    create2(B, second);
+
+    contcatenate(first, second);
+
+    Display(first);
+
+    return 0;
+}
+
+// output
+// 3-> 5-> 7-> 7-> 10-> 10-> 15-> 30-> 50-> 70-> 70-> 100-> 100-> 150->
