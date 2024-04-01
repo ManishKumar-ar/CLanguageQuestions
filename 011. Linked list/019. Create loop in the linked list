@@ -1,0 +1,91 @@
+// method - 1 simply to check whether a loop is present or not
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+int isLoop(Node *f)
+{
+    Node *p, *q;
+    p = q = f;
+    do
+    {
+        p = p->next;
+        q = q->next;
+        q = q ? q->next : q;
+    } while (p && q && p != q);
+    if (p == q)
+        return 1;
+    else
+        return 0;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 20, 10, 15};
+
+    create(A, first);
+
+    Node *t1,*t2;
+
+    t1 = first->next->next;        // pointing on 20
+    t2=first->next->next->next->next;  // pointing on 15
+    t2->next=t1;                  // pointing on the eleement 20
+  
+
+    int result = isLoop(first);
+    if (result)
+        cout << "Loop is present";
+    else
+        cout << "Loop is not present";
+
+    
+}
+
+// output
+// Loop is present
+
+
+
+
+.................................................
+
+method - 2 print 
