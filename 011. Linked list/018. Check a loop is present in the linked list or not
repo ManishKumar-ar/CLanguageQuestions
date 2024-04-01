@@ -1,0 +1,85 @@
+// here we write the code in which there is no loop present
+//so the below code always give output that there is no loop in the linked list 
+
+//note - how we create loop in the linked list ==> see the next 019 section
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+int isLoop(Node *f)
+{
+    Node *p, *q;
+    p = q = f;
+    do
+    {
+        p = p->next;
+        q = q->next;
+        q = q ? q->next : q;
+    } while (p && q && p != q);
+    if (p == q)
+        return 1;
+    else
+        return 0;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 7, 10, 10, 15};
+
+    create(A, first);
+
+    Display(first);
+
+    int result = isLoop(first);
+    if (result)
+        cout << "Loop is present";
+    else
+        cout << "Loop is not present";
+
+    
+}
+
+// output
+//3-> 5-> 7-> 7-> 10-> 10-> 15-> 
+// Loop is not present
