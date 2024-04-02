@@ -1,0 +1,91 @@
+// Time Complexity: O(2N)
+// why ->  because we traverse the linked list twice: once to push the values onto the stack, and once to pop the values and update the linked list.
+           Both traversals take O(N) time, hence time complexity  O(2N) ~ O(N).
+
+// Space Complexity: O(N) 
+// why ->   We use a stack to store the values of the linked list, and in the worst case, the stack will have all N values,  ie. storing the complete linked list. 
+
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <algorithm>
+
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+int reverse()
+{
+    Node *head = first;
+
+    Node *temp = first;
+
+    stack<int> st;
+
+    while (temp != nullptr)
+    {
+
+        st.push(temp->data);
+        temp = temp->next;
+    }
+    temp = head;
+
+    while (temp != nullptr)
+    {
+
+        temp->data = st.top();
+        st.pop();
+        temp = temp->next;
+    }
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 20, 10, 15};
+
+    create(A, first);
+    Display(first);
+    reverse();
+    Display(first);
+
+}
+
+// output
+// 3-> 5-> 20-> 10-> 15-> 
+// 15-> 10-> 20-> 5-> 3->
