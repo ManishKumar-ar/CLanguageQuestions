@@ -1,0 +1,79 @@
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+int middlesequence()
+{
+    Node *head = first;
+    if (head == nullptr)
+        return 0;
+
+    Node *tortoise = head;
+    Node *hare = head;
+
+    while (hare != nullptr && hare->next != nullptr)
+    {
+        tortoise = tortoise->next;
+        hare = hare->next->next;
+    }
+
+    while (tortoise != NULL)
+    {
+        cout << tortoise->data << "-> ";
+        tortoise = tortoise->next;
+    }
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 20, 10,25, 5};
+    int len = A.size();
+
+    create(A, first);
+    Display(first);
+    middlesequence();
+}
+
+// output
+// 3-> 5-> 20-> 10-> 15-> 5->
+// 10-> 15-> 5->
