@@ -1,1 +1,26 @@
 
+#include <iostream>
+#include <string>
+
+void printPattern(const std::string& s) {
+    int n = s.length();
+    
+    // Print individual characters
+    for (int i = 0; i < n; i++) {
+        std::cout << s[i] << " ";
+    }
+    
+    // Print consecutive pairs
+    for (int i = 0; i < n - 1; i++) {
+        std::cout << s[i] << s[i + 1] << " ";
+    }
+    
+    // Print the full string
+    std::cout << s << " ";
+}
+
+int main() {
+    std::string str = "abc";
+    printPattern(str);
+    return 0;
+}
