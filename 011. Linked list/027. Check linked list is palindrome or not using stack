@@ -1,1 +1,109 @@
+//Space Complexity: O(N)  because we use extra space
+//Time Complexity: O(2 * N)  because we traverse the list twice
 
+#include <iostream>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+bool isPalindrome(Node *head)
+{
+
+    stack<int> st;
+
+    Node *temp = head;
+
+    while (temp != NULL)
+    {
+
+        st.push(temp->data);
+
+        temp = temp->next;
+    }
+
+    temp = head;
+
+    // Compare values by popping from the stack
+    // and checking against linked list nodes
+    while (temp != NULL)
+    {
+        if (temp->data != st.top())
+        {
+
+            return false;
+        }
+
+        // Pop the value from the stack
+        st.pop();
+
+        // Move to the next node
+        // in the linked list
+        temp = temp->next;
+    }
+
+    // If all values match,
+
+    return true;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {1, 2, 3, 4, 3, 2, 1};
+
+    create(A, first);
+    Display(first);
+    // Check if the linked list is a palindrome
+    if (isPalindrome(first))
+    {
+        cout << "The linked list is a palindrome." << endl;
+    }
+    else
+    {
+        cout << "The linked list is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+
+// output
+// 1-> 2-> 3-> 4-> 3-> 2-> 1->
+// The linked list is a palindrome.
