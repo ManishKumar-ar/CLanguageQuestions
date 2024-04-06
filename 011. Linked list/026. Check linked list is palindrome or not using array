@@ -1,1 +1,99 @@
 
+
+#include <iostream>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+bool isPalindrome()
+{
+    if (!first || !first->next)
+        return true; // Empty or single-node list is palindrome
+
+    // Count the number of nodes
+    int len = 0;
+    Node *p = first;
+    while (p != nullptr)
+    {
+        len++;
+        p = p->next;
+    }
+
+    // Create an array to store the elements
+    int arr[len];
+    p = first;
+    for (int i = 0; i < len; i++)
+    {
+        arr[i] = p->data;
+        p = p->next;
+    }
+
+    // Check if the array is a palindrome
+    int start = 0, end = len - 1;
+    while (start < end)
+    {
+        if (arr[start] != arr[end])
+            return false;
+        start++;
+        end--;
+    }
+
+    return true;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {1, 2, 3, 4, 3, 2, 1};
+
+    create(A, first);
+    Display(first);
+
+    if (isPalindrome())
+        cout << "Linked list is a palindrome" << endl;
+    else
+        cout << "Linked list is not a palindrome" << endl;
+
+    return 0;
+}
+
+// output
+// 1-> 2-> 3-> 4-> 3-> 2-> 1->
+// The linked list is a palindrome.
