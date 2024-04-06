@@ -1,1 +1,97 @@
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node* next;
+};
+
+Node* first = nullptr;
+
+void create(const vector<int>& A, Node*& first) {
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node* last = first;
+
+    for (int i = 1; i < A.size(); i++) {
+        Node* t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+Node* Reverse1(Node* p) {
+    Node *q = nullptr, *r = nullptr;
+    while (p != nullptr) {
+        r = q;
+        q = p;
+        p = p->next;
+        q->next = r;
+    }
+    return q;
+}
+
+bool isPalindrome(Node* head) {
+    if (head == nullptr || head->next == nullptr)
+        return true;
+
+    Node *slow = head, *fast = head;
+
+    while (fast->next != nullptr && fast->next->next != nullptr) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    Node* newHead = Reverse1(slow->next);
+
+    Node* first = head;
+    Node* second = newHead;
+
+    while (second != nullptr) {
+        if (first->data != second->data) {
+            Reverse1(newHead);
+            return false;
+        }
+        first = first->next;
+        second = second->next;
+    }
+
+    Reverse1(newHead);
+    return true;
+}
+
+void Display(const Node* p) {
+    while (p != nullptr) {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    vector<int> A = {1, 2, 3, 2,1};
+    create(A, first);
+    Display(first);
+
+    if (isPalindrome(first)) {
+        cout << "The linked list is a palindrome." << endl;
+    } else {
+        cout << "The linked list is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+
+//output
+// 1-> 2-> 3-> 2-> 1-> 
+// The linked list is a palindrome.
