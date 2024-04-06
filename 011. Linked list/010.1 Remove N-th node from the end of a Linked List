@@ -2,6 +2,9 @@
 //       1. for find length O( n)
 //       2. for search a node O ( n - position)
 //       3. for deleting O( 1)
+//     
+//     so over all time complexity O(2n)
+//    
 //here space complexity -
 //       1. there is no extra space here O( 1 )
 
