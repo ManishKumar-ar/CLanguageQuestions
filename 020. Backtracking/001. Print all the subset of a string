@@ -1,3 +1,8 @@
+// here the below solution is not correct.
+//because for the result it give =>
+// string s ="abcd "  then ===> a b c d ab bc cd abcd           
+
+//so the  below method is wrong
 
 #include <iostream>
 #include <string>
