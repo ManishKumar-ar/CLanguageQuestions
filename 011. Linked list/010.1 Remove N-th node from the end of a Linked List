@@ -1,1 +1,114 @@
+//here time complexity -
+//       1. for find length O( n)
+//       2. for search a node O ( n - position)
+//       3. for deleting O( 1)
+//here space complexity -
+//       1. there is no extra space here O( 1 )
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+Node *DeleteNthNodefromEnd(Node *head, int N)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+    int count = 0;
+    Node *temp = head;
+
+    // Count the number of nodes in the linked list
+    while (temp != NULL)
+    {
+        count++;
+        temp = temp->next;
+    }
+
+    // If N equals the total number of
+    // nodes, delete the head
+    if (count == N)
+    {
+        Node *newhead = head->next;
+        delete (head);
+        return newhead;
+    }
+
+    // Calculate the position of the node to delete (res)
+    int res = count - N;
+    temp = head;
+
+    // Traverse to the node just before the one to delete
+    while (temp != NULL)
+    {
+        res--;
+        if (res == 0)
+        {
+            break;
+        }
+        temp = temp->next;
+    }
+
+    // Delete the Nth node from the end
+    Node *delNode = temp->next;
+    temp->next = temp->next->next;
+    delete (delNode);
+    return head;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 10, 15};
+
+    create(A, first);
+    Display(first);
+    DeleteNthNodefromEnd(first, 3);
+
+    Display(first);
+
+    return 0;
+}
+
+// output
+// 3-> 5-> 7-> 10-> 15-> 
+// 3-> 5-> 10-> 15-> 
 
