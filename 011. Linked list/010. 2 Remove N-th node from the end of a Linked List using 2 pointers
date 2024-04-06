@@ -1,0 +1,89 @@
+// Time Complexity: O(N) since the fast pointer will traverse the entire linked list, where N is the length of the linked list.
+//Space Complexity: O(1), as we have not used any extra space.
+//
+//Note - this technique is much efficient compare to the previous because here we traverse the list only one time, but in the previous we have to traverse the list 2 times
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+} *first = nullptr;
+
+void create(const vector<int> A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last;
+    last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+Node* DeleteNthNodefromEnd(Node* head, int N) {
+    // Create two pointers, fastp and slowp
+    Node* fastp = head;
+    Node* slowp = head;
+
+    // Move the fastp pointer N nodes ahead
+    for (int i = 0; i < N; i++)
+        fastp = fastp->next;
+
+    // If fastp becomes NULL,
+    // the Nth node from the end is the head
+    if (fastp == NULL)
+        return head->next;
+
+    // Move both pointers until fastp reaches the end
+    while (fastp->next != NULL) {
+        fastp = fastp->next;
+        slowp = slowp->next;
+    }
+
+    // Delete the Nth node from the end
+    Node* delNode = slowp->next;
+    slowp->next = slowp->next->next;
+    delete delNode;
+    return head;
+}
+
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {3, 5, 7, 10, 15};
+
+    create(A, first);
+    Display(first);
+    DeleteNthNodefromEnd(first, 3);
+
+    Display(first);
+
+    return 0;
+}
+
+// output
+// 3-> 5-> 7-> 10-> 15-> 
+// 3-> 5-> 10-> 15-> 
