@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void Permutation(string str, string answer)
+{
+    if (str.length()==0)
+    {
+        cout << answer << endl;
+        return;
+    }
+
+    for (int i = 0; i < str.length(); i++)
+    {
+        char current = str[i];
+        string rest = str.substr(0, i) + str.substr(i + 1);
+        Permutation(rest, answer + current);
+    }
+}
+
+int main()
+{
+    string str = "abc";
+    Permutation(str, "");
+    return 0;
+}
+
+//output 
+// abc
+// acb
+// bac
+// bca
+// cab
+// cba
