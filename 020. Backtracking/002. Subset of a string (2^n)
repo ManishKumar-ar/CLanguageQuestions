@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void findString(string str, string answer, int index)
+{
+    if (index == str.length())
+    {
+
+        if (answer.length() == 0)
+        {
+            cout << "Null ";
+        }
+        else
+        {
+            cout << answer << endl;
+            return;
+        }
+    }
+
+    // Include the current character
+    findString(str, answer + str[index], index + 1);
+
+    // Exclude the current character
+    findString(str, answer, index + 1);
+}
+
+int main()
+{
+    string str = "abc";
+    findString(str, "", 0);
+    return 0;
+}
+
+
+//output
+// abc
+// ab
+// ac
+// a
+// bc
+// b
+// c
+// Null 
