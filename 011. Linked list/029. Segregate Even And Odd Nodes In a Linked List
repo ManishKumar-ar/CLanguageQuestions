@@ -1,3 +1,5 @@
+///Traversing the entire linked list once to separate even and odd nodes  --O ( n )
+//The algorithm uses four additional pointers: evenHead, evenTail, oddHead, and oddTail. but these take S(1) only
 
 #include <iostream>
 #include <vector>
