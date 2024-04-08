@@ -1,1 +1,126 @@
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+};
+
+Node *first = nullptr;
+
+void create(const vector<int> &A, Node *&first)
+{
+    if (A.empty())
+        return;
+    first = new Node;
+    first->data = A[0];
+    first->next = nullptr;
+
+    Node *last = first;
+
+    for (int i = 1; i < A.size(); i++)
+    {
+        Node *t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
+    }
+}
+
+Node *separateEvenOdd(Node *head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        // If the list is empty or has only one node, no need for modification
+        return head;
+    }
+
+    Node *evenHead = nullptr, *evenTail = nullptr;
+    Node *oddHead = nullptr, *oddTail = nullptr;
+
+    Node *curr = head;
+
+    while (curr != nullptr)
+    {
+        if (curr->data % 2 == 0)
+        {
+            // Even valued node
+            if (evenHead == nullptr)
+            {
+                evenHead = curr;
+                evenTail = curr;
+            }
+            else
+            {
+                evenTail->next = curr;
+                evenTail = curr;
+            }
+        }
+        else
+        {
+            // Odd valued node
+            if (oddHead == nullptr)
+            {
+                oddHead = curr;
+                oddTail = curr;
+            }
+            else
+            {
+                oddTail->next = curr;
+                oddTail = curr;
+            }
+        }
+        curr = curr->next;
+    }
+
+    // Concatenate even nodes and odd nodes
+    if (evenHead != nullptr)
+    {
+        evenTail->next = oddHead;
+        if (oddTail != nullptr)
+        {
+            oddTail->next = nullptr;
+        }
+        return evenHead;
+    }
+    else
+    {
+        return oddHead;
+    }
+}
+void Display(const Node *p)
+{
+    while (p != nullptr)
+    {
+        cout << p->data << "-> ";
+        p = p->next;
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> A = {1, 8,3,6,5,4};
+    create(A, first);
+   
+
+    cout << "Original List: ";
+    Display(first);
+    
+
+//   separateEvenOdd(first);
+
+    cout << "Modified List: ";
+    Display(separateEvenOdd(first));
+    
+}
+
+// output
+// Original List: 1-> 8-> 3-> 6-> 5-> 4-> 
+// Modified List: 8-> 6-> 4-> 1-> 3-> 5->
