@@ -1,3 +1,4 @@
+//here we do permutation without using recursion.
 #include <iostream>
 #include <string>
 
