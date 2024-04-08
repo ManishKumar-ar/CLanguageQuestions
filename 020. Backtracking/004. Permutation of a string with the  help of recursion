@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void Permutation(string str, int start, int end) {
+    if (start == end) {
+        cout << str << endl;
+        return;
+    }
+
+    for (int i = start; i <= end; i++) {
+        swap(str[start], str[i]); // Swap the characters
+        Permutation(str, start + 1, end); // Recur for the next index
+        swap(str[start], str[i]); // Backtrack: Undo the swap
+    }
+}
+
+int main() {
+    string str = "abc";
+    Permutation(str, 0, str.length() - 1);
+    return 0;
+}
+
+//output
+// abc
+// acb
+// bac
+// bca
+// cba
+// cab
