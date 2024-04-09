@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <climits>
+
+class Solution {
+public:
+    int myAtoi(std::string s) {
+        int sign = 1;
+        int result = 0;
+        int i = 0;
+        int n = s.length();
+        
+        // Skipping white spaces
+        while (i < n && s[i] == ' ')
+            i++;
+        
+        // Checking sign
+        if (i < n && s[i] == '+') {
+            sign = 1;
+            i++;
+        } else if (i < n && s[i] == '-') {
+            sign = -1;
+            i++;
+        }
+        
+        // Processing digits
+     // Processing digits
+while (i < n && '0' <= s[i] && s[i] <= '9') {
+    // Handling overflow and underflow conditions
+    int lastDigit = s[i] - '0';
+    if (result > INT_MAX / 10 || (result == INT_MAX / 10 && lastDigit > INT_MAX % 10)) {
+        return sign == 1 ? INT_MAX : INT_MIN;
+    }
+    result *= 10;
+    result += lastDigit;
+    i++;
+}
+
+        
+        return result * sign;
+    }
+};
+
+int main() {
+    Solution solution;
+    std::string input = "+4d2b";
+    int output = solution.myAtoi(input);
+    std::cout << "Converted integer: " << output << std::endl;
+    return 0;
+}
+//ouput 
+// Converted integer: 4
