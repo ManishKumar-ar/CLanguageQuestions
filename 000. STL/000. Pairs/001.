@@ -1,0 +1,105 @@
+///from here we start our pair topic
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    pair<int, string> p = {10, "krishan"};
+    cout << p.first << " " << p.second;
+}
+
+//output
+// 10 krishan
+
+
+...............................................................
+//another way to write
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    pair<int, string> p ;
+    p = {10, "krishan"};
+    cout << p.first << " " << p.second;
+}
+
+//output
+// 10 krishan
+
+...............................................................
+//another way
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    pair<int, string> p ;
+    p = make_pair(10, "krishan");
+    cout << p.first << " " << p.second;
+}
+
+//output
+// 10 krishan
+
+
+...............................................................
+//some more function
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    pair<int, string> p ;
+    p = {10, "krishan"};
+
+    pair<int, string> &p1 = p ;
+    p1.first=1000;
+
+    cout << p.first << " " << p.second;
+}
+//ouput
+// 1000 krishan
+
+
+
+
+...............................................................
+// how to create an array and how to swap the array elements 
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    pair<int, int> p_array[3];
+
+    p_array[0] = {1, 2};
+    p_array[1] = {2, 3};
+    p_array[2] = {3, 4};
+
+    cout << "Before swap" << endl;
+    for (int i = 0; i < 3; i++)
+    {
+        cout << p_array[i].first << " " << p_array[i].second << endl;
+    }
+
+    swap(p_array[0], p_array[2]);
+
+    cout << "After swap" << endl;
+    for (int i = 0; i < 3; i++)
+    {
+        cout << p_array[i].first << " " << p_array[i].second << endl;
+    }
+}
+
+// output
+//Before swap
+// 1 2
+// 2 3
+// 3 4
+// After swap
+// 3 4
+// 2 3
+// 1 2
