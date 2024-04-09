@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+#include <climits>
+using namespace std;
+double myPow(double x, int n) {
+   
+   double result=1;
+   
+   for(int j=0;j<n;j++)
+   {
+       result *= x;
+   }
+   return result;
+}
+int main()
+{
+int resu=    myPow(2,6);
+    cout<<resu;
+}
+
+//output 
+//64
