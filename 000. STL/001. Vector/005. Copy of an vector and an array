@@ -1,0 +1,92 @@
+// how we can make an copy an array and assign it to another array
+//remember - any change in the copy array does not effect to original array
+
+
+// Note => Copy a vector to another vector is a O( n ) function. so use it carefully.
+
+// timecomplexity = > O( n )
+
+#include <iostream>
+#include <vector>
+#include <array>
+using namespace std;
+int main()
+{
+    
+    array<int, 10> a;
+
+    a = {10, 20, 30, 40, 50, 60, 07, 0, 90, 100};
+
+    for (int i = 0; i < a.size(); i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    array<int, 10> a1 = a;
+
+    for (int i = 0; i < a1.size(); i++)
+    {
+        cout << a1[i] << " ";
+    }
+    cout << endl;
+
+    a[5] = 99;
+    for (int i = 0; i < a1.size(); i++)
+    {
+        cout << a1[i] << " ";
+    }
+    cout << endl;
+
+    for (int i = 0; i < a.size(); i++)
+    {
+        cout << a[i] << " ";
+    }
+    cout << endl;
+}
+
+// output
+//10 20 30 40 50 60 7 0 90 100 
+//10 20 30 40 50 60 7 0 90 100 
+//10 20 30 40 50 60 7 0 90 100 
+//10 20 30 40 50 99 7 0 90 100
+
+
+
+
+
+...........................................................................
+//here we make an copy of an vectopr 
+
+#include <iostream>
+#include <vector>
+#include <array>
+using namespace std;
+
+void printVecotor(vector<int> v)
+{
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> v;
+    v.push_back(7);
+    v.push_back(6);
+
+    vector<int> v1 = v;           /// here we simply assign to it then it become a copy.
+    v1.push_back(5);
+
+    printVecotor(v);
+    printVecotor(v1);
+
+
+}
+
+// output
+// 7 6 
+// 7 6 5 
