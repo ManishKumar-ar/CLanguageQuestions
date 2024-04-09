@@ -1,0 +1,29 @@
+// pop back() function also take constant time O(1) in the vector , becasue it internally maintain a pointer so it return it in contsatn time 
+#include <iostream>
+#include <vector>
+#include <array>
+using namespace std;
+
+void printVecotor(vector<int> v)
+{
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+int main()
+{
+    vector<int> v(10, 1);
+
+    printVecotor(v);
+
+    v.pop_back();
+    
+    printVecotor(v);
+}
+
+// output
+// 1 1 1 1 1 1 1 1 1 1 
+// 1 1 1 1 1 1 1 1 1
