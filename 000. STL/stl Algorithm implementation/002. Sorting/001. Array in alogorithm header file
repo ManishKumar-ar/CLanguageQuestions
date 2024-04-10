@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main()
+{
+ 
+   int arr[5]={10,5,6,8,96};
+
+    sort(arr,arr+5);                              //the time complexity of sort() in stl is O( nlogn )
+
+    for (int i = 0; i < 5; i++)
+        cout << arr[i]<<" ";
+}
+
+// output
+// 5 6 8 10 96 
+
+//note - 
+//the sort function can be impleted by the ----merge sort and ---quick sort
+// the worst time complexity sis  O(n^2).
+
+
+arr + 0 would point to the first element.
+arr + 1 would point to the second element.
+arr + 2 would point to the third element.
+arr + 3 would point to the fourth element.
+arr + 4 would point to the fifth element.
+arr + 5 would point to the element just beyond the fifth element (one past the end of the array).
+So, arr + 5 points to the element after the 5th element of the array, effectively giving us the end iterator for the range we want to sort.
+
+
+
