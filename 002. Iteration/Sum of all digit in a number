@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int countDigits(int numbers)
+{
+    int number = abs(numbers);
+
+    if (abs(number) < 10)
+        return number;
+
+    int result = 0;
+
+    cout << number << endl;
+
+    while (number != 0)
+    {
+        result += number % 10;
+        number = number / 10;
+    }
+    return result;
+}
+
+int main()
+{
+    int num = -12345;
+    cout << "Numbers in digit :" << countDigits(num);
+}
+
+// output
+// 12345
+// Numbers in digit :15
