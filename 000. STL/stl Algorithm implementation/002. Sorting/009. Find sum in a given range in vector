@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
+using namespace std;
+
+int main() {
+    vector<int> vec = {10, 5, 6, 88, 99};
+
+    // Finding the sum of elements in the vector
+    int sum = accumulate(vec.begin(), vec.end(), 0);
+
+    // Printing the sum
+    cout << "Sum of elements: " << sum << endl;
+
+    return 0;
+}
+
+//output
+Sum of elements: 208
