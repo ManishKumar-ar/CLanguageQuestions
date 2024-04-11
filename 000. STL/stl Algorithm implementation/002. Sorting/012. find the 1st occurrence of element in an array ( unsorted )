@@ -1,1 +1,43 @@
 
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int arr[] = {1, 2, 5, 1, 2, 4, 4};
+    int target = 5;
+
+    auto it = find(begin(arr), end(arr), target);
+
+    if (it != end(arr)) {
+        
+        int index = it - begin(arr);
+        cout << "The first occurrence of element " << target << " is at index " << index << "." << endl;
+    } else {
+    
+        cout << "Element " << target << " not found in the array." << endl;
+    }
+
+}
+
+
+//output
+// The first occurrence of element 5 is at index 2.
+
+
+
+//Note
+//address of element (1) ==> 100   <== begin (arr)
+//address of element (2) ==> 101
+//address of element (5) ==> 102   <== it(contain 102 and pointing to index 2)
+//address of element (1) ==> 103
+//address of element (2) ==> 104
+//address of element (4) ==> 105
+//address of element (4) ==> 106
+//address of element (random) ==> 107  <== end(arr)
+
+// int index = it - begin(arr);  ===> 2-0 = 2
+
+
