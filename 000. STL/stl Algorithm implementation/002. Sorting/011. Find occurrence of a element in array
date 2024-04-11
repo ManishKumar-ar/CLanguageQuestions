@@ -9,7 +9,7 @@ int main() {
     int target = 3; 
                                     // Counting the occurrences of the target element in the array
 
-    int counts = count(begin(arr), end(arr), target);
+    int counts = count(arr+0, arr+5, target);
    
   cout << "The element " << target << " appears " << counts << " times in the array." << endl;
 
