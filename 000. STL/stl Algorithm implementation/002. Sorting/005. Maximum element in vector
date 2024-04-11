@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> vec = {10, 5, 6, 88, 99};
+
+                                                      // Finding the iterator pointing to the maximum element
+    auto max_iter = max_element(vec.begin(), vec.end());
+
+                                                     
+    cout << "Maximum element: " << *max_iter << endl;    //here max_iter is a pointer that poiting to the maximum element, so to print it we use dereference operator
+
+    return 0;
+}
+
+//output
+// Maximum element: 99
