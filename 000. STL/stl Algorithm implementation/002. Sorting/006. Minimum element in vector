@@ -1,0 +1,20 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    vector<int> vec = {10, 5, 6, 88, 99};
+
+    // Finding the iterator pointing to the maximum element
+    int element = *min_element(vec.begin(), vec.end());
+
+    
+    cout << "Minimum element: " << element<< endl;
+
+    return 0;
+}
+
+//output
+// Minimum element: 5
