@@ -1,0 +1,24 @@
+#include <iostream>
+#include <algorithm>   ///here we use this header file for count
+
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 3, 2, 1, 3, 3, 4};
+
+    int target = 3; 
+                                    // Counting the occurrences of the target element in the array
+
+    int counts = count(begin(arr), end(arr), target);
+   
+  cout << "The element " << target << " appears " << counts << " times in the array." << endl;
+
+}
+
+
+//output
+// The element 3 appears 4 times in the array.
+
+//note -
+//Time complexity: O(n), where n is the number of elements in the array arr.
+//Space complexity: O(1), 
