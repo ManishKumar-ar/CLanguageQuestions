@@ -1,0 +1,20 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int arr[] = {10, 5, 6, 88, 99};
+
+    // Finding the iterator pointing to the maximum element
+    int element = *max_element(arr + 0, arr + 5);
+
+   
+    cout << "Maximum element: " << element << endl;
+
+    return 0;
+}
+
+//output
+// Maximum element: 99
