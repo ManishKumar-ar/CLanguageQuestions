@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int target = 5;
+
+                                                       // Checking if the target element exists in the sorted vector
+    bool found = binary_search(vec.begin(), vec.end(), target);
+
+    if (found) {
+        cout << "Element " << target << " is present in the vector." << endl;
+    } else {
+        cout << "Element " << target << " is not present in the vector." << endl;
+    }
+
+    return 0;
+}
+//output
+//Element 5 is present in the vector.
+
+
+//Note -
+//binary search work only on the sorted array,
+//return => true when find otherwise it give false.
+//Note -
+//if you don't give the sorted elements then it give wrong result, because binary search work on divides the total elements into half principle
+//
+//time complexity ==> O( log n )  for all the cases
+//space complexity ==> S(1)
