@@ -24,3 +24,16 @@ int main() {
 2 3 1 
 3 1 2 
 3 2 1 
+
+
+
+//Note -
+//here time complexity is - 
+//total permutation = 8 == n!
+//sorting take == n*logn
+//do-while loop run == n! times
+
+//so  time complexity ==>  O(nlogn+n⋅n!)
+//for large n values, nlogn is negigible. so time complexity is O( n * n!)
+
+
