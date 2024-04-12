@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    vector<int> vec = {10, 20, 30, 40, 45, 65, 78, 80, 90};
+    int target = 35;
+
+    auto it = lower_bound(vec.begin(), vec.end(), target);
+
+    cout << "Value at lower bound: " << *it << endl;
+
+    int index = it - vec.begin();
+    cout << "Index: " << index << endl; // Output: Index: 3
+
+    return 0;
+}
+
+// output
+// Value at lower bound: 40
