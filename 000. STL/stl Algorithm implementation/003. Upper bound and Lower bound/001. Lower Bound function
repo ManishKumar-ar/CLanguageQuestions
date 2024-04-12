@@ -1,5 +1,9 @@
 // work only on the sorted elements
-//
+//time complexity is => O( log n )  ==> divide the array into half
+
+//lower bound -. It is used to find the first element in a sorted range that is not less than a specified value. 
+Time Complexity: O(log n): Because std::lower_bound uses binary search, the time complexity is logarithmic in terms of the size of the range
+Space Complexity: O(1):
 
 
 #include <iostream>
