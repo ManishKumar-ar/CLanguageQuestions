@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    vector<int> vec = {10, 20, 30, 40, 45, 65, 78, 80, 90};
+    int target = 45;
+
+
+    if (binary_search(vec.begin(), vec.end(), target) == true)
+    {
+        cout << "Element is found at :" << lower_bound(vec.begin(), vec.end(), target) - vec.begin();
+    }
+    else
+    {
+        cout << "does not exist";
+    }
+
+    return 0;
+}
+
+//note -
+//Here we use 2 algo function and both take time = logn + logn ===> 2 logn
+//how we can write the codee so that we can use onlu one logn 
