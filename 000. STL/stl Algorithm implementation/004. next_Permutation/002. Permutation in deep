@@ -1,0 +1,27 @@
+// ==> 1 indicates that a next permutation exists, and the next permutation of "cba" is "cab".
+//==> In the second case, 0 indicates that there is no next permutation, and the sorted string is "abc".
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    string s ="abc";
+    bool s1 =next_permutation(s.begin(),s.end());
+    cout<<s1<<endl;
+    cout<<s<<endl;
+
+
+    string s2 ="cba";
+    bool s3 =next_permutation(s2.begin(),s2.end());
+    cout<<s3<<endl;
+    cout<<s2;
+}
+
+// output
+// 1
+// acb
+// 0
+// abc
