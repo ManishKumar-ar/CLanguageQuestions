@@ -1,0 +1,29 @@
+//permutation of abc -- 2^3 = 8
+//abc
+//acb
+//bac
+//bca
+//cab
+//cba
+//always note that oder of characters must be same
+//
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+int main()
+{
+    string s ="abc";
+    bool s1 =next_permutation(s.begin(),s.end());
+    cout<<s1<<endl;
+    cout<<s;
+}
+
+// output
+// 1
+// acb
+
+
+//Note ==> if you notice that after "abc", our next permutation is "acb"
+Time Complexity: O(n)
+Space Complexity: O(1)
