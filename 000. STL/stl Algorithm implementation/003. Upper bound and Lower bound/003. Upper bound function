@@ -1,0 +1,31 @@
+ //It is used to find the first element in a sorted range that is greater than a specified value
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    vector<int> vec = {10, 20, 30, 40, 45, 65, 78, 80, 90};
+    int target = 45;
+
+    auto it = upper_bound(vec.begin(), vec.end(), target);
+
+    for (int n : vec)
+        cout << n << " ";
+
+    cout << endl;
+    cout << "value : " << *it << endl;
+
+    int index = it - vec.begin();
+    cout << "Index: " << index << endl;
+
+    return 0;
+}
+
+//output
+10 20 30 40 45 65 78 80 90 
+value : 65
+Index: 5
