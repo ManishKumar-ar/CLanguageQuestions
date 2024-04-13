@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <array>
+#include <algorithm>
+
+using namespace std;
+
+void reverse(array<int, 5> &arr, int i, int n) /// here we have to take an address because we want to chnage in the original array
+{
+    if (i >= n / 2)
+        return;
+
+    swap(arr[i], arr[n - i - 1]);
+    reverse(arr, i + 1, n);
+}
+
+void reverse2(array<int, 5> &arr)                  //iterative approach
+{
+    for (int i = 0, j = arr.size() - 1; i < j; i++, j--)
+
+    {
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
+}
+int main()
+{
+    array<int, 5> arr = {10, 20, 30, 40, 50};
+    reverse(arr, 0, 5);
+
+    cout << arr[0];
+    cout << arr[1];
+    cout << arr[2];
+    cout << arr[3];
+    cout << arr[4];
+}
+
+// output
+// 5040302010
