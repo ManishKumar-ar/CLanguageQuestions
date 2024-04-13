@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+void fun(string str, int n)
+{
+    if (n == 0)
+        return;
+    cout <<n<<". " <<str << endl;
+
+    fun(str, n - 1);
+}
+int main()
+{
+    string str = "Mansi";
+    fun(str, 10);
+}
+
+//output
+// 10. Mansi
+// 9. Mansi
+// 8. Mansi
+// 7. Mansi
+// 6. Mansi
+// 5. Mansi
+// 4. Mansi
+// 3. Mansi
+// 2. Mansi
+// 1. Mansi
