@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+#include <array>
+#include <algorithm>
+
+using namespace std;
+
+bool palindromeiterative(string str, int i, int n)
+{
+    while (i <= n / 2)
+    {
+        if (str[i] != str[n - i - 1])
+            return false;
+        i++;
+    }
+
+    return true;
+}
+
+bool palindromeRecursive(string str, int i, int n)
+{
+    if (i <= n / 2)
+        return true;
+
+    if (str[i] != str[n - i - 1])
+        return false;
+
+    palindromeRecursive(str, i + 1, n);
+}
+
+int main()
+{
+    string str = "abcba";
+
+    bool result = palindromeRecursive(str, 0, 5);
+    if (result)
+        cout << "Palindrome";
+    else
+        cout << "Not paliondrome";
+}
+
+// output
+// Palindrome
