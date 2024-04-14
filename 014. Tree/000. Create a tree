@@ -1,5 +1,5 @@
 //time complexity for creation of the tree is = 2n + 1 ==> O( n )
-//n ==> internal node + n ==> external node  + 1
+//n ==> internal node + n ==> external node  + 1 (for null level)
 // for n = 7, there are 15 activation record.
 //size of stack ==> height + 2 
 
