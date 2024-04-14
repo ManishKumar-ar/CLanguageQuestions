@@ -1,1 +1,38 @@
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+int main() {
+    
+    queue<int> q;
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.push(40);
+    q.push(50);
+
+  
+    cout << "Size of queue: " << q.size() << endl;
+
+    cout << "Front element: " << q.front() << endl;
+
+    cout << "Back element: " << q.back() << endl;
+
+    cout << "Elements of queue: ";
+    while (!q.empty()) {
+        cout << q.front() << " ";
+        q.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+//output
+Size of queue: 5
+Front element: 10
+Back element: 50
+Elements of queue: 10 20 30 40 50
 
