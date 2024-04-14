@@ -1,1 +1,24 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+int main()
+{
+    stack<int> mystack;
+    mystack.push(5);
+    mystack.push(65);
+    mystack.push(58);
+    mystack.push(35);
+    mystack.push(25);
 
+    cout << "Size of the stack :" << mystack.size() << endl;
+
+    while (!mystack.empty())
+    {
+        cout << mystack.top() << " ";
+        mystack.pop();
+    }
+}
+
+//output
+// Size of the stack :5
+// 25 35 58 65 5 
