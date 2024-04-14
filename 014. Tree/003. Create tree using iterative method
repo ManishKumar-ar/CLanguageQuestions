@@ -1,1 +1,107 @@
+#include <iostream>
+#include <queue>
+#include <stack>
 
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *lchild;
+    Node *rchild;
+
+} *root = new Node;
+void create()
+{
+    int data;
+    Node *next, *p, *temp;
+    int x;
+
+    queue<Node *> q;
+    cout << "Enter root elements :";
+    cin >> x;
+
+    root = new Node;
+    root->data = x;
+    root->lchild = root->rchild = 0;
+    q.push(root);
+
+    while (!q.empty())
+    {
+
+        p = q.front();
+        q.pop();
+
+        cout << "Enter left child of :" << p->data << ": ";
+        cin >> x;
+
+        if (x != -1)
+        {
+            temp = new Node;
+            temp->data = x;
+            temp->lchild = 0;
+            temp->rchild = 0;
+            p->lchild = temp;
+            q.push(temp);
+        }
+
+        cout << "Enter right child of:" << p->data << ": ";
+        cin >> x;
+
+        if (x != -1)
+        {
+            temp = new Node;
+            temp->data = x;
+            temp->lchild = 0;
+            temp->rchild = 0;
+            p->rchild = temp;
+            q.push(temp);
+        }
+    }
+}
+
+void preorder(Node *p)
+{
+    stack<Node *> stk;
+
+    while (p != NULL || !stk.empty())
+    {
+        if (p != NULL)
+        {
+            cout << p->data;
+            stk.push(p);
+            p = p->lchild;
+        }
+        else
+        {
+            p = stk.top();
+            stk.pop();
+            p = p->rchild;
+        }
+    }
+}
+
+int main()
+{
+    create();
+    preorder(root);
+}
+
+//ouput
+// Enter root elements :8
+// Enter left child of :8: 3
+// Enter right child of:8: 5
+// Enter left child of :3: 4
+// Enter right child of:3: 9
+// Enter left child of :5: 7
+// Enter right child of:5: 2
+// Enter left child of :4: -1
+// Enter right child of:4: -1
+// Enter left child of :9: -1
+// Enter right child of:9: -1
+// Enter left child of :7: -1
+// Enter right child of:7: -1
+// Enter left child of :2: -1
+// Enter right child of:2: -1
+// 8 3 4 9 5 7 2 
