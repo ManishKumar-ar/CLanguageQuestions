@@ -1,0 +1,35 @@
+#include <iostream>
+#include <array>
+using namespace std;
+
+int upperbound(array<int, 8> arr, int target) {
+    int size = arr.size();
+    for (int i = 0; i < size; ++i) {
+        if (target < arr[i])
+            return i;
+    }
+    // If target is greater than all elements in the array
+    return size;
+}
+
+int lowerbound(array<int, 8> arr, int target) {
+    int size = arr.size();
+    for (int i = 0; i < size; ++i) {
+        if (target <= arr[i])
+            return i;
+    }
+    // If target is greater than all elements in the array
+    return size;
+}
+
+int main() {
+    array<int, 8> arr = {10, 20, 30, 50, 50, 70, 70, 80};
+    int ub = upperbound(arr, 50);
+    cout << "index: " << ub << endl;
+    int lb = lowerbound(arr, 50);
+    cout << "index: " << lb << endl;
+    return 0;
+}
+//output
+//index: 5
+//index: 3
