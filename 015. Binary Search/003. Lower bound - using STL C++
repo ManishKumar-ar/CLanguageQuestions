@@ -1,1 +1,19 @@
+#include <iostream>
+#include <array>
+#include <algorithm>
 
+using namespace std;
+int main()
+{
+    array<int, 8> arr = {10, 20, 50, 60, 70, 80, 90, 100};
+
+    int index1 = lower_bound(arr.begin(), arr.end(), 55) - arr.begin();
+    cout << "Index1: " << index1 << endl;
+
+    int index2 = lower_bound(arr.begin() + 2, arr.begin() + 5, 55) - (arr.begin() + 2);
+    cout << "Index2: " << index2 << endl;
+}
+
+//output
+// Index1: 3
+// Index2: 1
