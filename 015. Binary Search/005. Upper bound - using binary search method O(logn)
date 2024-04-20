@@ -1,1 +1,30 @@
+#include <iostream>
+#include <array>
+using namespace std;
+int upperbound(array<int, 8> arr, int target, int low, int high)
+{
+    int answer = arr.size();
+    while (low <= high)
+    {
+        int mid = low - (low - high) / 2;
+        if (target < arr[mid])
+        {
+            high = mid - 1;
+            answer = mid;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+    return answer;
+}
+int main()
+{
+    array<int, 8> arr = {10, 20, 30, 50, 50, 70, 70, 80};
+    int ub = upperbound(arr, 50, 0, 7);
+    cout << "indxe: " << ub;
+}
 
+// output
+//  indxe: 5
