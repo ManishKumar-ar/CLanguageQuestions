@@ -1,0 +1,23 @@
+#include <iostream>
+#include <array>
+#include <algorithm>
+
+using namespace std;
+int main()
+{
+    array<int, 8> arr = {10, 20, 50, 60, 70, 80, 90, 100};
+
+    int index1 = upper_bound(arr.begin(), arr.end(), 50) - arr.begin();
+    cout << "Index1: " << index1 << endl;
+
+    int index3 = upper_bound(arr.begin(), arr.end(), 50) - arr.begin();
+    cout << "Index1: " << index3 << endl;
+
+    int index2 = upper_bound(arr.begin() + 2, arr.begin() + 5, 50) - (arr.begin() + 2);
+    cout << "Index2: " << index2 << endl;
+}
+
+//output
+// Index1: 3
+// Index1: 3
+// Index2: 1
