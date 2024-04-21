@@ -1,0 +1,28 @@
+//in this we direclty uses the - STL C++ functions
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int count(vector<int>& arr, int n, int x) {
+    int lb = lower_bound(arr.begin(), arr.end(), x) - arr.begin();
+    int ub = upper_bound(arr.begin(), arr.end(), x) - arr.begin();
+
+    if (lb == n) return 0; // If lower bound is equal to the size, 'x' doesn't exist
+    return ub - lb; // Subtract 1 to correct the count of occurrences
+}
+
+int main() {
+    vector<int> arr = {1, 1, 1, 2, 2, 3, 3};
+    int n = arr.size();
+    int x = 3;
+
+    int occurrences = count(arr, n, x);
+
+    cout << "Total occurrences of " << x << " in the array: " << occurrences << endl;
+
+    return 0;
+}
+//output
+//Total occurrences of 3 in the array: 2
