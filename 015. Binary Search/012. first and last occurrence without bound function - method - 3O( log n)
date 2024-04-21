@@ -1,0 +1,79 @@
+// in this we simply write the binary search algo for individually first and last occurrence function
+//time complexity of both is => O(logn) 
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int firstOccurence(vector<int> vec, int target)
+{
+    int low = 0;
+    int high = vec.size() - 1;
+    int first = -1;
+
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+
+        if (vec[mid] == target)
+        {
+            first = mid;
+            high = mid -1;
+        }
+        else if (vec[mid] > target)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+
+    return first;
+}
+int lastOccurence(vector<int> vec, int target)
+{
+    int low = 0;
+    int high = vec.size() - 1;
+    int first = -1;
+
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+
+        if (vec[mid] == target)
+        {
+            first = mid;
+            low = mid +1;
+        }
+        else if (vec[mid] > target)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+
+    return first;
+}
+
+pair<int, int> firstandlastOccurrence(vector<int> vec, int n, int k)
+{
+    int first =firstOccurence(vec, k);
+    if(first == -1) return {-1,-1};
+    int last= lastOccurence(vec, k);
+    return {first, last};
+
+}
+int main()
+{
+    vector<int> vec = {2, 8, 8, 8, 8, 8, 11, 13};
+    pair<int , int>result = firstandlastOccurrence( vec,8 ,8);
+    cout<<"Range of 8 is: "<<result.first<<"  "<<result.second;
+}
+
+//output 
+// Range of 8 is: 1  5
