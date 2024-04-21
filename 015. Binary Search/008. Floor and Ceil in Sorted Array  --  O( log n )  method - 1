@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+#include <utility> // for std::pair
+using namespace std;
+
+pair<int, int> getFloorAndCeil(vector<int> &arr, int n, int x) {
+    int high = n - 1;
+    int low = 0;
+    int floor = -1; // Initialize with -1 as there might not be a floor
+    int ceil = -1;  // Initialize with -1 as there might not be a ceiling
+
+    while (low <= high) {
+        int mid = (low + high) / 2;
+
+        if (arr[mid] >= x) {
+            ceil = arr[mid];
+            high = mid - 1; // Move to the left to find floor
+        } else {
+            floor = arr[mid];
+            low = mid + 1; // Move to the right to find ceil
+        }
+    }
+
+    // If ceil is equal to 'x', then it is both ceil and floor
+    if (ceil == x)
+        return make_pair(ceil, ceil);
+    else
+        return make_pair(floor, ceil);
+}
+
+
+int main() {
+    vector<int> arr = {3, 4, 7, 8, 8, 10};
+    int n = arr.size();
+    int x = 5;
+
+    pair<int, int> floorAndCeil = getFloorAndCeil(arr, n, x);
+
+    cout << "Floor of " << x << ": " << floorAndCeil.first << endl;
+    cout << "Ceiling of " << x << ": " << floorAndCeil.second << endl;
+
+    return 0;
+}
+
+
+//output
+// Floor of 5: 4
+// Ceiling of 5: 7
