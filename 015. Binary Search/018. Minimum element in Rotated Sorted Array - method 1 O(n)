@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int findMin(vector<int> &arr)
+{
+    int min = arr[0];
+    for (int i = 0; i < arr.size() - 1; i++)
+    {
+        if (arr[i + 1] < min)
+        {
+            min = arr[i + 1];
+        }
+    }
+    return min;
+}
+
+int main()
+{
+    vector<int> vec = {50, 60, 70, 10, 20, 30, 40};
+    int result = findMin(vec);
+    cout << "Minimum element is: " << result;
+}
+
+//output
+// Minimum element is: 10
