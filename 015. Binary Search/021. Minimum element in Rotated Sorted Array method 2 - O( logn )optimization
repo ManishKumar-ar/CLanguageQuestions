@@ -1,0 +1,44 @@
+// this code is more optimization compare to 020(previous one)
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+int findMin(vector<int> &arr) {
+  int low = 0;
+  int high = arr.size() - 1;
+  int mini = INT32_MAX;
+
+
+  while (low <= high) {
+    int mid = (low + high) / 2;
+
+    if(arr[low]<= arr[high])
+    {
+        mini = min(mini, arr[low]);
+        break;
+    }
+
+    if (arr[low] <= arr[mid]) {
+
+      mini = min(mini,arr[low]);
+      low = mid + 1;
+
+    } else {
+      high = mid - 1;
+      mini = min(mini,arr[mid]);
+    }
+  }
+  return mini;
+}
+
+int main()
+{
+    vector<int> vec = {50, 60, 70, 10, 20, 30, 40};
+    int result = findMin(vec);
+    cout << "Minimum element is: " << result;
+}
+
+//output
+// Minimum element is: 10
