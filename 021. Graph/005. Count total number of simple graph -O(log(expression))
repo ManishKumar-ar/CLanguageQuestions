@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>   // we use it for power() 
 using namespace std;
 const int MOD = 1e9 + 7;
 long long modularExponentiation(long long base, long long exp, const int &MOD)
