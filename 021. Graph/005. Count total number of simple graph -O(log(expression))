@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int MOD = 1e9 + 7;
+long long modularExponentiation(long long base, long long exp, const int &MOD)
+{
+    long long result = pow(2, exp);
+
+    return result;
+}
+
+long long countDistinctGraphs(int vertices)
+{
+
+    // Maximum number of edges for a
+    // graph with n vertices
+    long long maxEdges = vertices * (vertices - 1) / 2;
+
+    // Calculate (2^maxEdges) % MOD
+    return modularExponentiation(2, maxEdges, MOD);
+}
+
+
+int main()
+{
+    int vertices = 4;
+
+    cout << "Number of distinct graphs with " << vertices << " vertices: ";
+    cout << countDistinctGraphs(vertices);
+
+    return 0;
+}
+
+//output
+// Number of distinct graphs with 4 vertices: 64
