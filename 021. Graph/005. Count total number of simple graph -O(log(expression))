@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 const int MOD = 1e9 + 7;
 long long modularExponentiation(long long base, long long exp, const int &MOD)
