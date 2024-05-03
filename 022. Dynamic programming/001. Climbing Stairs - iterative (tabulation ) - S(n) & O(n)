@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    int climbStairs(int n) {
+       
+        if (n == 0)
+            return 1;    // (There is only one way to reach the 0th stair, which is by not climbing any steps
+        if (n == 1)
+            return 1;
+
+        int arr[n+1];
+        arr[0] = 1;
+        arr[1] = 1;
+
+       
+        for (int i = 2; i <= n; i++) {
+            arr[i] = arr[i - 1] + arr[i - 2];
+        }
+
+        return arr[n];
+    }
+};
+
+int main() {
+    Solution sol;
+    int n;
+    cout << "Enter the number of stairs: ";
+    cin >> n;
+    cout << "Total number of distinct ways to reach the " << n << "th stair: " << sol.climbStairs(n) << endl;
+    return 0;
+}
+
+
+//output
+Enter the number of stairs: 5
+Total number of distinct ways to reach the 5th stair: 8
