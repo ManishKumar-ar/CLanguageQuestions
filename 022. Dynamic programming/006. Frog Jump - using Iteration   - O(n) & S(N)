@@ -1,4 +1,7 @@
 
+#include <iostream>
+#include <vector>
+using namespace std;
 
 
 int frogJump(int n, vector<int> &height)
@@ -17,3 +20,17 @@ int frogJump(int n, vector<int> &height)
     return dp[n-1];
    
 }
+int main()
+{
+    // Example usage
+    vector<int> height = {10, 30, 40, 20};
+
+    int n = height.size();
+    cout << "Minimum energy required: " << frogJump(n, height) << endl;
+    return 0;
+}
+
+//output
+// Minimum energy required: 30
+
+
