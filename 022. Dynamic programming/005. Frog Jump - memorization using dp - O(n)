@@ -1,0 +1,35 @@
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int f(int index, vector<int> &height, vector<int> &dp)
+{
+    if (index == 0)
+        return 0;
+    if (dp[index] != -1)
+        return dp[index];
+    int left = f(index - 1, height, dp) + abs(height[index] - height[index - 1]);
+    int right = INT32_MAX;
+    if (index > 1)
+        right = f(index - 2, height, dp) + abs(height[index] - height[index - 2]);
+
+    return dp[index] = min(left, right);
+}
+int frogJump(int n, vector<int> &height)
+{
+    vector<int> dp(n + 1, -1);
+    return f(n - 1, height, dp);
+}
+int main()
+{
+    // Example usage
+    vector<int> height = {10, 30, 40, 20};
+
+    int n = height.size();
+    cout << "Minimum energy required: " << frogJump(n, height) << endl;
+    return 0;
+}
+
+//output
+// Minimum energy required: 30
