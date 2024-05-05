@@ -1,5 +1,6 @@
 //armstrong - sum of individually cube of the digit is = = to the number
 
+
 // note
 #include <iostream>
 using namespace std;
