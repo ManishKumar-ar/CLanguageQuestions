@@ -8,6 +8,7 @@ void findString(string str, string answer, int index)
     if (index == str.length())
     {
 
+
         if (answer.length() == 0)
         {
             cout << "Null ";
