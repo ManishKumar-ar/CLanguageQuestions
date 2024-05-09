@@ -6,6 +6,7 @@ int main()
 {
     int n;
     do
+
     {
         cout << "\nenter a number  ";
         cin >> n;
