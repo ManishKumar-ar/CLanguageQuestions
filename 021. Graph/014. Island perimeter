@@ -1,0 +1,68 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    int m, n;
+    int perimeter;
+
+    void dfs(vector<vector<int>>& grid, int i, int j, int delrow[], int delcol[]) {
+        grid[i][j] = -1;  // Mark the cell as visited
+        int n = grid.size();
+        int m = grid[0].size();
+
+        for (int k = 0; k < 4; k++) {
+            int neighrow = i + delrow[k];
+            int neighcol = j + delcol[k];
+
+            if (neighrow >= 0 && neighrow < n && neighcol >= 0 && neighcol < m) {
+                if (grid[neighrow][neighcol] == 0) {
+                    perimeter++;
+                } else if (grid[neighrow][neighcol] == 1) {
+                    dfs(grid, neighrow, neighcol, delrow, delcol);
+                }
+            } else {
+                perimeter++;  // If the neighboring cell is out of bounds, it's considered as water
+            }
+        }
+    }
+
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int delrow[] = { -1, 0, +1, 0 };
+        int delcol[] = { 0, +1, 0, -1 };
+
+        m = grid.size();
+        n = grid[0].size();
+        perimeter = 0;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) {
+                    dfs(grid, i, j, delrow, delcol);
+                    return perimeter;
+                }
+            }
+        }
+
+        return 0;
+    }
+};
+
+int main() {
+    vector<vector<int>> grid = {
+        {0, 1, 0, 0},
+        {1, 1, 1, 0},
+        {0, 1, 0, 0},
+        {1, 1, 0, 0}
+    };
+
+    Solution sol;
+    int result = sol.islandPerimeter(grid);
+    cout << "Island Perimeter: " << result << endl;
+
+    return 0;
+}
+
+//output
+// Island Perimeter: 16
