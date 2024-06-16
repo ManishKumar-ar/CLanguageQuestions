@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int perimeter = 0;
+        int rows = grid.size();
+        int cols = grid[0].size();
+        
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == 1) { // Found a land cell
+                    perimeter += 4; // Add 4 for each land cell
+                    
+                    // Check the cell above
+                    if (r > 0 && grid[r-1][c] == 1) {
+                        perimeter -= 2; // Subtract 2 if the cell above is also land
+                    }
+                    // Check the cell to the left
+                    if (c > 0 && grid[r][c-1] == 1) {
+                        perimeter -= 2; // Subtract 2 if the cell to the left is also land
+                    }
+                }
+            }
+        }
+        
+        return perimeter; // Return the computed perimeter
+    }
+};
+
+int main() {
+    Solution solution;
+
+    // Define the grid
+    vector<vector<int>> grid = {
+        {0, 1, 0, 0},
+        {1, 1, 1, 0},
+        {0, 1, 0, 0},
+        {1, 1, 0, 0}
+    };
+
+    // Call the islandPerimeter function
+    int result = solution.islandPerimeter(grid);
+
+    // Output the result
+    cout << "The perimeter of the island is: " << result << endl;
+
+    return 0;
+}
