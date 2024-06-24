@@ -8,7 +8,7 @@ class Solution {
  private:
     bool detect(int source, vector<int> adj[], int vis[])
     {
-        vis[source] =2;
+        vis[source] = 1;
         queue<pair<int, int>> q;
         q.push({source,-1});
         
