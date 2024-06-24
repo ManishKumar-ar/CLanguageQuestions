@@ -72,13 +72,13 @@ int main() {
     adj[3].push_back(4);
     adj[4].push_back(3);
 
-    adj[4].push_back(1);  // This edge creates a cycle
+    adj[4].push_back(1);  
     adj[1].push_back(4);
 
-    // Create an instance of the Solution class
+
     Solution sol;
 
-    // Call the isCycle method and print the result
+  
     if (sol.isCycle(V, adj)) {
         cout << "Graph contains cycle" << endl;
     } else {
