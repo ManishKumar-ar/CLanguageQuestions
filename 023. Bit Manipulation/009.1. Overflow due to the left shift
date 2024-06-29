@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cstdint>
+#include <limits>
+
+using namespace std;
+
+int main() {
+    int16_t a = INT16_MAX;
+    int16_t b = 1;
+    int16_t result = a << b;
+
+    cout << "Left shift operation result : " << result << endl;
+
+    // Check for overflow
+    if (result < a) {
+        cout << "Overflow occurred!" << endl;
+    }
+
+    return 0;
+}
+
+
+//output
+//Left shift operation result : -2
+//Overflow occurred!
+
+
+
+// The output is -2 because of the overflow. 
+// The binary representation of 65534 is 1111111111111110, but as a 16-bit signed integer, it is interpreted as -2.
+//  The overflow is detected by the comparison, and the program informs the user of the overflow.
