@@ -1,0 +1,23 @@
+//for the XOR
+//1 1 0 1
+//0 1 1 1
+//result => 1 0 1 0  <== 10
+
+//when there is 1 1 => that's means number of 1 is even so the overall result is 0
+//when the number of 1 is odd then the result is => 1
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a = 13;
+    int b = 7;
+     
+    cout<<"XOR operations result : ";
+    cout<<(a^b);
+}
+
+//output
+// XOR operations result : 10
+
