@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstdint>
+#include <limits>
+
+using namespace std;
+
+int main() {
+    int16_t a_min = INT16_MIN;
+    int16_t b = 1;
+
+    int16_t result_min = a_min << b;
+
+    cout << "Left shift operation result for INT16_MIN: " << result_min << endl;
+    if (result_min > a_min) {
+        cout << "Overflow occurred for INT16_MIN!" << endl;
+    }
+
+    return 0;
+}
+
+
+//output
+//Left shift operation result for INT16_MIN: 0
+//Overflow occurred for INT16_MIN!
+
+//For INT16_MIN: The value -32768 << 1 results in -65536, but due to overflow, it is interpreted as 0 in a 16-bit signed integer.
+//The program detects this overflow by comparing the result with a_min, and since 0 is greater than -32768, it correctly reports that overflow occurred.
