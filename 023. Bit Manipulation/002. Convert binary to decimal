@@ -1,1 +1,56 @@
+#include <iostream>
+#include <string>
+#include <cmath> // For pow function
+
+using namespace std;
+
+int convertdecimal(string x) {
+    int num = 0;
+    int len = x.length();
+
+    for (int i = 0; i < len; i++) {
+        if (x[len - 1 - i] == '1') {
+            num += pow(2, i);
+        }
+    }
+    return num;
+}
+
+int main() {
+    string s = "1101";
+    int result = convertdecimal(s);
+    cout << result;
+
+    return 0;
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#include <iostream>
+#include <string>
+#include <cmath> // For pow function
+
+using namespace std;
+
+int convertdecimal(string x) {
+    int num = 0;
+    int len = x.length();
+
+    for (int i = len - 1; i >= 0; i--) {
+        if (x[i] == '1') {
+            num += pow(2, len - 1 - i); // Use len - 1 - i to get the correct power of 2
+        }
+    }
+    return num;
+}
+
+int main() {
+    string s = "1101";
+    int result = convertdecimal(s);
+    cout << result;
+
+    return 0;
+}
 
