@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a = 13;
+    int b = 1;
+     
+    cout<<"left shift operations result : ";
+    cout<<(a>>b);
+}
+
+//output
+// left shift operations result : 6
+
