@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a = 13;
+    int b = 7;
+     
+    cout<<"AND operations result : ";
+    cout<<(a&b);
+}
+
+//output
+AND operations result : 5
