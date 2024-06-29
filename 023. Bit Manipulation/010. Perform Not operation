@@ -1,1 +1,28 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a = ~(5);
+    cout<<"NOT operation result : ";
+    cout<<a;
+}
+
+//output
+// NOT operation result : -6
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///on negative number
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a =~(-6);
+    cout<<"NOT operation result : ";
+    cout<<a;
+}
+
+//output
+// NOT operation result : 5
 
