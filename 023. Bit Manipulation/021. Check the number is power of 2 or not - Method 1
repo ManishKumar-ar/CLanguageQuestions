@@ -13,5 +13,6 @@ int main()
     powercheck(n);
 }
 
+
 //output
 // not power of 2
