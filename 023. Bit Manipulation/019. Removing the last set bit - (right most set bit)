@@ -1,0 +1,17 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void lastbitremove( int n)
+{
+    int x = n-1;
+    int result = n & x;
+    cout<<"After removing the result is " <<result;
+}
+int main() {
+    
+    int n = 18;
+    lastbitremove(n);
+}
+
+//output
+// After removing the result is 16
