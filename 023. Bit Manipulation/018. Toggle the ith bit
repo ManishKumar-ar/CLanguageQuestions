@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int set(int n, int i)
+{
+   
+  int x = 1<<i;
+  int result = n ^ x;
+ 
+  return result;
+    
+}
+
+int main() {
+  
+  int n = 13;
+  
+ int result =  set(13,2);
+ 
+  cout<<"Value after the bit is clear : "<<result;
+  
+}
+
+output
+Value after the bit is clear : 9
+
