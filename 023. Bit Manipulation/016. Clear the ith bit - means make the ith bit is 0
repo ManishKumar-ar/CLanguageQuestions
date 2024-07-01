@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int clearBit(int n, int i) {
+    int mask = ~(1 << i);
+    int result = n & mask;
+    return result;
+}
+
+int main() {
+    int n = 13;
+    int result = clearBit(n, 2);
+    cout << "Value after the bit is cleared: " << result << endl;
+    return 0;
+}
+
+
+//output
+//Value after the bit is clear : 9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////
+///meehtod 
