@@ -20,16 +20,20 @@ int main() {
 
 
 
+//Clear
+//"Clearing" a bit means setting it to 0 regardless of its current state:
+
+//If the bit is 1, it becomes 0.
+//If the bit is already 0, it remains 0.
+
+
+Toggle
+"Toggling" a bit means flipping its state:
+
+If the bit is 0, it becomes 1.
+If the bit is 1, it becomes 0.
 
 
 
 
 
-
-
-
-
-
-
-////////////////////////////////////////
-///meehtod 
