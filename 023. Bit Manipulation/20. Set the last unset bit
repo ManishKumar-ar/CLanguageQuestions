@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+int setBit(int n) 
+{
+       int x = n+1;
+       return x |n;
+     
+}
+int main() {
+    
+    int n = 6;
+   int result = setBit(n);
+   cout<<"after set the last unset bit : "<<result;
+}
+
+//output
+// after set the last unset bit : 7
