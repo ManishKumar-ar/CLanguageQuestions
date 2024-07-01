@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int set(int n, int i)
+{
+   int result = (n>>i) & 1;
+   
+   return result;
+    
+}
+
+int main() {
+  
+  int n = 13;
+  
+ int result =  set(13,2);
+ 
+ if(result)  cout<<"Bit is set";
+ 
+ else cout<<"bit is not set";
+  
+}
+
+
+//output
+// Bit is set
