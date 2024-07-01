@@ -1,3 +1,9 @@
+//Toggle
+//"Toggling" a bit means flipping its state:
+
+//If the bit is 0, it becomes 1.
+//If the bit is 1, it becomes 0.
+
 #include <iostream>
 using namespace std;
 int set(int n, int i)
