@@ -54,3 +54,36 @@ int main() {
     return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////more simple code
+///////////////////////////////////////////////////////////////////////////////////////
+class Solution
+{
+      int binary_to_decimal(string str) {
+        int ans = 0;
+        int pw = 1;  // Power of 2, starts from 2^0 = 1
+        int leng = str.length();
+
+        while (leng > 0) {
+            leng--;  // Decrement length to use as index
+            if (str[leng] == '1') {
+                ans += pw;
+            }
+            pw *= 2;  // Move to the next power of 2
+        }
+
+        return ans;
+    }
+};
