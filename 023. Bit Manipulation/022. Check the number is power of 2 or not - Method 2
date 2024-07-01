@@ -1,0 +1,57 @@
+string oddEven(int N){
+      int x = N-1;
+      if(x&N==0) return "even";
+      else return "odd";
+} 
+
+string oddEven(int N){
+      int x = N-1;
+      if(x&N) return "odd";
+      else return "even";
+} 
+
+
+//the above second code is correct
+//question - whats the problem with the 1st code
+//solution - 
+//In C++, the & operator has lower precedence than ==, so x & N == 0 is evaluated as x & (N == 0), not (x & N) == 0.
+//This means that in the first code, N == 0 is evaluated first, which results in either true (1) or false (0). 
+//Then, the bitwise AND of x and 1 or 0 is computed, which is not the intended logic.
+
+//this is the correct code
+
+string oddEven(int N){
+    int x = N-1;
+    if((x & N) == 0) return "even";
+    else return "odd";
+}
+
+
+
+
+#include<iostream>
+using namespace std;
+
+string oddEven(int N){
+    int x = N-1;
+    if((x & N) == 0) return "even";
+    else return "odd";
+}
+
+int main()
+{
+    int n = 13;
+    string result = oddEven(n);
+    cout<<"result is : "<<result;
+}
+
+//output 
+result is : odd
+
+
+
+
+
+
+
+
