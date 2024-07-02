@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+void powercheck(int n)
+{
+   int x = __builtin_popcount(n);
+   cout<<x;
+}
+int main()
+{
+    int n = 13;
+    powercheck(n);
+}
+
+// output
+// 3
