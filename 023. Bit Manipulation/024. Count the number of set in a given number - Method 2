@@ -22,3 +22,9 @@ int main()
 
 // output
 // 3
+
+
+
+//note
+//        ( low  + high ) / 2 
+/// the faster version is => (low + high ) >>1
