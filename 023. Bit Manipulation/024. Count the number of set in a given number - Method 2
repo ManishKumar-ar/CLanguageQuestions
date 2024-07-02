@@ -5,8 +5,8 @@ void powercheck(int n)
     int count = 0;
     while (n != 1)
     {
-        count += n & 1;
-        n = n >> 1;
+        count += n & 1;                 //smart programmer, don't write the if(n%2==1). because it is work faster.
+        n = n >> 1;                    /// this is same as n = n/2;
     }
 
     if (n == 1)
