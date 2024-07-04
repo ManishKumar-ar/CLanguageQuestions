@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& vec) {
+        int n = vec.size();
+        int NumberOfSubset = 1 << n; // Total number of subsets (2^n)
+        vector<vector<int>> ans; // To store all subsets
+
+        for (int num = 0; num < NumberOfSubset; num++) {
+            vector<int> subal;
+            for (int i = 0; i < n; i++) {
+                if (num & (1 << i)) {
+                    subal.push_back(vec[i]);
+                }
+            }
+            ans.push_back(subal);
+        }
+
+        return ans;
+    }
+};
+
+int main() {
+    Solution solution;
+    vector<int> vec = {1, 2, 3};
+    vector<vector<int>> result = solution.subsets(vec);
+
+    // Print the result
+    for (const auto& subset : result) {
+        cout << "{ ";
+        for (const auto& elem : subset) {
+            cout << elem << " ";
+        }
+        cout << "}" << endl;
+    }
+
+    return 0;
+}
