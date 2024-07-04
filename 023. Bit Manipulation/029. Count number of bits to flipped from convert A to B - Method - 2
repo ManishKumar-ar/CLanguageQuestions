@@ -1,0 +1,29 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int count(int n)
+{
+    int cnt = 0;
+    while(n!=1)
+    {
+        if(n%2==1) cnt++;
+        n=n/2;
+        
+    }
+    
+    if(n==1) cnt++;
+    return cnt;
+}
+void miniFlip(int a, int b)
+{
+    int resi  = a^b;
+    int res2 = count(resi);
+    cout<<res2;
+}
+
+int main() {
+    
+    int start = 10;
+    int goal = 7;
+    miniFlip(start, goal);
+}
