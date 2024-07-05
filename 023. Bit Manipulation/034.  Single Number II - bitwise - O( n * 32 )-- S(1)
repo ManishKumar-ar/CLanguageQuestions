@@ -1,1 +1,51 @@
+#include <iostream>
+#include <vector>
+using namespace std;
 
+int findFirstUnique(vector<int> nums)
+{
+    int ans = 0;
+    int n = nums.size();
+
+    // Iterate over each bit position (from 0 to 30 for 32-bit integers)
+    for (int bitindex = 0; bitindex < 31; ++bitindex)
+    {
+        int count = 0;
+        
+        // Count occurrences of set bits at bitindex position in nums array
+        for (int i = 0; i < n; ++i)
+        {
+            if (nums[i] & (1 << bitindex))
+            {
+                count++;
+            }
+        }
+
+        // If count % 3 == 1, it means the bit at bitindex is unique
+        if (count % 3 == 1)
+        {
+            ans = ans | (1 << bitindex);
+        }
+    }
+
+    return ans;
+}
+
+int main()
+{
+    vector<int> vec = {2, 2, 1, 2, 1, 5, 1, 4, 4, 4};
+    int uniqueElement = findFirstUnique(vec);
+    if (uniqueElement != 0)
+    {
+        cout << "The first unique element is: " << uniqueElement << endl;
+    }
+    else
+    {
+        cout << "No unique element found." << endl;
+    }
+
+    return 0;
+}
+
+//output
+// The first unique element is: 5
