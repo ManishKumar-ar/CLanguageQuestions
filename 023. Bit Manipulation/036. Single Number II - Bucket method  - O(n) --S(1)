@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int findFirstUnique(vector<int> nums)
+{
+    int ones = 0;
+    int twos = 0;
+    int n = nums.size();
+
+    for (int i = 0; i < n; ++i)
+    {
+        ones = (ones ^ nums[i]) & ~twos;
+        twos = (twos ^ nums[i]) & ~ones;
+    }
+
+    return ones;
+}
+
+int main()
+{
+    vector<int> vec = {2, 2, 1, 2, 1, 5, 1, 4, 4, 4};
+    int uniqueElement = findFirstUnique(vec);
+    if (uniqueElement != -1)
+    {
+        cout << "The first unique element is: " << uniqueElement << endl;
+    }
+    else
+    {
+        cout << "No unique element found." << endl;
+    }
+
+    return 0;
+}
+
+
+//output 
+// The first unique element is: 5
