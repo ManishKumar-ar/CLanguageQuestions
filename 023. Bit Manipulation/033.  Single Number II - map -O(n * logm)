@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
+
+int findFirstUnique(vector<int> nums)
+{
+    map<int, int> mpp;
+
+   
+    for (int num : nums)
+    {
+        mpp[num]++;
+    }
+
+   
+    for (int num : nums)
+    {
+        if (mpp[num] == 1)
+        {
+            return num;
+        }
+    }
+
+    // If no unique number is found, return -1 (or some other indication)
+    return -1;
+}
+
+int main()
+{
+    vector<int> vec = {10, 2,2,2,3, 3,  3};
+    int uniqueElement = findFirstUnique(vec);
+    if (uniqueElement != -1)
+    {
+        cout << "The first unique element is: " << uniqueElement << endl;
+    }
+    else
+    {
+        cout << "No unique element found." << endl;
+    }
+
+    return 0;
+}
+
+
+//output
+// The first unique element is: 10
