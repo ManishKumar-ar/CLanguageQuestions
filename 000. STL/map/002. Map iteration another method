@@ -1,0 +1,28 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    map<string, int> mpp;
+    mpp["anuj"] = 125;
+    mpp["rahul"] = 78;
+
+    map<string, int>::iterator it;
+
+    for (it = mpp.begin(); it != mpp.end(); ++it)
+    {
+        cout << it->first << " " << it->second << endl;
+    }
+
+
+    // Using * to dereference the iterator and access members
+
+    // for (it = mpp.begin(); it != mpp.end(); ++it) {
+    //     cout << (*it).first << " " << (*it).second << endl;
+    // }
+}
+
+// output
+//  anuj125
+//  rahul78
