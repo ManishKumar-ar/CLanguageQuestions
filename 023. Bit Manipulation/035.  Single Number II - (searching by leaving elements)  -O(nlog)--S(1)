@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int findFirstUnique(vector<int> nums)
+{
+  sort(nums.begin(), nums.end());                  // for the sorting time is O(n logn )
+
+  int n = nums.size();
+  for (int i = 1; i < n; i = i + 3)              // n / 3
+  {
+    if (nums[i] != nums[i - 1])
+    {
+      return nums[i - 1];
+    }
+  }
+  return nums[n - 1];
+}
+
+int main()
+{
+  vector<int> vec = {2, 2, 1, 2, 1, 1, 3, 4, 4, 4};
+  int uniqueElement = findFirstUnique(vec);
+  if (uniqueElement != -1)
+  {
+    cout << "The first unique element is: " << uniqueElement << endl;
+  }
+  else
+  {
+    cout << "No unique element found." << endl;
+  }
+
+  return 0;
+}
+
+// output
+//  The first unique element is: 10
