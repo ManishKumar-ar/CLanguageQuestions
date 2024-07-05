@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int XOR = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            XOR = XOR ^ nums[i];
+        }
+        return XOR;
+    }
+};
+
+int main() {
+    Solution solution;
+    vector<int> vec = {1, 2, 3, 2, 3};
+    int uniqueElement = solution.singleNumber(vec);
+    cout << "The single number is: " << uniqueElement << endl;
+
+    return 0;
+}
