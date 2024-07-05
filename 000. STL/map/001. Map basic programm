@@ -1,0 +1,22 @@
+#include<iostream>
+#include<map>
+using namespace std;
+                  
+int main()
+{
+    map<string,int> mpp;                     // initialization takee O(1) time
+  
+    mpp["anuj"]= 125;                      // actualy insertion take O(logn) time, but we insert only 2 elements here so the time is const.
+    mpp["rahul"] =78;
+
+   for( auto man : mpp)                  // for the iteration the time taken is O(n)
+   {
+    cout<<man.first<<man.second;
+    cout<<endl;
+   }
+   
+}
+
+//output
+// anuj125
+// rahul78
