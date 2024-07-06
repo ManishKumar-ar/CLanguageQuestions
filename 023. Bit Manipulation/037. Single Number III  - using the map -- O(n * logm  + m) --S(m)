@@ -1,0 +1,52 @@
+
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+vector<int> findFirstTwoUnique(vector<int> nums)
+{
+    map<int, int> mpp;
+    vector<int> uniqueElements;
+
+    for (int i = 0; i < nums.size(); i++)
+    {
+        mpp[nums[i]]++;
+    }
+
+    for (int i = 0; i < nums.size(); i++)
+    {
+        if (mpp[nums[i]] == 1)
+        {
+            uniqueElements.push_back(nums[i]);
+            if (uniqueElements.size() == 2)
+            {
+                break;
+            }
+        }
+    }
+
+    return uniqueElements;
+}
+
+int main()
+{
+    vector<int> vec = {2, 2, 1, 1, 5, 3, 4, 4};
+    vector<int> uniqueElements = findFirstTwoUnique(vec);
+    
+    if (!uniqueElements.empty())
+    {
+        cout << "The unique elements are: ";
+        for (int element : uniqueElements)
+        {
+            cout << element << " ";
+        }
+        cout << endl;
+    }
+    else
+    {
+        cout << "No unique elements found." << endl;
+    }
+
+    return 0;
+}
