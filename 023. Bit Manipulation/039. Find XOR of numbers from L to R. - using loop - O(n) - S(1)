@@ -1,0 +1,23 @@
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+   int findXOR(int l, int r) {
+        
+        for( int i = l+1;i<=r;i++ )
+        {
+            l^=i;
+        }
+        
+        return l;
+    }
+
+int main()
+{
+    int result = findXOR(4,8);
+    cout<<result;
+}
+
+//ouput
+// 8
