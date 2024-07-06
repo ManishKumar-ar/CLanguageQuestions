@@ -1,0 +1,38 @@
+#include <vector>
+#include <iostream>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        long xorr = 0;  // Taking xorr as long for the case of INT_MIN in nums[i]
+
+        for(auto &it : nums)
+            xorr ^= it;
+        
+        int rightMostBitTurnedOne = xorr & (-xorr); 
+
+        int b1 = 0, b2 = 0;  // b1 --> 1st bit is set   ||  b2 --> 1st bit is 0
+
+        for(auto &it : nums) {
+            if(it & rightMostBitTurnedOne)
+                b1 ^= it;
+            else
+                b2 ^= it;
+        }
+
+        return {b1, b2};
+    }
+};
+
+int main() {
+    Solution solution;
+    vector<int> nums = {1, 2, 1, 3, 2, 5};
+    vector<int> result = solution.singleNumber(nums);
+    cout << "The two single numbers are: " << result[0] << " and " << result[1] << endl;
+    return 0;
+}
+
+
+//ouput
+The two single numbers are: 3 and 5
