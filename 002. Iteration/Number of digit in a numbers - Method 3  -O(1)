@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int counter( int n )
+{
+    int count = 0;
+
+  
+     int res = static_cast<int>(log10(n) + 1);
+     return res;
+
+}
+                  
+int main()
+{
+   int res =  counter(7894);
+   cout<<res;
+    return 0;
+}
+
+// output
+// 4
