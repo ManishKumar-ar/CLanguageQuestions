@@ -1,0 +1,31 @@
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void HCF(int a, int b)
+{
+    int ans = 0;
+    int n = min(a, b);
+
+    for (int i = n; i >= 1; i--)                                 // but doing this we channge the time complexity but still for the worst case it was same O( m + n)
+    {
+        if (a % i == 0 && b % i == 0)
+        {
+            ans = i;
+            break;
+        }
+    }
+
+    cout << ans;
+}
+
+int main()
+{
+    int a = 10;
+    int b = 15;
+    HCF(a, b);
+}
+
+// output
+// 5
