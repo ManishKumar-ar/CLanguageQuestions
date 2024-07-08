@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+void HCF(int a, int b)
+{
+    int ans = 0;
+   
+
+    while (a > 0 && b > 0)
+    {
+        if (a > b)
+            a = a % b;
+        else
+            b = b % a;
+    }
+    if (a == 0)
+        cout << b;
+    else
+        cout << a;
+}
+
+int main()
+{
+    int a = 15;
+    int b = 40;
+    HCF(a, b);
+}
+
+// output
+// 5
