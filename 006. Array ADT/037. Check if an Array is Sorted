@@ -1,29 +1,32 @@
-//Time Complexity: O(N)
-//Space Complexity: O(1)
+// Time Complexity: O(N)
+// Space Complexity: O(1)
 
-#include<iostream>
+#include <iostream>
 using namespace std;
-bool isSorted(int arr[], int n) {
-  for (int i = 0; i < n-1; i++) {
-    if (arr[i+1] < arr[i])
-      return false;
-  }
+bool isSorted(int arr[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (arr[i + 1] < arr[i])
+            return false;
+    }
 
-  return true;
+    return true;
 }
 
-int main() {
+int main()
+{
 
-  int arr[] = {1, 2, 3, 4, 5}, n = 5;
+    int arr[] = {4, 1, 5}, n = 3;
 
-   int result = isSorted(arr, n);
-   if(result) 
-   cout<<"Array is sorted ";
-   else 
-   cout<<"Not sorted";
+    int result = isSorted(arr, n);
+    if (result)
+        cout << "Array is sorted ";
+    else
+        cout << "Not sorted";
 
-  return 0;
+    return 0;
 }
 
-//ouput 
-// Array is sorted 
+// ouput
+//  Array is sorted
