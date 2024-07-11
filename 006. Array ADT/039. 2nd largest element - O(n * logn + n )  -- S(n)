@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int largest(vector<int> arr)
+{
+   sort( arr.begin(),arr.end());
+
+   int secondlargest  = arr[arr.size()-2];
+
+  // secondlargest = arr[arr.size()-2];             /// this is wrong it, won't given the best result always.
+
+  for( int i = arr.size()-2;i>=0;i--)
+  {
+    if(secondlargest != arr[i+1])
+    {
+        return secondlargest;
+    }
+    else {
+        secondlargest = arr[i-1];
+    }
+  }
+
+}
+
+int main()
+{
+    vector<int> arr = {4,9, 8,568, 9, 2, 5,9,8,8,100,25,99,101};
+    cout<<largest(arr);
+}
+
+//output
+// vector<int> arr = {4,9, 8, 9, 2, 5,9,8,8,10}; =====> 9
+
+
+
+//output
+// vector<int> arr = {4,9, 8, 9, 2, 5,9,8,8};  ======> 4
