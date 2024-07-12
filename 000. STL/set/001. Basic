@@ -23,3 +23,38 @@ int main()
 ///output 
 // Elements of the set:
 // 10 20 30
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////here we have the another way for writing it ///////////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+#include <set>
+
+using namespace std;
+int main()
+{
+    set<int> st;
+    st.insert(10); // insert() funciton takes logn timea
+    st.insert(20);
+    st.insert(20);
+    st.insert(30);
+    st.insert(20);    // Duplicate value, won't be inserted
+
+    cout << "Elements of the set:" << endl;
+
+    for (auto it = st.begin(); it != st.end(); it++)
+    {
+        cout << *it;
+    }
+
+    cout << endl;
+}
+
+/// output
+// Elements of the set:
+// 10 20 30
