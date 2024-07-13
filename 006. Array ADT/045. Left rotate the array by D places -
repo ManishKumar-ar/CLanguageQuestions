@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> rotate(vector<int> &nums, int d) {
+    int n = nums.size();
+    d = d % n;                           // Ensure d is within the range of the array size
+
+    vector<int> temp(d); // Initialize temp with size d
+
+    // Copy the first d elements to temp
+    for (int i = 0; i < d; ++i) {
+        temp[i] = nums[i];
+    }
+
+    // Shift the rest of the elements to the left
+    for (int i = d; i < n; ++i) {
+        nums[i - d] = nums[i];
+    }
+
+    // Copy the elements from temp back to the end of nums
+    for (int i = 0; i < d; ++i) {
+        nums[n - d + i] = temp[i];
+    }
+
+    return nums;
+}
+
+int main() {
+    vector<int> nums = {1, 2, 3, 4, 5, 6, 7, 8};
+    int d = 3;
+
+    vector<int> result = rotate(nums, d);
+
+    for (int i = 0; i < result.size(); ++i) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+
+//output
+// 4 5 6 7 8 1 2 3
