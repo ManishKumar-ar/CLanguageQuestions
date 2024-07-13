@@ -3,6 +3,7 @@
 
 using namespace std;
 
+
 vector<int> rotate(vector<int> &nums, int d) {
     int n = nums.size();
     d = d % n;                           // Ensure d is within the range of the array size
