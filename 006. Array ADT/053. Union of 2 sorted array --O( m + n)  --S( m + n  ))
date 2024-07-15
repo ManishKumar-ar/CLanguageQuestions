@@ -1,0 +1,65 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> findUnion(int arr1[], int arr2[], int n, int m)
+{
+
+    int i = 0, j = 0;
+    vector<int> vec;
+
+    while (i < n && j < m)
+    {
+        if (arr1[i] <= arr2[j])
+        {
+            if (vec.size() == 0 || vec.back() != arr1[i])
+            {
+                vec.push_back(arr1[i]);
+            }
+            i++;
+        }
+
+        if (arr1[i] > arr2[j])
+        {
+            if (vec.size() == 0 || vec.back() != arr2[j])
+            {
+                vec.push_back(arr2[j]);
+            }
+            j++;
+        }
+    }
+
+    for (; i < n; i++)
+    {
+        if (vec.back() != arr1[i])
+        {
+            vec.push_back(arr1[i]);
+        }
+    }
+
+    for (; j < m; j++)
+    {
+        if (vec.back() != arr2[j])
+        {
+            vec.push_back(arr2[j]);
+        }
+    }
+
+    return vec;
+}
+
+int main()
+{
+    int arr1[] = {-8, -3, -3, -2, 0, 1, 2, 2, 6};
+    int arr2[] = {-9, -9, 0};
+
+    vector<int> result = findUnion(arr1, arr2, 9, 3);
+
+    for (int i = 0; i < result.size(); i++)
+    {
+        cout << result[i] << " ";
+    }
+}
+
+// output
+// -9 -8 -3 -2 0 1 2 6
