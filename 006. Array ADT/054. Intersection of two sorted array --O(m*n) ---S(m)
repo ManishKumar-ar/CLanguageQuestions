@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> findUnion(int arr1[], int arr2[], int n, int m)
+{
+
+    vector<int> vec;
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if ((arr1[i] == arr2[j]) && (vec.back() != arr2[j]) || (vec.size()==0) )
+            {
+              
+                    vec.push_back(arr2[j]);
+                    break;
+                
+            }
+
+            if (arr2[j] > arr1[i])
+                break; // we can't find in this loop
+        }
+    }
+
+    return vec;
+}
+
+int main()
+{
+    int arr1[] = {1, 2, 2, 3, 4};
+    int arr2[] = {2, 2, 4, 6, 7, 8};
+
+    vector<int> result = findUnion(arr1, arr2, 5, 6);
+
+    // if (result.size() == 0)
+    //     return -1;
+
+    for (int i = 0; i < result.size(); i++)
+    {
+        cout << result[i] << " ";
+    }
+}
+
+// output
+// -9 -8 -3 -2 0 1 2 6
