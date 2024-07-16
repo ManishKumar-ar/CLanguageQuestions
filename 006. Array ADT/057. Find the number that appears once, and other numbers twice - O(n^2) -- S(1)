@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int singleNumber(vector<int> &nums)
+{
+    int n = nums.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        int count = 0;
+        int a = nums[i];
+
+        for (int j = 0; j < n; j++)
+        {
+            if (nums[j] == a)
+            {
+                count++;
+            }
+        }
+        if (count != 2)
+        {
+            return nums[i];
+        }
+    }
+}
+int main()
+{
+
+    vector<int> arr1 = {2, 2, 1};
+
+    int result = singleNumber(arr1);
+
+    cout << result << " ";
+}
+
+// output
+//  1
