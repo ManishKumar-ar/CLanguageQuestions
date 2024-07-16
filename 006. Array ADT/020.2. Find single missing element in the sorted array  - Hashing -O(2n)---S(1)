@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int missingNumber(vector<int> &nums)
+{
+
+    int n = nums.size();
+    int hash[n + 1] = {0};
+
+    for (int i = 0; i < n; i++)
+    {
+        hash[nums[i]] = 1;
+    }
+
+    for (int i = 1; i < n; i++)
+    {
+        if (hash[i] == 0)
+            return i;
+    }
+}
+int main()
+{
+
+    vector<int> arr1 = {1, 2, 4, 5};
+
+    int result = missingNumber(arr1);
+
+    cout << result << " ";
+}
+
