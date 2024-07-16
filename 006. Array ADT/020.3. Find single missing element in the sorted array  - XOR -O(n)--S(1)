@@ -1,0 +1,116 @@
+////in this the time complexity is O( 2 n )
+//////////////////////////////////////
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int missingNumber(vector<int> &nums)
+{
+    int xor1 = 0;
+    int xor2 = 0;
+
+    int n = 5;
+
+    for (int i = 1; i <= n; i++)
+    {
+        xor1 = xor1 ^ i;
+    }
+
+    for (int i = 0; i < 5 - 1; i++)
+    {
+        xor2 = xor2 ^ nums[i];
+    }
+
+    int result = xor1 ^ xor2;
+    return result;
+}
+int main()
+{
+
+    vector<int> arr1 = {1, 2, 4, 5};
+
+    int result = missingNumber(arr1);
+
+    cout << result << " ";
+}
+
+
+
+//output
+// 3 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////above code in little complex way///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// here the time complexity is O(n)
+
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int missingNumber(vector<int> &nums, int N)
+{
+    int xor1 = 0;
+    int xor2 = 0;
+
+    int n = N - 1;
+
+    for (int i = 0; i < N - 1; i++)
+    {
+        xor2 = xor2 ^ nums[i];
+
+        xor1 = xor1 ^ (i + 1);
+    }
+
+    xor1 = xor1 ^ N;
+
+    int result = xor1 ^ xor2;
+    return result;
+}
+int main()
+{
+
+    vector<int> arr1 = {1, 2, 4, 5};
+
+    int result = missingNumber(arr1, 5);
+
+    cout << result << " ";
+}
+
+// output
+//  3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
