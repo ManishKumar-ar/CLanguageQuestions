@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int lenOfLongSubarr(int nums[], int n, int gSum)
+{
+
+    unordered_map<int, int> mpp;
+    mpp[0] = 1;
+
+    int preSum = 0;
+    int count = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        preSum += nums[i];
+        int remove = preSum - gSum;
+        count += mpp[remove];
+        mpp[preSum] += 1;
+    }
+    return count;
+}
+int main()
+{
+    int arr1[] = {1, 2, 3, -3, 1, 1, 1, 4, 2, -3};
+    int result = lenOfLongSubarr(arr1, 10, 3);
+    cout << "The total sub-array is : " << result;
+
+    return 0;
+}
+
+// output
+// The total sub-array is : 8
