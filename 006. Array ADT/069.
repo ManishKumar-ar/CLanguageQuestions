@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+#include <map>
+using namespace std;
+
+vector<int> twoSum(vector<int> &nums, int target)
+{
+       map<int, int> mpp;
+
+        for( int i = 0;i<nums.size();i++)
+        {
+            int num = nums[i];
+            int other = target - num;
+
+            if(mpp.find(other) != mpp.end())
+            {
+                return {mpp[other],i};
+            }
+            mpp[num] = i;
+
+        }
+        return {-1,-1};
+}
+int main()
+{
+    vector<int> nums = {3,2,4};
+
+    vector<int> result = twoSum(nums,6); 
+
+    for( auto it: result)
+    {
+        cout<<it<<" ";
+    }
+    
+}
+
+// output
+// 1 2
