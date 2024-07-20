@@ -1,0 +1,45 @@
+here the space complexity is might be S(1) or S(N)
+because 1 => we sort the array but don't use other space
+if someone N => IF SOMEONE insist that for sorting, the space is N 
+ 
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+string twoSum(vector<int> &nums, int target)
+{
+    int n = nums.size();
+
+    sort(nums.begin(), nums.end());
+
+    int left = 0;
+    int right = n - 1;
+
+    while (left < right)
+    {
+        int sum = nums[left] + nums[right];
+
+        if (sum == target)
+        {
+            return "yes";
+        }
+        else if (sum < target)
+            left++;
+        else
+            right++;
+    }
+    return "No";
+
+}
+int main()
+{
+    vector<int> nums = {3, 2, 4};
+
+    string result = twoSum(nums, 6);
+
+    cout << result;
+}
+
+// output
+// yes
