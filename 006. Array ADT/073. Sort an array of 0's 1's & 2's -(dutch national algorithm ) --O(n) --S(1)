@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void sortColors(vector<int> &nums)
+{
+    int n = nums.size();
+
+    int low = 0;
+    int mid = 0;
+    int high = n - 1;
+
+    while (mid <= high)              /// here we write this ( mid <= high ) because in this we have our unsorted section.
+    {
+        if (nums[mid] == 0)
+        {
+            swap(nums[low], nums[mid]);
+            low++;
+            mid++;
+        }
+        else if (nums[mid] == 1)
+        {
+            mid++;
+        }
+        else
+        {
+            swap(nums[mid], nums[high]);
+            high--;
+        }
+    }
+
+    for( auto it: nums)
+    {
+        cout<<it<<" ";
+    }
+}
+
+int main()
+{
+    vector<int> nums = {2, 0, 2, 1, 1, 0};
+
+    sortColors(nums);
+}
+
+// output
+// 0 0 1 1 2 2
