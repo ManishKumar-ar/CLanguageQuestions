@@ -27,7 +27,7 @@ string twoSum(vector<int> &nums, int target)
         else if (sum < target)
             left++;
         else
-            right++;
+            right--;
     }
     return "No";
 
