@@ -1,0 +1,56 @@
+//// there are multiple array
+//// we can print anyone of the array.
+
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> maxSubArray(vector<int> &nums)
+{
+    int n = nums.size();
+    int maxi = INT32_MIN;
+    int sum = 0;
+
+    int start = 0;
+    int ansStart = 0;
+    int endStart = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (sum == 0)
+            start = i;
+
+        sum += nums[i];
+        if(sum > maxi)
+        {
+            maxi = sum;
+            ansStart = start;
+            endStart = i;
+        }
+        
+        if (sum < 0)
+            sum = 0;
+    }
+    
+    return {ansStart, endStart};
+}
+
+int main()
+{
+    vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    vector<int> result = maxSubArray(nums);
+
+    cout << "The indices of the subarray with the maximum sum are: ";
+    for(auto it: result)
+    {
+        cout << it << " ";
+    }
+    cout << endl;
+}
+
+
+//output
+// The indices of the subarray with the maximum sum are: 3 6 
