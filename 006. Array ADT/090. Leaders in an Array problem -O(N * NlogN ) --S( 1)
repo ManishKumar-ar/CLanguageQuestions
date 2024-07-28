@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+vector<int> leaders(int n, int nums[])
+{
+  vector<int> ans;
+  int maxi = INT16_MIN;
+
+  for (int i = n - 1; i >= 0; i--)
+  {
+    if(nums[i]>maxi)
+    {
+      maxi =nums[i];
+      ans.push_back(nums[i]);
+    }
+  }
+
+  return ans;
+}
+
+int main()
+{
+  int nums[] = {16, 17, 4, 3, 5, 2};
+  vector<int> result = leaders(6, nums);
+
+  cout << "Leaders are : ";
+  for (auto it : result)
+  {
+    cout << it << " ";
+  }
+  cout << endl;
+
+  return 0;
+}
+
+// Leaders are : 2 5 17 
