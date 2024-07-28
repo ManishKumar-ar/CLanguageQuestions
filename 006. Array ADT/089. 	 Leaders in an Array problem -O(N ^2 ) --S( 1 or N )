@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<int> leaders(int n, int nums[])
+{
+  vector<int> ans;
+  for (int i = 0; i < n; i++)
+  {
+    bool leader = true;
+    for (int j = i + 1; j < n; j++)
+    {
+      if (nums[j] > nums[i])
+      {
+        leader = false;
+        break;
+      }
+    }
+    if (leader)
+    {
+      ans.push_back(nums[i]);
+    }
+  }
+  return ans;
+}
+
+int main()
+{
+  int nums[] = {16, 17, 4, 3, 5, 2};
+  vector<int> result = leaders(6, nums);
+
+  cout << "Leaders are : " ;
+  for (auto it : result)
+  {
+    cout << it << " ";
+  }
+  cout << endl;
+
+  return 0;
+}
+
+// Leaders are : 17 5 2 
