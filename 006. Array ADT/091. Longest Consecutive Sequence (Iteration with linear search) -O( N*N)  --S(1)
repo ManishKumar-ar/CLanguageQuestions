@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool ls(vector<int> nums, int ele)
+{
+  for (int i = 0; i < nums.size(); i++)
+  {
+    if (ele == nums[i])
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+int longestConsecutive(vector<int> &nums)
+{
+  int count;
+  int n = nums.size();
+
+  for (int i = 0; i < n; i++)
+  {
+    int x = nums[i];
+    count = 1;
+    while (ls(nums, x + 1) == true)
+    {
+      x = x + 1;
+      count++;
+    }
+  }
+  return count;
+}
+int main()
+{
+
+  vector<int> nums = {102, 4, 100, 101, 3, 2, 1, 1};
+  int result = longestConsecutive(nums);
+  cout << result;
+}
+
+// output
+//  4
