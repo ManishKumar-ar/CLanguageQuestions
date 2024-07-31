@@ -3,44 +3,52 @@
 #include <algorithm>
 using namespace std;
 
-int longestSuccessiveElements(vector<int> &a)
+int longestSuccessiveElements(vector<int> &arr)
 {
-  int n = a.size();
+  int n = arr.size();
   if (n == 0)
     return 0;
 
-  // sort the array:
-  sort(a.begin(), a.end());
-  int lastSmaller = INT16_MIN;
-  int cnt = 0;
-  int longest = 1;
+  // Sort the array:
+  sort(arr.begin(), arr.end());
 
-  // find longest sequence:
+  int previousElement = INT16_MIN;
+  int currentStreak = 0;
+  int longestStreak = 1;
+
+  // Find longest sequence:
   for (int i = 0; i < n; i++)
   {
-    if (a[i] - 1 == lastSmaller)
+    if (arr[i] - 1 == previousElement)
     {
-      // a[i] is the next element of the
+      // arr[i] is the next element of the
       // current sequence.
-      cnt += 1;
-      lastSmaller = a[i];
+      currentStreak += 1;
+      previousElement = arr[i];
     }
-    else if (a[i] != lastSmaller)
+    else if (arr[i] != previousElement)
     {
-      cnt = 1;
-      lastSmaller = a[i];
+      currentStreak = 1;
+      previousElement = arr[i];
     }
-    longest = max(longest, cnt);
+    longestStreak = max(longestStreak, currentStreak);
   }
-  return longest;
+  return longestStreak;
 }
 
 int main()
 {
-  vector<int> nums = {102, 4, 100, 101, 3, 2, 1, 1};
+
+  vector<int> nums = {1, 1, 1};
   int result = longestSuccessiveElements(nums);
   cout << result << endl;
+
 }
 
-// output
-//  4
+
+//output
+//4
+
+
+
+
