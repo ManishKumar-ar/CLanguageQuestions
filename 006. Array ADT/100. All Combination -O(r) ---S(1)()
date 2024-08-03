@@ -1,0 +1,27 @@
+//we don't use the direct formula because it take lots of time compare to the iteration.
+//see the notes.
+
+#include <iostream>
+using namespace std;
+
+int combination(int n, int r)
+{
+    int result = 1;
+    for (int i = 0; i < r; i++)
+    {
+        result = result * (n - i);
+        result = result / (i + 1);
+    }
+    return result;
+}
+
+int main()
+{
+    int Result = combination(5, 3);
+    cout << "All combinations are: " << Result;
+    return 0;
+}
+
+// output
+// All combinations are: 10
+
