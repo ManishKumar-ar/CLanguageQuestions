@@ -1,3 +1,5 @@
+/// Here the space we are using that is S(N) because in the space we store all the elements.
+
 
 #include <iostream>
 #include <vector>
