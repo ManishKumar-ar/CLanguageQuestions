@@ -18,6 +18,8 @@ int main()
   cout<<endl;
 
   st.erase(20);               // it simply go to that element and deleted it
+                         //The erase function for a set in C++ has a time complexity of O(log n), where n is the number of elements in the set.
+                          // set in C++ is typically implemented as a self-balancing binary search tree (like a Red-Black tree).
   
   for (auto it : st)
   {
