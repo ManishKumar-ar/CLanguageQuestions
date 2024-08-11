@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int maxLen(vector<int> &nums)
+{
+    int max_length = 0;
+    int n = nums.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        int sum = 0;
+        for (int j = i; j < n; j++)
+        {
+            sum += nums[j];
+            if (sum == 0)
+            {
+                max_length = max(max_length, j - i + 1);
+            }
+        }
+    }
+    return max_length;
+}
+
+int main()
+{
+    vector<int> nums = {15,-2,2,-8,1,7,10,23};
+    cout << maxLen(nums) << endl;
+
+}
+
+
+//output
+//5                that is  -2 2 -8 1 7.
