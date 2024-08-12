@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool check(vector<int>& nums) {
+
+    int n = nums.size();
+        int count = 0;
+        
+        for(int i = 0; i < n; i++) {
+                                              
+            if(nums[i] > nums[(i + 1) % n]) {             // to check in the circular manner
+                count++;  
+            }
+           
+            if(count > 1) {                          // if there was more than  count that's means it was not rotated array
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+int main() {
+   
+    vector<int> nums = {3, 4, 5, 1, 2};
+
+  
+    bool result = checkRotatedSortedArray(nums);
+
+    if (result) {
+        cout << "The array is a rotated sorted array." << endl;
+    } else {
+        cout << "The array is NOT a rotated sorted array." << endl;
+    }
+
+    return 0;
+}
